@@ -20,7 +20,7 @@ In case you need any help installing any of this, please ask your study buddy or
 *   Jupyter notebooks
 
     ```
-    sudo pip jupyter
+    sudo pip install jupyter
     ```
 
 * git
