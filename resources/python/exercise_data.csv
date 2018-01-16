@@ -1,0 +1,13 @@
+# date, kind of workout, distance (miles), time (min)
+"2012, Mar-01", run, 2, 25
+"2012, Mar-03", bike, 10, 55
+"2012, Mar-06", bike, 5, 20
+"2012, Mar-09", run, 3, 42
+"2012, Mar-10", skateboarding, 2, 10
+
+# Broke my leg :(
+
+"2012, Mar-11", Wii, 0, 60
+"2012, Mar-12", Wii, 0, 60
+"2012, Mar-13", Wii, 0, 60
+"2012, Mar-14", Wii, 0, 60
