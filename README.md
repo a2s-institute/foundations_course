@@ -35,3 +35,6 @@ In case you need any help installing any of this, please ask your study buddy or
     ```
 
 *   [Eclipse](https://www.eclipse.org/)
+
+## References
+The sources of the files used in this repository can be found [here](https://github.com/mas-group/foundations_course/wiki/References)
