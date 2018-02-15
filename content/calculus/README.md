@@ -1,6 +1,6 @@
 ### Calculus
 
-Incharge: Duy Khoi Tran?
+Incharge: 
 
 Content:
 *

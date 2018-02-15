@@ -1,6 +1,6 @@
 ### Introduction to Programming
 
-Incharge: Ethan?
+Incharge: 
 
 Content:
 *

@@ -1,6 +1,6 @@
 ### Introduction to Java
 
-Incharge: Markus Victorin?
+Incharge: 
 
 Content:
 *

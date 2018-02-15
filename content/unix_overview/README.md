@@ -1,6 +1,6 @@
 ### Unix Overview and Linux Terminal
 
-Incharge: **Max**
+Incharge: Max
 
 Content of session:
 *
