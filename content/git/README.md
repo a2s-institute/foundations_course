@@ -1,4 +1,4 @@
-### Git basics
+# Git basics
 
 Incharge: Kiran Vasudev
 
@@ -8,3 +8,5 @@ Content:
 * Merge conflicts
 * Exercises
 
+## Resources 
+* (Pro Git)[https://git-scm.com/book/en/v2] (Chapter 2) - Scott Chacon, Ben Straub 
