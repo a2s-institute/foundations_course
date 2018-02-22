@@ -1,7 +1,7 @@
 ### C++
 
-Incharge:
+Incharge: Dharmin B.
 
-Content:
+Content: Variable types
 *
 *
