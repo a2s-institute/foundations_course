@@ -8,5 +8,5 @@ Content:
 * Merge conflicts
 * Exercises
 
-## Resources 
-* (Pro Git)[https://git-scm.com/book/en/v2] (Chapter 2) - Scott Chacon, Ben Straub 
+## Resources
+* [Pro Git](https://git-scm.com/book/en/v2) (Chapter 2) - Scott Chacon, Ben Straub
