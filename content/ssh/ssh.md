@@ -1,4 +1,4 @@
-### SSH and Version Control
+### SSH
 
 Incharge: Kiran Vasudev
 
