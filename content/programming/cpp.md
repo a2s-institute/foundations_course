@@ -1,6 +1,6 @@
 ### C++
 
-Incharge:
+Responsible:
 
 Content:
 *

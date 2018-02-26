@@ -1,6 +1,6 @@
 # Atom
 
-Incharge:
+Responsible:
 
 Content:
 *

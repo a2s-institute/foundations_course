@@ -1,6 +1,6 @@
 ### Introduction to Scientific Writing
 
-Incharge: Alex Mitrevski
+Responsible: Alex Mitrevski
 
 Content:
 *
