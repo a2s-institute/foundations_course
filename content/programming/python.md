@@ -1,6 +1,6 @@
 ### Python
 
-Incharge: Kiran Vasudev
+Responsible: Kiran Vasudev
 
 Content:
 * Variables and functions

@@ -1,6 +1,6 @@
 # Git basics
 
-Incharge: Kiran Vasudev
+Responsible: Kiran Vasudev
 
 Content:
 * Setting up

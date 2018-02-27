@@ -1,6 +1,6 @@
 ### Probability
 
-Incharge: Kiran Vasudev
+Responsible: Kiran Vasudev
 
 Content:
 *

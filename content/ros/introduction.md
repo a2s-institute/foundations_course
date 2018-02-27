@@ -1,6 +1,6 @@
 ### Introduction to ROS(Practical)
 
-Incharge: Patrick Nagel
+Responsible: Patrick Nagel
 
 Content:
 * 

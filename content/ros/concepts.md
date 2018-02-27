@@ -1,6 +1,6 @@
 ### ROS Concepts(Theory)
 
-Incharge: Kiran Vasudev | Pranav
+Responsible: Kiran Vasudev | Pranav
 
 Content:
 * Why ROS?

@@ -1,6 +1,6 @@
 ### Introduction to Programming
 
-Incharge: 
+Responsible: 
 
 Content:
 *

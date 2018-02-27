@@ -1,6 +1,6 @@
 ### Linear Algebra
 
-Incharge: Sathiya
+Responsible: Sathiya
 
 Content:
 *

@@ -1,6 +1,6 @@
 ### Introduction to Java
 
-Incharge: 
+Responsible: 
 
 Content:
 *

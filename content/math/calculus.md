@@ -1,6 +1,6 @@
 ### Calculus
 
-Incharge: 
+Responsible: 
 
 Content:
 *
