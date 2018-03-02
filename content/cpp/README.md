@@ -11,6 +11,8 @@ Content:
 
 > If else
 
+> switch
+
 > while
 
 > for
@@ -23,6 +25,18 @@ Content:
 
 > Array (and how it is different from python)
 
+> multi dimentional array
+
 > Pointers
 
 > Passing arguments by reference
+
+> passing array to a function
+
+> Default arguments
+
+> Polymorphism
+
+> Inheritance
+
+> Public, private and  protected (data abstraction)
