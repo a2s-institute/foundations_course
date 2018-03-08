@@ -28,11 +28,12 @@
 \section{What is it?}
   \begin{itemize}
   \item {
-    A method to store data/files in a central location.
+    A method to manage file changes over time. These files are stored in a central location.
   }
   \item {
     A backup when things go wrong.
   }
+  \item{A software that helps team members collaborate with minimum disruptions.}
   \end{itemize}
 \end{frame}
 
@@ -116,26 +117,37 @@
 \end{columns}
 \end{frame}	
 
-\begin{frame}{Types of VCS}{Git vs SVN}
+\begin{frame}[allowframebreaks]{Types of VCS}{Git vs SVN}
 \subsection{Git vs SVN}
 
 \textbf{Pros of using SVN}
 \begin{itemize}
     \item Subversion has better GUIs than Git
-    \item Working through versions in Git is tougher than SVN. Git uses SHA-1 hashes while SVN uses sequential revision numbers.    
+    \item Working through versions in Git is tougher than SVN. Git uses SHA-1 hashes while SVN uses sequential revision numbers. 
 \end{itemize}
 \textbf{Pros of using Git}
 \begin{itemize}
-    \item Git is much faster than SVN
+    \item Git is much faster than SVN as they do not have to keep communicating with a central server when changes are made.
+    \item Very secure. Every file and commit is checksummed.
+    \item The Git branching model is much better than any other VCS'.
     \item Git repository file formats are simple and hence  repair and corruption is rare. Space requirements are small
+    \item As it is a DVCS, scalability is not an issue. 
 \end{itemize}
+\framebreak
+\begin{figure}
+	\includegraphics[scale=0.45]{images/better-git}
+	\caption{Comparison of Git and SVN speeds\cite{better}}
+\end{figure}
+
 \end{frame}
 
+
+
 \begin{frame}{Take home message}
-\subsection{Take home message}
+\section{Take home message}
 \begin{itemize}
     \item There is not much difference between the most popular VCSs. It ultimately comes down to the use case.
-    \item If there is a need for "Offline Source Control", Git's fantastic. 
+    \item If there is a need for "Offline Source Control" with really good branching features, Git's fantastic. Open source projects are worked on with the help of Git. 
     \item If there is a need to have a strictly centralized Source Control that is simple and has excellent tooling (at least on Windows), choose SVN.
 \end{itemize}
     
@@ -149,6 +161,10 @@
   \bibitem{website}
 	\href{https://www.appfusions.com/display/StashSCMImporter/CVCS+vs.+DVCS+In+a+Nutshell
 }{CVCS and DVCS}
+
+  \bibitem{better}
+\href{https://git-scm.com/about/small-and-fast}{Comparison between Git and SVN speeds}
+
 
   \end{thebibliography}
 \end{frame}
