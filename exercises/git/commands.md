@@ -1,8 +1,5 @@
 **GIT**
 
-**BASIC:**
-Modifications are made in the working directory -> Modified files are added to the **stage** -> Added to the repository after a **commit**
-
 **HEAD** -> location of where you are right now. (git show HEAD)
 **Remote** -> A shared repository that allows many collaborators
 

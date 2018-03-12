@@ -1,0 +1,89 @@
+\documentclass{article}
+
+\title{Git exercies}
+\author{Kiran Vasudev}
+
+\begin{document}
+	\maketitle
+	
+	\newpage
+	
+	\section{Exercise 1}
+	\begin{enumerate}
+\item \textbf{Create a new directory} and change into it.
+\item Use the \textbf{init} command to create a Git repository in that directory.
+\item Observe that there is now a .git directory.
+\item Create a README file.
+\item Look at the output of the \textbf{status} command; the README you created should appear as an untracked file.
+\item Use the \textbf{add} command to add the new file to the staging area. Again, look at the output of the \textbf{status} command.
+\item Now use the \textbf{commit} command to commit the contents of the staging area.
+\item \textbf{Create a src} directory and add a couple of files to it.
+\item Use the \textbf{add} command, add the directory itself, not the individual files. Use the status command. See how both files have been staged. Commit them.
+\item Change contents of one of the files. Use the \textbf{diff} command to view the details of the change.
+\item Next, \textbf{add} the changed file, and notice how it moves to the staging area in the status output. Also observe that the diff command you did before using add now gives no output.
+\item Why not? What do you have to do to see a diff of the things in the staging area?
+\item Now – without committing – make another change to the same file you changed in step 10.
+\item Look at the status output, and the diff output. Notice how you can have both staged and unstaged changes, even when you’re talking about a single file. 
+\item Observe the difference when you use the add command to stage the latest round of changes. Finally, commit them. 
+\item You should now have started to get a feel for the staging area.
+\item Use the \textbf{log} command in order to see all of the commits you made so far.
+\item Use the \textbf{show} command to look at an individual commit. How many characters of the commit identifier can you get away with typing at a minimum?
+\item Make a couple more commits, at least one of which should add an extra file.
+	\end{enumerate}
+	\section{Exercise 2}
+	\begin{enumerate}
+		\item Run the \textbf{status} command. Notice how it tells you what branch you are in.
+		\item Use the \textbf{branch} command to create a new branch named $introduction$-$script$
+		\item Create another branch called $introduce$-$your$\_$name$ from $introduction$-$script$
+		\item Create a file named INTRODUCTION and add the following details
+		\begin{itemize}
+			\item Name
+			\item Bachelors degree
+			\item A small description of the person you are
+			\item Favorite movie/hobby/passtime
+		\end{itemize}
+		\item Commit and merge into $introduction$-$script$ branch.
+		\item Create a tag $v1.0$
+		\item Visualize your changes using $gitg$
+	\end{enumerate}
+Next steps:
+\begin{enumerate}
+\item Checkout your branch. Make a couple of commits.
+\item Return to your master branch. Make a commit there that changes the exact same line, or
+lines, as commits in your branch did.
+\item Now try to merge your branch. You should get a conflict.
+\item Open the file(s) that is in conflict. Search for the conflict marker. Edit the file to remove the
+conflict markers and resolve the conflict.
+\item Now try to commit. Notice that Git will not allow you to do this when you still have
+potentially unresolved conflicts. Look at the output of status too.
+\item Use the add command to add the files that you have resolved conflicts in to the staging
+area. Then use commit to commit the merge commit.
+\item Take a look at git log and gitg, and make sure things are as you expected.
+\end{enumerate}
+	
+	\section{Exercise 3 [Team exercise]}
+	\begin{enumerate}
+		\item First, one person in the group should create a public repository using their GitHub account.
+		\item This same person should then follow the instructions from GitHub to add a remote, and then push their repository(containing a README file with the team members' names).
+		\item All of the other members of the group should then fork the repository and clone their forked repository.
+		\item One of the group members(other than the creator of the public repository) should now make a local commit(on another branch), then push the branch to their forked repo.
+		\item Make a pull request to the public repository. 
+		\item After the owner accepts the pull request, notice the changes happen to the repository.
+		\item Now the rest of the members need to update their local repository. For this, there are two ways:
+		\begin{itemize}
+			\item Using git fetch
+			\item Using git pull
+		\end{itemize}
+		Use git fetch to retrieve the updated repository first. Merge the changes to the master. Follow steps 4-7 but this time use git pull. What is different? 
+	\end{enumerate}	
+		Next steps:
+\begin{enumerate}
+	\item Now create a situation where two group members both edit the same line in the same file
+	and commit it locally. Race to push.
+	\item When the runner-up does a pull, they should get a merge conflict.
+	\item Look as a group at the file in conflict, and resolve it.
+	\item Use the add command to stage the fix, and then use commit to make the merge commit.
+	\item Notice how this procedure is exactly the one you got used to when resolving conflicts in	branches.
+\end{enumerate}	
+	
+\end{document}
