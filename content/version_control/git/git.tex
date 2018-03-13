@@ -73,31 +73,34 @@
 \begin{frame}[allowframebreaks]{Some important commands}
 \section{Some important commands}
 \begin{adjustwidth}{-2em}{-2em}
+\textbf{First time git setup:}
 \begin{itemize}
 	\item {\textbf{git config --global user.name "user-name"}}
 	\item {\textbf{git config --global user.email "email-id"}}
-	
+\end{itemize}
+\textbf{Basics:}
+\begin{itemize}
+	\item {\textbf{git clone} $\langle$remote\_location$\rangle$ $\langle$clone\_name$\rangle$ \\ Clones a repository into a new directory}
 	\item {\textbf{git init} \\ Initializes folder to be recognized as a git folder}
-	\item {\textbf{git add f\_name }\\ Adds the file to the stage}
+	\item {\textbf{git add} $\langle$f\_name$\rangle$\\ Adds the file to the stage}
 	\item {\textbf{git status} \\ To list out the status of files and folders}
 	\item {\textbf{git commit -m "message here"} \\ Commits the file to the repository}
+	\item {\textbf{git tag} $\langle$tag\_name$\rangle$ \\ Used to tag a commit}
 	\item {\textbf{git log} \\ Lists the recent commit history}
 	
-	\item {\textbf{git branch} \\ Lists the available branches}
-	\item {\textbf{git checkout b\_name} \\ Switches to another branch}	
+	\item {\textbf{git branch} \\ Lists the available branches. Can also be used to create a new branch with the argument $\langle$branch\_name$\rangle$}
+	\item {\textbf{git checkout} $\langle$b\_name$\rangle$ \\ Switches to another branch}	
 \end{itemize}
-	
+\textbf{Distributed Git:}
 	\begin{itemize}
-		\item {\textbf{git clone remote\_location clone\_name} \\ Clones a repository into a new directory}
-		\item {\textbf{git remote add remote\_name remote\_location} \\ Remotes are used to track repositories}
+		
+		\item {\textbf{git remote add} $\langle$remote\_name$\rangle$ $\langle$remote\_location$\rangle$ \\ Remotes are used to track repositories}
 		\item {\textbf{git remote -v} \\ Lists all the remotes}
 		
-		\item {\textbf{git fetch }\\Gathers commits from target branch and stores them in your local repository but does not merge them with the current branch }
-		\item {\textbf{git push remote\_name branch\_name}\\Pushes local changes to the remote }
-		\item {\textbf{git merge} \\ Merges two development histories together}
-		\item {\textbf{git pull}\\Does a git fetch and then a merge}
-		
-		\item {\textbf{git tag tag\_name} \\ Used to tag a commit}
+		\item {\textbf{git fetch }$\langle$ target\_branch $\rangle$ \\Gathers commits from target branch and stores them in your local repository but does not merge them with the current branch }
+		\item {\textbf{git push} $\langle$remote\_name$\rangle$ $\langle$branch\_name$\rangle$\\Pushes local changes to the remote }
+		\item {\textbf{git merge }$\langle$ b\_name $\rangle$ \\ Merges two development histories together}
+		\item {\textbf{git pull }$\langle$repository\_name$\rangle$\\Does a git fetch and then a merge}
 	\end{itemize}
 \end{adjustwidth}
 \end{frame}	
