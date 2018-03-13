@@ -7,7 +7,7 @@
 
 \author{Kiran Vasudev\inst{1}}
 
-\institute[Universities of Somewhere and Elsewhere] 
+\institute[]
 {
   \inst{1}
   Hochschule Bonn-Rhein-Sieg
@@ -53,6 +53,10 @@
 	Allows multiple developers to work simultaneously
   }
   \end{itemize}
+\begin{figure}
+	\includegraphics[scale=0.25]{images/final-final}
+	\caption{Why we need Version Control\cite{naming-conv}}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Types of VCS}{Centralized VCS}
@@ -65,7 +69,7 @@
     Centralized VCS keeps the history of changes on a central server.
   }
   \item {
-    Designed with the intent that there is only one true source  
+    Designed with the intent that there is only "One True Source"  
   }
   \item {
     If you want to make a copy of your data, you have to copy/paste it, literally.  
@@ -88,16 +92,16 @@
 \begin{frame}{Types of VCS}{Decentralized VCS}
 \subsection{Distributed VCS}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 \begin{itemize}
 		  \item {
 		    In distributed VCS, everyone has a local copy of the entire work’s history
 		  }
 		  \item {
-		    Each repository is as good as the other
+		    Each repository is as good as the other ie. each repository acts as a "True Source".
 		  }
 		  \item{
-			Prone to central server crash
+			Robust to central server crashes
 		  }
 		  \item{
 			Your local copy is a repository, and you can commit to it and get all benefits of source control - Offline Source Control.
@@ -106,10 +110,10 @@
 			Mozilla Firefox uses this kind of versioning.  
 		  }
 		  \item{
-           \textbf{ Example: }Git		  
+           \textbf{ Example: }Almost all open source projects use this type of version control.		  
 		  }
 	  \end{itemize}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
 \begin{figure}
 	 \includegraphics[width=.9\textwidth]{images/dvcs}
 	 \caption{Distributed Version System \cite{website}}
@@ -158,12 +162,18 @@
     
   \begin{thebibliography}{10}
 
+
+  \bibitem{naming-conv}
+	\href{https://doctorfreelance.com/file-naming-conventions/}{Naming Conventions}
+
   \bibitem{website}
 	\href{https://www.appfusions.com/display/StashSCMImporter/CVCS+vs.+DVCS+In+a+Nutshell
 }{CVCS and DVCS}
 
   \bibitem{better}
 \href{https://git-scm.com/about/small-and-fast}{Comparison between Git and SVN speeds}
+
+
 
 
   \end{thebibliography}
