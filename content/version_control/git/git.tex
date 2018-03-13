@@ -7,7 +7,7 @@
 
 \author{Kiran Vasudev\inst{1}}
 
-\institute[Universities of Somewhere and Elsewhere] 
+\institute[] 
 {
   \inst{1}
   Hochschule Bonn-Rhein-Sieg
@@ -72,37 +72,64 @@
 
 \begin{frame}[allowframebreaks]{Some important commands}
 \section{Some important commands}
-\begin{adjustwidth}{-2em}{-2em}
-\textbf{First time git setup:}
-\begin{itemize}
-	\item {\textbf{git config --global user.name "user-name"}}
-	\item {\textbf{git config --global user.email "email-id"}}
-\end{itemize}
-\textbf{Basics:}
-\begin{itemize}
+\textbf{Initializing}
+	\begin{itemize}
+		\item {\textbf{git config --global user.name "user-name"}}
+		\item {\textbf{git config --global user.email "email-id"}}
+		\item {\textbf{git init} \\ Initializes folder to be recognized as a git folder}
+	\end{itemize}
+
+	\textbf{Cloning}
+	\begin{itemize}
 	\item {\textbf{git clone} $\langle$remote\_location$\rangle$ $\langle$clone\_name$\rangle$ \\ Clones a repository into a new directory}
-	\item {\textbf{git init} \\ Initializes folder to be recognized as a git folder}
-	\item {\textbf{git add} $\langle$f\_name$\rangle$\\ Adds the file to the stage}
-	\item {\textbf{git status} \\ To list out the status of files and folders}
-	\item {\textbf{git commit -m "message here"} \\ Commits the file to the repository}
-	\item {\textbf{git tag} $\langle$tag\_name$\rangle$ \\ Used to tag a commit}
-	\item {\textbf{git log} \\ Lists the recent commit history}
+	\item {\textbf{git pull }$\langle$repository\_name$\rangle$\\Does a git fetch and then a merge}
+	\item {\textbf{git fetch }$\langle$ target\_branch $\rangle$ \\Gathers commits from target branch and stores them in your local repository but does not merge them with the current branch }	
+	\end{itemize}
 	
+	\framebreak
+	\textbf{Tracking/removing files}
+	\begin{itemize}
+	\item {\textbf{git add} $\langle$f\_name$\rangle$\\ Adds the file to the stage}
+	\item {\textbf{git rm} $\langle$f\_name$\rangle$\\ Removes the file from the working tree}
+	\item {\textbf{git mv} $\langle$f\_name$\rangle$\\ Moves/renames the file in the working tree}
+	\end{itemize}
+
+	\textbf{Committing changes}
+	\begin{itemize}
+	\item {\textbf{git commit -m "message here"} \\ Commits the file to the repository} 
+	\end{itemize}
+
+	\textbf{Checking file status }
+	\begin{itemize}
+	\item {\textbf{git status} \\ To list out the status of files and folders}
+	\item {\textbf{git diff} \\ Shows changes between commits}	
+	\end{itemize}
+
+	\textbf{Tagging }
+	\begin{itemize}
+	\item {\textbf{git tag} $\langle$tag\_name$\rangle$ \\ Used to tag a commit}
+	\end{itemize}
+	
+	\textbf{Branching}
+	\begin{itemize}
 	\item {\textbf{git branch} \\ Lists the available branches. Can also be used to create a new branch with the argument $\langle$branch\_name$\rangle$}
 	\item {\textbf{git checkout} $\langle$b\_name$\rangle$ \\ Switches to another branch}	
-\end{itemize}
-\textbf{Distributed Git:}
+	\item {\textbf{git merge }$\langle$ b\_name $\rangle$ \\ Merges two development histories together}
+	\end{itemize}
+
+	\textbf{Viewing commit history }
 	\begin{itemize}
-		
+		\item {\textbf{git log} \\ Lists the recent commit history}	
+	\end{itemize}
+	
+	\framebreak
+	\textbf{Working with remotes}
+	\begin{itemize}
 		\item {\textbf{git remote add} $\langle$remote\_name$\rangle$ $\langle$remote\_location$\rangle$ \\ Remotes are used to track repositories}
 		\item {\textbf{git remote -v} \\ Lists all the remotes}
-		
-		\item {\textbf{git fetch }$\langle$ target\_branch $\rangle$ \\Gathers commits from target branch and stores them in your local repository but does not merge them with the current branch }
 		\item {\textbf{git push} $\langle$remote\_name$\rangle$ $\langle$branch\_name$\rangle$\\Pushes local changes to the remote }
-		\item {\textbf{git merge }$\langle$ b\_name $\rangle$ \\ Merges two development histories together}
-		\item {\textbf{git pull }$\langle$repository\_name$\rangle$\\Does a git fetch and then a merge}
 	\end{itemize}
-\end{adjustwidth}
+	
 \end{frame}	
 
 \begin{frame}
