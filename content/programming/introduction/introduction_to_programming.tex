@@ -28,7 +28,7 @@
 \subtitle{}
 %\logo{}
 \institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
-\date{\today}
+\date{March 20, 2018}
 \subject{Introduction to Programming}
 
 \begin{document}
@@ -107,7 +107,7 @@
     Most of the time, we programmers work with \emph{computer memory}
     \newline
 
-    A useful analogy for memory is to model it by boxes and blocks (I owe this very useful model to my programming professor, Dr. Matthieu Puigt)
+    A useful analogy for memory is to model it by boxes and blocks (I owe this very useful model to my first programming professor, Dr. Matthieu Puigt)
     \newline
 
     In real life, a box is used to store isolated objects; in programming, a \textbf{variable} is what is used to keep such objects
@@ -150,7 +150,7 @@
     In programming, a memory address (a box) can store only one value at a time
     \newline
 
-    What happens if we put the value of b in a? We will end up with a situation as follows:
+    What happens if we put the value of $b$ in $a$? We will end up with a situation as follows:
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{figures/two_variables_example/assignment.eps}
@@ -204,7 +204,7 @@
 
 \begin{frame}
 \frametitle{How Do We Program Decisions?}
-    In most programming languages, the keywords for telling a program that it should do a decision at some point are \textbf{if} and its buddy \textbf{else}. If and else have the same meaning as in human languages
+    In most programming languages, the keywords for telling a program that it should do a decision at some point are \textbf{if} and its buddy \textbf{else}. If and else have the same meaning as in the English language
     \newline
 
     Decisions are always made by writing expressions that result in a \textbf{Boolean} value (i.e. that are either true or false)
@@ -229,7 +229,7 @@
     If the value of the logical expression in the \emph{if} condition is false, then the program proceeds by executing the statements in the \emph{else} block
     \newline
 
-    Multiple decision branches (i.e. more than two) can be introduced by either nesting if/else blocks or using \textbf{else if} blocks (\emph{elif} in Python)
+    Multiple decision branches (i.e. more than two) can be introduced by either nesting if/else blocks or using \textbf{else if} blocks (shortened to \emph{elif} in Python); these two variants are equivalent, but else if blocks make programs easier to read
 \end{frame}
 
 \begin{frame}
@@ -279,7 +279,9 @@
         \item Starts by assigning a variable (we call it a counter) and checking whether the variable is less than the maximum allowed value
         \item If it is, the statements inside the for block are executed
         \item Finally, the counter variable is incremented and the test if its value is less than the maximum allowed value is performed again
+        \newline
     \end{itemize}
+    Many programming languages (e.g. Python and C++ since C++11) have special types of for loops (foreach loops) that iterate over all elements of a given collections (e.g. a list)
 \end{frame}
 
 \begin{frame}
@@ -287,7 +289,7 @@
     While loops generally do the same thing as for loops
     \newline
 
-    The difference between for and while loops is that for loops run a predetermined number of times; while loops, on the other hand, can sometimes be difficult to predict
+    The difference between for and while loops is that for loops run a predetermined number of times; while loops, on the other hand, can run a potentially infinite number of times
     \newline
 
     Note that in while loops you \textbf{must not} forget to (somehow) update the value of the variable included in the while condition; otherwise, you will run into a situation called \textbf{infinite loop}
@@ -300,7 +302,7 @@
     A statically typed language determines the type of a variable at compile time (e.g. C++, Java)
     \newline
 
-    For dynamically typed languages, the type of a variable is determined at runtime (e.g. Python, JavaScript)
+    In dynamically typed languages, the type of a variable is determined at runtime (e.g. Python, JavaScript)
     \newline
 
     Dynamically typed languages are generally easier to write, but harder to debug
@@ -329,10 +331,10 @@
 
 \begin{frame}
 \frametitle{Compilers and Interpreters (1/2)}
-    Computers are binary machines (understand only 0 and 1)
+    Computers are binary machines (understand only 0s and 1s)
     \newline
 
-    On the other hand, programming languages have phrases close to human language
+    On the other hand, programming languages have phrases close to human languages
     \newline
 
     Why are the computers able to understand our programs then? Because programs are translated with the help of either compilers or interpreters
@@ -348,7 +350,7 @@
 
 \begin{frame}
 \frametitle{Assembly Language}
-    Compiled programs are not directly translated to machine code, but are first translated to an intermediate language, called \textbf{assembly language}
+    Programs are not directly translated to machine code, but are first translated to an intermediate language, called \textbf{assembly language}
     \newline
 
     Assembly language is the bridge between higher level languages and low-level machine code
@@ -392,7 +394,7 @@
 
 \begin{frame}
 \frametitle{A Function Example (2/3)}
-    Here's a Python example of such a function
+    Here's a Python example of such a function (note: the $max$ function is already predefined in Python, but we define it here for illustrative purposes)
     \lstset{language=Python,
             basicstyle=\ttfamily\tiny,
             keywordstyle=\color{keywords},
@@ -426,7 +428,7 @@
     Because the function parameters are just copies of the original values. When we call $max(a,b)$, the values of $a$ and $b$ are \textbf{copied to} $m$ and $n$ respectively, so they are not actually the same variables
     \newline
 
-    In some languages (e.g. C++), it is possible to pass a \textbf{reference} to a variable; in such case, $a$ and $m$ and also $b$ and $n$ would point to the same address in memory
+    In some languages (e.g. C++), it is possible to pass a \textbf{reference} to a variable; in such case, $a$ and $m$ and also $b$ and $n$ would point to the same address in memory, but they would still be different variables
 \end{frame}
 
 \begin{frame}
@@ -435,6 +437,72 @@
         \centering
         \includegraphics[scale=0.25]{figures/max_function_example.eps}
     \end{figure}
+\end{frame}
+
+\section{Programming Paradigms}
+
+\begin{frame}
+\frametitle{Imperative and Procedural Programming}
+    In this slide set, we only talked about two programming paradigms:
+    \begin{itemize}
+        \item \textbf{imperative programming}, which is concerned with the state of a program and the commands that modify that state
+        \item \textbf{procedural programming}, which heavily utilises function (procedure) calls
+        \newline
+    \end{itemize}
+
+    Procedural programs are also imperative programs, but they use functions for controlling a program's state
+    \newline
+
+    These are however not the only existing programming paradigms
+\end{frame}
+
+\begin{frame}
+\frametitle{Object-Oriented Programming (OOP)}
+    OOP is perhaps the most common programming paradigm in even moderately complex projects
+    \newline
+
+    OOP-based programs define \textbf{classes} from which one can instantiate \textbf{objects} that have:
+    \begin{itemize}
+        \item \textbf{fields} that represent the objects' own internal state and
+        \item \textbf{methods} that manipulate that state
+    \end{itemize}
+
+    The OOP principle of \textbf{encapsulation} allows hiding part of a program's logic from the users of a particular program module
+    \newline
+
+    Languages such as C++ and Python (both of these languages are heavily used by our research group) are not fully OOP-based, but support OOP pretty much completely; on the other hand, languages such as Java and C\# are completely OOP-based
+\end{frame}
+
+\begin{frame}
+\frametitle{Logic Programming}
+    Logic programming is a very different paradigm in which we represent:
+    \begin{itemize}
+        \item general knowledge about a certain domain as a set of logical rules
+        \item specific knowledge about the domain by asserting facts
+        \newline
+    \end{itemize}
+    A program written in a logic programming language is concerned with proving new facts from the set of known rules and facts
+    \newline
+
+    You will briefly look at one logic programming language (Prolog) in the AI course
+\end{frame}
+
+\begin{frame}
+\frametitle{Functional Programming}
+    Functional programming, like procedural programming, operates by using functions
+    \newline
+
+    Functions in functional programming are however closer to mathematical functions, i.e. they cannot change the state of data
+    \newline
+
+    Functional programming is more closely examined in the Master of Computer Science program; we don't do much functional programming in MAS
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+    \begin{center}
+        {\huge Thanks for your attention}
+    \end{center}
 \end{frame}
 
 \end{document}
