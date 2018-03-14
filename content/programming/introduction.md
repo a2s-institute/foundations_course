@@ -9,5 +9,5 @@ Content:
 * Decisions and loops
 * Compiled vs. interpreted languages
 * Statically- vs. dynamically-typed languages
-* Modularity: functions
-* Procedural and object-oriented programming
+* Modularity: Functions
+* Imperative, procedural, object-oriented, logic, and functional programming
