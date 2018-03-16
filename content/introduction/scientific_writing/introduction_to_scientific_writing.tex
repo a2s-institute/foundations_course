@@ -1,0 +1,310 @@
+\documentclass{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{url}       % `\url
+\usepackage{listings}  % Code listings
+\usepackage[T1]{fontenc}
+
+
+\usepackage{theme/beamerthemehbrs}
+%\usepackage{preamble}
+
+
+\author[Alex Mitrevski]{Alex Mitrevski}
+\title{Introduction to Scientific Writing}
+\subtitle{}
+%\logo{}
+\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\date{March 20, 2018}
+\subject{Introduction to Scientific Writing}
+
+\begin{document}
+{
+\begin{frame}
+\titlepage
+\end{frame}
+}
+
+\AtBeginSection[]{% Print an outline at the beginning of sections
+\begin{frame}<beamer>
+    % \frametitle{Outline for Section \thesection}
+    \tableofcontents[currentsection]
+\end{frame}%
+}%
+
+\section{What is Scientific Writing and Why Should You Care About It?}
+
+\begin{frame}
+\frametitle{What is Scientific Writing?}
+    Scientific writing is the process of describing scientific ideas and experimental results in a written format
+    \newline
+
+    \textbf{Scientific writing is technical writing}; the language used in scientific texts should thus be precise and to the point
+    \newline
+
+    Due to its technical nature, which puts several constraints on how and what to write, it is not entirely trivial to do scientific writing right
+    \newline
+
+    Scientific texts are usually written for a smaller technical audience
+\end{frame}
+
+\begin{frame}
+\frametitle{Who Does Scientific Writing?}
+    \begin{itemize}
+        \item \emph{Researchers}: proposals, conference papers, journal papers, progress reports...
+        \item \emph{Students in the sciences}: even if it is just writing up assignments and small project reports
+        \item \emph{Scientific journalists}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Should You Care About Scientific Writing?}
+    \vspace{-1cm}
+    As part of your studies, you will have to at least write an R\&D report and a master's thesis; \textbf{both written reports contribute heavily towards your grades}
+    \newline
+
+    Those of you who want an academic career will have to continue writing way beyond your studies
+    \newline
+
+    Becoming good at writing scientific texts is thus important both for successful completion of your studies and for your future careers
+\end{frame}
+
+\section{Types of Scientific Texts}
+
+\begin{frame}
+\frametitle{Types of Scientific Texts}
+    \begin{itemize}
+        \item Project proposals
+        \item Project reports
+        \item Theses/dissertations
+        \item Conference/workshop publications
+        \item Journal publications
+        \item Other types of scientific texts
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Project Proposals}
+    \vspace{-1cm}
+    A project proposal describes the plan for conducting a project in significant detail
+    \newline
+
+    Just as project proposals in other disciplines, scientific project proposals have to convince the reader that the proposer is qualified enough to complete the project
+    \newline
+
+    The project's \textbf{feasibility} and \textbf{relevance} are however particularly important in scientific proposals
+    \newline
+
+    \textbf{You will have to write proposals for both your R\&D project and your master's thesis}
+\end{frame}
+
+\begin{frame}
+\frametitle{Project Reports}
+    \vspace{-0.5cm}
+    A project report summarises the work done in the context of a certain project
+    \newline
+
+    Depending on the project's nature, the report's focus might need to be more theoretical or more experimental
+    \newline
+
+    Regardless of the nature, such a report should:
+    \begin{itemize}
+        \item demonstrate that you have learned enough about your project
+        \item fully describe your results and any relevant findings
+        \item show that your work goes in line with the expectations specified in the proposal or makes it clear why those expectations could not be achieved
+        \newline
+    \end{itemize}
+
+    \textbf{You will need to write at least one report during your studies: an R\&D project report}
+\end{frame}
+
+\begin{frame}
+\frametitle{Theses/Dissertations}
+    Theses and dissertations are special types of project reports that are written in the context of a master's thesis and a PhD respectively
+    \newline
+
+    The scientific aspects of the work are particularly important in theses and dissertations (e.g. the relation of the work to the existing literature and any improvements over the existing work)
+    \newline
+
+    In principle, theses and dissertations are longer than a conventional project report
+\end{frame}
+
+\begin{frame}
+\frametitle{Conference/Workshop Publications}
+    \vspace{-1cm}
+    A conference publication describes the results of some work in a short and concise way (e.g. ICRA and IROS - six to eight pages)
+    \newline
+
+    Such publications give an overview of the work and are excellent for \textbf{communicating ideas to fellow researchers}
+    \newline
+
+    Conference/workshop publications are always accompanied by formal gatherings and oral presentations and are thus great for \textbf{networking}
+    \newline
+
+    Not all conferences and workshops are of equal quality!
+    \newline
+
+    Publishing at high-quality conferences can be seen as a demonstration of one's research worth
+\end{frame}
+
+\begin{frame}
+\frametitle{Journal Publications}
+    \vspace{-1cm}
+    Journal publications serve a similar purpose as conference publications, but are generally longer
+    \newline
+
+    Journal papers are usually more formal and considerably more detailed than conference/workshop papers
+    \newline
+
+    Just as for conferences and workshops, not all journals are of equal quality!
+    \newline
+
+    Publishing in high-quality journals is also seen as a demonstration of one's research worth (in some disciplines even more so than publishing at conferences)
+\end{frame}
+
+\begin{frame}
+\frametitle{Others}
+    \vspace{-1cm}
+    \begin{itemize}
+        \item Handbooks
+        \item Textbooks
+        \item Lecture notes
+        \item Popular science books
+        \item Scientific blog posts
+        \item Public statements and informal newspaper articles
+    \end{itemize}
+\end{frame}
+
+\section{Writing Tips}
+
+\begin{frame}
+\frametitle{Master the Language in Which You Are Writing}
+    \vspace{-1cm}
+    To write effectively, you need to have \textbf{excellent} command of the language in which you are writing
+    \newline
+
+    Language mastery doesn't just mean being able to use the language on a daily basis, but also knowing its \textbf{grammar} and \textbf{correct practical use}
+    \newline
+
+    English is the main language not only in MAS, but also generally in the scientific community, so you should try to master this language as much as possible
+\end{frame}
+
+\begin{frame}
+\frametitle{Master the Topic You Are Writing About (As Much As Possible)}
+    \vspace{-1cm}
+    Knowing the language does not help if you don't know what to write about
+    \newline
+
+    Scientific writing communicates ideas and results; if they are to be taken seriously, you need to convince your reader that your know what you are talking about
+    \newline
+
+    Complete mastery of a topic is impossible and writing often helps you discover the limitations of your knowledge
+\end{frame}
+
+\begin{frame}
+\frametitle{Write For Your Intended Audience}
+    Whenever you write something, you need to have some audience in mind; otherwise, your content is likely to confuse and/or annoy your readers
+    \newline
+
+    The audience usually changes depending on the type of manuscript you are preparing
+\end{frame}
+
+\begin{frame}
+\frametitle{Tell a Story}
+    Scientific writing is not a storytelling discipline, but you still need to have a clear "story" in mind while writing
+    \newline
+
+    A manuscript that does not seem to have a clear logical flow is likely to be incoherent and thus difficult to read
+\end{frame}
+
+\begin{frame}
+\frametitle{Read Well-Written Texts and Use Them as Writing Samples}
+    \vspace{-1cm}
+    While reading papers about your area of interest, you will certainly find some that are very well-written
+    \newline
+
+    Use such papers as writing samples and try to learn from them as much as possible
+    \newline
+
+    You can however also learn from badly-written papers, i.e. you can try to avoid the things that decrease their writing quality in the first place
+\end{frame}
+
+\begin{frame}
+\frametitle{Write Outlines}
+    \vspace{-1cm}
+    Whenever you are faced with a writing task, start by writing an outline
+    \newline
+
+    Having an outline helps in multiple ways:
+    \begin{itemize}
+        \item it gives you an overview of your written work even before you start working on it
+        \item you can easily talk about the outline with others (e.g. your supervisors)
+        \item it helps you track your writing progress
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Let Others Read What You Write}
+    \vspace{-1cm}
+    While writing, it is very easy to forget that your readers are reading your manuscript, not your mind
+    \newline
+
+    Sending manuscript drafts to your supervisors/colleagues/friends is usually very helpful to see what others think about your writing
+    \newline
+
+    Not everyone can give you useful comments about your work, so \textbf{send your manuscript to someone who will give you a (brutally) honest opinion about it}
+    \newline
+
+    Don't take comments about your writing personally; people are trying to help you improve your work
+\end{frame}
+
+\section{Writer's Block and How to Counteract It}
+
+\begin{frame}
+\frametitle{What is Writer's Block and Why Does it Happen?}
+    \vspace{-0.5cm}
+    It sometimes happens that despite the fact that we need to write and despite all our efforts, we just cannot seem to produce any text
+    \newline
+
+    This can lead to frustration and procrastination, which will further exacerbate the problem
+    \newline
+
+    We call this phenomenon \textbf{writer's block}
+    \newline
+
+    Writer's block may have different causes, but stress most likely lies at the core of it\footnote{\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2277565/pdf/canfamphys00047-0094.pdf}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tips For Counteracting the Block}
+    \vspace{-1cm}
+    One very useful technique for counteracting a writer's block is \textbf{free writing}, namely simply writing about what you are supposed to write without thinking too much about the grammar, sentence structure, and wording
+    \newline
+
+    Another useful technique is forming/participating in a \textbf{writing/discussion group}
+    \newline
+
+    Simply talking with others about your work can also help sometimes
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+    \begin{center}
+        {\Huge Thanks for your attention}
+    \end{center}
+\end{frame}
+
+\end{document}
