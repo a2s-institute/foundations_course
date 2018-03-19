@@ -1,0 +1,10 @@
+01_PPT: https://www.youtube.com/watch?v=QYuG3ed92ko
+02_TU_MSL: https://www.youtube.com/watch?v=TTiJqmRrO1U
+03_Home: https://www.youtube.com/watch?v=qWL9EmMc5cE
+04_APC: https://www.youtube.com/watch?v=6K1PCPMrRzc
+05_Nimbro: https://www.youtube.com/watch?v=lcarnB_2P6E
+06_mapping: recording of gmapping
+07_3D_detection: https://www.youtube.com/watch?v=vgKyzIJxSk0
+08_visual_servoing: https://www.youtube.com/watch?v=q4GOGKp9ebw
+09_motion_planning: https://www.youtube.com/watch?v=LaThdWSOT8U
+10_force_control: https://www.youtube.com/watch?v=tIhEK5f00QU
