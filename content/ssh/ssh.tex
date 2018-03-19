@@ -35,7 +35,7 @@
 		\item {
 			Based on a client/server architecture.
 		}
-		\item{The SSH server program accepts/rejects connections to its host computer}
+		\item{The SSH server program accepts/rejects connections to its host computer.}
 		
 		\item{
 			The SSH client program, running on other computers are used to make requests to the server.
@@ -43,7 +43,7 @@
 		\item{
 			All communication between server and client are encrypted and hence are protected from any modifications.
 		}
-		\item{Better than non secure traditional architectures such as FTP and TELNET}
+		\item{Better than non secure traditional architectures such as FTP and TELNET.}
 		
 	\end{itemize}
 	\begin{figure}
@@ -80,10 +80,20 @@ It is not a complete security solution. It still can be hacked.
 \begin{frame}{SSH in MAS}
 \section{SSH in MAS}
 \begin{itemize} 
-	\item Use SSH to run processes on robots. Example: ROSMASTER
-	\item Can also use SSH to access and clone repositories from GitHub
+	\item Use SSH to run processes on robots. Example: ROSMASTER.
+	\item Can also use SSH to access and clone repositories from GitHub.
 \end{itemize}
 \end{frame}	
+
+\begin{frame}{Hands-on}
+	\section{Hands-on}
+	\begin{itemize}
+		\item Installation using \texttt{sudo apt-get install openssh-client.}
+		\item Check if you have any keys stored in \texttt{.ssh} folder.
+		\item The \texttt{id\_rsa} and \texttt{id\_rsa.pub} are basically the private and public key.
+		\item Generate your keys using \texttt{ssh-keygen -t rsa}
+	\end{itemize}
+\end{frame}
 
 
 \begin{frame}{References}
