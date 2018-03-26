@@ -1,0 +1,105 @@
+\documentclass[11pt]{beamer}
+\usetheme{Berlin}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[11pt]{moresize}
+\usepackage{minted}
+\usepackage{lipsum}
+
+\beamertemplatenavigationsymbolsempty
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+\newcommand{\reducedfontsize}{\fontsize{9pt}{10.8}\selectfont}
+
+\author{Patrick Nagel}
+\title{ROS Introduction - Practical}
+\logo{\includegraphics[scale=0.13]{misc/hbrs_logo.png}} 
+\institute{University of Applied Sciences Bonn-Rhein-Sieg} 
+\subject{Foundation Course 2018}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\begin{frame}{Agenda}
+		\tableofcontents
+	\end{frame}
+
+	\begin{frame}{Setting up a new ROS Project}
+		\section{Setting up a new ROS Project}
+		\begin{itemize}
+			\item{Create a directory of the following structure:\\
+			\textbf{mkdir -p /.../$<$workspace\_name$>$/src}}
+			\item{In root of the workspace run: \textbf{catkin\_make}}
+			\item{Initialize your workspace: \textbf{caktin init}}
+			\item{Set up your working environment:\\ 
+		\textbf{source /.../$<$workspace\_name$>$/devel/setup.bash}}
+			\item{If workspace default workspace, then add the line to your \textit{$\sim$/.bashrc}}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Navigation Tips}
+		\section{Navigation Tips}
+		Prerequisite for these tips is that the workspace of interest overlayed the default path in \$ROS\_PACKAGE\_PATH:\\
+	e.g. \textit{/.../$<$workspace\_name$>$/src/opt/ros/kinect/share}
+
+		\begin{itemize}
+			\item{Find the path to a package:\\	\textbf{rospack find $<$package$>$}}
+			\item{Navigate to your workspace or a package within:\\ \textbf{roscd [$<$package$>$]}}
+			\item{Navigate to the log files of your project:\\ \textbf{roscd log}}
+			\item{Use the \textit{TAB} key for autocompletion.}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Hello World}
+		\section{Hello World}
+		\begin{itemize}
+			\item{Create a package within $<$workspace\_name$>$/src:\\ \textbf{catkin\_create\_pkg $<$package\_name$>$ [depend1] [...]}}
+			\item{Create a python file within the package and add code.}
+			\item{Make the python file executable: \textbf{chmod +x $<$python\_file$>$}}
+			\item{Build the project together with the new package. In root: \textbf{catkin\_make}}
+			\item{Start \textit{roscore} and execute:\\ \textbf{rosrun $<$package\_name$>$ $<$python\_file$>$}}
+			\item{Echo published message:\\ \textbf{rostopic echo /$<$publisher$>$}}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Hello World - Code}
+		\ssmall \inputminted{python}{code/talker.py}
+	\end{frame}
+
+	{\nologo\reducedfontsize
+	\begin{frame}{Analysis Tips}
+		\section{Analysis Tips}
+		Prerequisite for these tips is that \textit{roscore} and the nodes you are interested in, are running.
+		\begin{itemize}
+			\item{Display configuration details of your workspace:\\ \textbf{catkin config}}
+			\item{Display debug information about ROS topics:\\ \textbf{rostopic}}
+			\begin{itemize}
+				{\reducedfontsize
+				\item{\textbf{list:} Displays a list of current topics.}
+				\item{\textbf{echo $<$topic$>$:} Displays messages published to a topic.}
+				\item{\textbf{info $<$topic$>$:} Print information about a topic.}
+				\item{\textbf{pub $<$topic$>$ $<$msg\_type$>$ $<$data$>$}: Publish data to a topic.}
+				}
+			\end{itemize}
+			\item{List and query ROS services:\\ \textbf{rosservice [list], [info $<$service$>$], ...}}
+			\item{Get and set ROS parameters:\\ \textbf{rosparam [set], [delete]  $<$param\_name$>$ $<$value$>$}}
+			\item{List package dependencies:\\ \textbf{rospack depends1 $<$package$>$}}
+		\end{itemize}
+	\end{frame}}
+
+	\begin{frame}{Configuring an existing ROS Project - e.g. b-it-bots}
+		\section{Configuring an existing ROS Project}
+		\begin{itemize}
+			\item{Nagivate to the directory in which you would like to set up the project and create the ROS workspace structure:\\ \textbf{mkdir -p $<$workspace\_name$>$/src}}
+			\item{Copy the link of the git repo(s) and run inside the \textbf{src} folder:\\ \textbf{git clone $<$link$>$}}
+			\item{Compile the workspace, by navigating to root and executing:\\ \textbf{catkin\_make}}
+			\item{If errors appear install the missing packages and rerun \textbf{catkin\_make}}
+		\end{itemize}
+	\end{frame}
+
+\end{document}
