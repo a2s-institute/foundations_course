@@ -11,7 +11,7 @@
 
 \beamertemplatenavigationsymbolsempty
 \newcommand{\nologo}{\setbeamertemplate{logo}{}}
-\newcommand{\reducedfontsize}{\fontsize{9pt}{10.8}\selectfont}
+\newcommand{\reducedfontsize}{\fontsize{7pt}{8.4}\selectfont}
 
 \author{Patrick Nagel}
 \title{ROS Introduction - Practical}
@@ -84,6 +84,13 @@
 				\item{\textbf{echo $<$topic$>$:} Displays messages published to a topic.}
 				\item{\textbf{info $<$topic$>$:} Print information about a topic.}
 				\item{\textbf{pub $<$topic$>$ $<$msg\_type$>$ $<$data$>$}: Publish data to a topic.}
+				}
+			\end{itemize}
+			\item{Display debug information about ROS nodes:\\ \textbf{rosnode}}
+			\begin{itemize}
+				{\reducedfontsize
+				\item{\textbf{list:} Display a list of current nodes.}
+				\item{\textbf{info $<$node$>$}: Print information about the chosen topic.}
 				}
 			\end{itemize}
 			\item{List and query ROS services:\\ \textbf{rosservice [list], [info $<$service$>$], ...}}
