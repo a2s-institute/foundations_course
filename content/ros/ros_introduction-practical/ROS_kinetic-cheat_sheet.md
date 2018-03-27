@@ -1,5 +1,13 @@
 # ROS Kinetic - Cheat Sheet
 
+## ROS Dictionary
+* **roscore**: The roscore is a collection of nodes and programs that are pre-requisites of a ROS-based system. A roscore needs to run in order to enable the communication between ROS nodes.
+* **roslaunch**: Tool to launch multiple ROS nodes. Roslaunch starts the roscore automatically, too.
+* **rosnode**: Command-line tool for displaying debug information about ROS nodes.
+* **rosrun**: Command to start an executable in an arbitrary package. 
+* **rostopic**: Command-line tool for displaying debug information about ROS topics.
+
+
 ## Create a ROS Workspace
 The following steps will remind you how to create a ROS workspace from scratch.
 
@@ -72,7 +80,7 @@ Once you are sure that both points are set up correctly. Run the following comma
 rosrun hello_world talker.py
 ```
 
-## Debug the running Processes
+## Debug Running Processes
 Once you booted the robot or you executed your code, you would like to check whether everything is communicating the right way. ROS provides several tools to display, analyse and monitor the communication.
 
 To display information about currently running ROS topics the tool **rostopic** provides useful options:
@@ -80,5 +88,11 @@ To display information about currently running ROS topics the tool **rostopic** 
 * **rostopíc info <topic_name>**: Prints information about a topic.
 * **rostopic echo <topic_name>**: Displays messages published by the topic.
 * **rostopic pub <topic_name> <message_type> <data>**: Publishes data to the a topic.
+
+To display information about currently running ROS nodes the tool **rosnode** provides useful options:
+* **rosnode list**: Displays a list of current nodes.
+* **rosnode info <node_name>**: Prints information about a node.
+
+Please note that for both tools further options exist. They can either be looked up on http://wiki.ros.org/ or by typing rostopic or rosnode into the console and using the TAB key to receive the a list of options for autocompletion.
 
  
