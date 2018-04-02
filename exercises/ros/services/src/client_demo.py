@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from service_demo.srv import two_ints
+from services.srv import two_ints
 import rospy
 
 class client:
