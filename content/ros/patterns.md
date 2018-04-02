@@ -1,6 +1,5 @@
 # ROS Patterns
 ## Service / Client
-# Foundation Course: Service / Client
 
 This is an introduction practice for service and client
 
@@ -35,7 +34,7 @@ This is an introduction practice for service and client
   $ chmod +x client_demo.py
   ```
 
-5. Build the workspace
+7. Build the workspace
   ```
   $ catkin build
   Alternatively
