@@ -105,9 +105,20 @@
 	    \textbf{\href{http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv}{Creating messages}}
 	    
 		Use the documentation of ROS to define the message type. For example, the documentation of the sensor\_msgs can be found here: \textbf{\href{http://docs.ros.org/api/sensor_msgs/html/index-msg.html}{Sensor messages}}
-		\item Play the given rosbag and subscribe to the required topics for your new message in the subscriber node
+		\item Play the given rosbag[4] and subscribe to the required topics for your new message in the subscriber node
 		\item Using this information from the bag file, create your new message and publish it
 		\item Once the message is published, subscribe to this message, and display a confirmation message once it has been received
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Messages in ROS and their importance}
+	\section{Messages in ROS and their importance}
+	\begin{itemize}
+		\item Nodes communicate with each other with the help of messages that are published to topics
+		\item It is a data structure comprising of typed fields(int, float, boolean, arrays, etc.)
+		\item Stored in the msg subdirectory of a package
+		\item Naming convention:\\ \textbf{the name of the package + / + name of the .msg file \\ Example:  std\_msgs/String}
+		\item It is used to generate source code for the type of message among different languages.
 	\end{itemize}
 \end{frame}
 
@@ -117,6 +128,7 @@
 		\item {\href{http://wiki.ros.org/custom/images/wiki/ROS_basic_concepts.png}{ROS Wiki}}
 		\item {\href{http://wiki.ros.org/rospy/Overview/}{Publisher/Subscriber(python)}}
 		\item {\href{http://wiki.ros.org/roscpp/Overview}{Publisher/Subscriber(cpp)}}
+		\item{\href{http://projects.csail.mit.edu/stata/downloads.php}{ROSbag file}}
 	\end{enumerate}
 \end{frame}
 
