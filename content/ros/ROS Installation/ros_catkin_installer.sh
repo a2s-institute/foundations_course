@@ -21,7 +21,11 @@ function ros_install {
 	echo "Installing Map Server"
 	sudo apt-get -y install ros-kinetic-map-server
 	sudo apt-get -y install python-rosinstall python-rosinstall-generator python-wstool build-essential
+	sudo apt-get -y install python-pyside
+	sudo apt-get -y install gnuplot
 	source /opt/ros/kinetic/setup.bash
+	sudo chown -R $SUDO_USER:$SUDO_USER ~/.ros/
+	
 }
 
 function ros_bashrc {
@@ -56,6 +60,7 @@ function ros_bashrc {
 function ros_amr_bugfix {
 	echo
 	echo "Applying ROS bugfix"
+	cd $DIR
 	echo "Fixing stage.hh in opt/ros/kinetic/include/Stage-4.1/"
 	sudo cp bugfix/stage.hh /opt/ros/kinetic/include/Stage-4.1/stage.hh
 	echo "Fixing joint.hpp in opt/ros/kinetic/include/kdl/"
@@ -64,6 +69,7 @@ function ros_amr_bugfix {
 }
 
 function create_catkin_workspace {
+	source /opt/ros/kinetic/setup.bash
 	echo
 	echo "Initializing catkin workspace"
 	cd $HOME
@@ -77,6 +83,7 @@ function create_catkin_workspace {
 	catkin_make
 	echo "Sourcing the workspace"
 	source devel/setup.bash
+	sudo chown -R $SUDO_USER:$SUDO_USER ~/catkin_ws/
 }
 
 function catkin_bashrc {
@@ -156,4 +163,9 @@ function main_menu {
 	done
 }
 
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "Please execute this script as sudo!"
+    exit
+fi
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 main_menu
