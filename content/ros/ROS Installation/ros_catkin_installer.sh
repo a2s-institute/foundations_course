@@ -104,7 +104,7 @@ function ros_install {
     install_pkg $pkg
   done
 
-  source /opt/ros/kinetic/setup.bash  
+  source /opt/ros/kinetic/setup.bash 
 }
 
 function ros_bashrc {
@@ -168,22 +168,39 @@ function ros_amr_bugfix {
 
 function create_catkin_workspace {
   source /opt/ros/$ROS_DISTRO/setup.bash
-  echo
+  echo ""
   echo "Initializing catkin workspace"
+  echo "The workspace is created in your home folder."
+  read -e -p "Enter a name for the workspace (default is catkin_ws): " -i "catkin_ws" WORKSPACE
+  echo ""
   cd $HOME
   echo "Creating directories"
-  mkdir catkin_ws
-  cd catkin_ws
-  mkdir src
-  cd src
-  cd ..
-  catkin init
-  catkin build
-  echo "Sourcing the workspace"
-  source devel/setup.bash
+  if [ -d $WORKSPACE ]; then
+    echo "A catkin workspace with the name $WORKSPACE already exists in $HOME"
+    echo "Nothing to do here."
+    return
+  else
+    mkdir $WORKSPACE
+    cd $WORKSPACE
+    mkdir src
+    cd src
+    cd ..
+    catkin init
+    catkin build
+    echo "Sourcing the workspace"
+    source devel/setup.bash
+    catkin_bashrc $WORKSPACE
+  fi
 }
 
 function catkin_bashrc {
+  echo "Adding the workspace $1 to your bashrc"
+  # Check if an entry for the workspace already exists
+  if grep -q "$1/devel/setup.bash" ~/.bashrc; then
+    echo "A catkin workspace with the name $1 is already present in your bashrc."
+    echo "Nothing to do here."
+    return
+  fi
   echo
   echo "Please choose if you want to add Catkin to your bashrc."
   echo "If you choose No you have to run the following in every terminal you want to use catkin commands in."
@@ -194,16 +211,12 @@ function catkin_bashrc {
   do
   case $opt in
     "Yes")
-      if grep -q 'catkin_ws/devel/setup.bash' ~/.bashrc; then
-        echo "A catkin workspace is already present in your bashrc."
-      else
-        echo "Adding catkin to .bashrc. A backup file is created as .bashrc_before_catkin"
-        cp ~/.bashrc ~/.bashrc_before_catkin
-        echo "Adding catkin workspace to bashrc"
-        echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-        echo "Sourcing .bashrc"
-        source ~/.bashrc
-      fi
+      echo "Adding catkin to .bashrc. A backup file is created as .bashrc_before_catkin"
+      cp ~/.bashrc ~/.bashrc_before_catkin
+      echo "Adding catkin workspace to bashrc"
+      echo "source ~/$1/devel/setup.bash" >> ~/.bashrc
+      echo "Sourcing .bashrc"
+      source ~/.bashrc
       break
       ;;
     "No")
@@ -228,7 +241,6 @@ function main_menu {
       ros_bashrc
       ros_amr_bugfix
       create_catkin_workspace
-      catkin_bashrc
       echo
       echo "Installed everything"
       echo "Goodbye !"
@@ -248,7 +260,6 @@ function main_menu {
       ;;
     "Create catkin workspace")
       create_catkin_workspace
-      catkin_bashrc
       main_menu
       break
       ;;
