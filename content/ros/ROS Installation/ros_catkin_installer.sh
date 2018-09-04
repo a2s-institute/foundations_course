@@ -15,10 +15,10 @@
 
 # ROS packages
 # This is the ROS version that is used (i.e. indigo, kinetic, etc)
-ROS_VERSION=kinetic
+ROS_DISTRO=kinetic
 
 # These are the core ROS packages that are installed.
-# Each package in the array will be converted to ros-$ROS_VERSION-pkg_name (ros-kinetic-desktop)
+# Each package in the array will be converted to ros-$ROS_DISTRO-pkg_name (ros-kinetic-desktop)
 ROS_PKGS=(desktop stage smach-viewer map-server)
 
 # These are the python packages needed.
@@ -74,6 +74,7 @@ function install_pkg {
 }
 
 function update_keys {
+  # Update keys and add ROS to the list of known packages
   echo
   echo "Updating keys and updating apt-get"
   sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -82,45 +83,53 @@ function update_keys {
 }
 
 function ros_install {
-  # Installs ROS and additional packages needed for the AMR course
+  # Install ROS and additional packages needed for the AMR course
+
+  # Install ROS core packages
   for pkg in ${ROS_PKGS[*]}; do
-    install_pkg ros-$ROS_VERSION-$pkg
+    install_pkg ros-$ROS_DISTRO-$pkg
   done
+
+  # Initialize rosdep
   sudo rosdep init
   rosdep update
+
+  # Install python packages
   for pkg in ${PYTHON_PKGS[*]}; do
     install_pkg python-$pkg
   done
   
+  # Install additional packages
   for pkg in ${OTHER_PKGS[*]}; do
     install_pkg $pkg
   done
 
-  source /opt/ros/kinetic/setup.bash
-  #sudo chown -R $SUDO_USER:$SUDO_USER ~/.ros/
-  
+  source /opt/ros/kinetic/setup.bash  
 }
 
 function ros_bashrc {
-  echo
+  # Add ROS to the bashrc in the home folder and create a backup of the bashrc
+  echo "Adding ROS to your bashrc"
+  # Check if it is already in the bashrc
+  if grep -q 'source /opt/ros/$ROS_DISTRO/setup.bash' ~/.bashrc; then
+    echo "ROS $ROS_DISTRO is already present in your bashrc."
+    echo "Nothing to do here"
+    return
+  fi
   echo "Please choose if you want to add ROS to your bashrc."
   echo "If you choose No you have to run the following in every terminal you want to use ROS in."
-  echo "source /opt/ros/kinetic/setup.bash"
+  echo "source /opt/ros/$ROS_DISTRO/setup.bash"
   PS3='Would you like to add ROS to your bashrc?: '
   options=("Yes" "No")
   select opt in "${options[@]}"
   do
   case $opt in
     "Yes")
-      if grep -q 'source /opt/ros/kinetic/setup.bash' ~/.bashrc; then
-        echo "ROS Kinetic is already present in your bashrc."
-      else  
-        echo "Adding ROS to .bashrc. A backup file is created as .bashrc_before_ros"
-        cp ~/.bashrc ~/.bashrc_before_ros
-        echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-        echo "Sourcing .bashrc"
-        source ~/.bashrc
-      fi
+      echo "Adding ROS to .bashrc. A backup file is created as .bashrc_before_ros"
+      cp ~/.bashrc ~/.bashrc_before_ros
+      echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
+      echo "Sourcing .bashrc"
+      source ~/.bashrc
       break
       ;;
     "No")
@@ -135,30 +144,30 @@ function ros_amr_bugfix {
   echo
   echo "Applying ROS bugfix"
   cd "$DIR"
-  echo "Fixing stage.hh in opt/ros/kinetic/include/Stage-4.1/"
+  echo "Fixing stage.hh in opt/ros/$ROS_DISTRO/include/Stage-4.1/"
   # Check if stage.hh exists
-  if [ ! -f /opt/ros/kinetic/include/Stage-4.1/stage.hh ]
+  if [ ! -f /opt/ros/$ROS_DISTRO/include/Stage-4.1/stage.hh ]
   then
     echo "ERROR: Could not find the original stage.hh file!" 
     echo "Bugfix could not be applied!"
     return
   fi
-  sudo cp bugfix/stage.hh /opt/ros/kinetic/include/Stage-4.1/stage.hh
+  sudo cp bugfix/stage.hh /opt/ros/$ROS_DISTRO/include/Stage-4.1/stage.hh
 
-  echo "Fixing joint.hpp in opt/ros/kinetic/include/kdl/"
+  echo "Fixing joint.hpp in opt/ros/$ROS_DISTRO/include/kdl/"
   # Check if joint.hpp exists
-  if [ ! -f /opt/ros/kinetic/include/kdl/joint.hpp ]
+  if [ ! -f /opt/ros/$ROS_DISTRO/include/kdl/joint.hpp ]
   then
     echo "ERROR: Could not find the original joint.hpp file!" 
     echo "Bugfix could not be applied!"
     return
   fi
-  sudo cp bugfix/joint.hpp /opt/ros/kinetic/include/kdl/joint.hpp
+  sudo cp bugfix/joint.hpp /opt/ros/$ROS_DISTRO/include/kdl/joint.hpp
   echo "Applied bugfix."
 }
 
 function create_catkin_workspace {
-  source /opt/ros/kinetic/setup.bash
+  source /opt/ros/$ROS_DISTRO/setup.bash
   echo
   echo "Initializing catkin workspace"
   cd $HOME
