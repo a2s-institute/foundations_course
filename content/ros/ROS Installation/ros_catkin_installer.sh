@@ -90,6 +90,9 @@ function ros_install {
     install_pkg ros-$ROS_DISTRO-$pkg
   done
 
+  # Make sure the .ros folder is owned by the user instead of root
+  sudo chown -R $SUDO_USER:$SUDO_USER ~/.ros/
+
   # Initialize rosdep
   sudo rosdep init
   rosdep update
@@ -189,6 +192,8 @@ function create_catkin_workspace {
     catkin build
     echo "Sourcing the workspace"
     source devel/setup.bash
+    # Make sure the workspace is owned by the user instead of root
+    sudo chown -R $SUDO_USER:$SUDO_USER ~/$WORKSPACE/
     catkin_bashrc $WORKSPACE
   fi
 }
