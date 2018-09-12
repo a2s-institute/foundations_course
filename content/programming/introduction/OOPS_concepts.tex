@@ -1,0 +1,223 @@
+\documentclass[10pt]{beamer}
+\usetheme{Copenhagen}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+	belowcaptionskip=1\baselineskip,
+	frame=L,
+	xleftmargin=\parindent,
+	language=[x86masm]Assembler,
+	basicstyle=\footnotesize\ttfamily,
+	commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+\usepackage{lipsum}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,    
+	urlcolor=blue
+}
+\author{Supriya Vadiraj}
+
+\title{Object Oriented Programming Concepts}
+
+
+
+\logo{\includegraphics[scale=0.13]{misc/hbrslogo.png}}
+
+\institute{University of Applied Sciences Bonn-Rhein-Sieg}
+
+
+\subject{Foundation Course 2018}
+
+\setbeamercovered{transparent}
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}{Introduction}
+		\section{Introduction}
+		\begin{itemize}
+			\item Writing object-oriented programs involves creating classes.
+			\item Creating objects from those classes.
+			\item Creating applications, which are stand-alone executable programs that use those objects. 
+		\end{itemize}
+	\end{frame}
+%\begin{frame}
+		
+%	\includegraphics[scale=0.5]{images/object_class.png}
+%\end{frame}
+	\begin{frame}{Features in OOPS}
+		\begin{itemize}
+			\item[1] Encapsulation
+			
+			\item[2] Inheritance
+			
+			\item[3] Abstraction
+			
+			\item[4] Polymorphism
+\end{itemize}		
+	\end{frame}
+	
+	\begin{frame}{Benifits of OOPS}
+		\begin{itemize}
+			\item Code reuse - programmer efficiency
+			
+			\item Encapsulation -code quality, ease of maintenance
+			
+			\item Inheritance - efficiency, extensibility.
+			
+			
+			\item Polymorphism - Robustness of code
+		\end{itemize}
+	\end{frame}
+		\begin{frame}{Object Oriented Principles - Class and Objects}
+			\section{Object Oriented Principles}
+			\begin{itemize}
+				\item A class is a user defined blueprint or prototype from which objects are created.  
+				\item Object : It is a basic unit of Object Oriented Programming and represents the real life entities.  A typical Java program creates many objects, which as you know, interact by invoking methods. 
+			\end{itemize}
+		\end{frame}
+		\begin{frame}
+			\centering
+			\includegraphics[scale=0.4]{images/class_obj.PNG}
+		\end{frame}
+		\begin{frame}{Object Oriented Principles -Inheritance}
+			\section{Inheritance}
+			\subsection{Inheritance}
+			Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. With the help of inheritance information are managed in a hierarchical manner.\\
+
+			Example: 
+			\begin{columns}[T,onlytextwidth]
+				\begin{column}{.4\textwidth}
+					\begin{minipage}{\textwidth}
+						\lstinputlisting[language=Java, firstline=3,lastline=9]{code/Parent.java}
+					\end{minipage}
+				\end{column}
+				\begin{column}{.4\textwidth}
+					\begin{minipage}{\textwidth}
+						\lstinputlisting[language=Java, firstline=3,lastline=9]{code/Child.java}
+					\end{minipage}			
+				\end{column}
+			\end{columns}
+			
+			What does that mean? Among other:
+			\begin{itemize}
+				\item{Child inherits all properties and skills.}
+				\item{Redundancies can be avoided.}
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Advantages of Inheritance}
+			\begin{itemize}
+				\item \textbf{Reusability}: Inheritance helps the code to be reused in many situations.
+				\item Using the concept of inheritance the programmer can create as many derived classes from the base class as needed while adding new and specific features to the derived class as needed.
+				\item Also the structure of the program is maintained reducing time and effort of the programmer.
+			\end{itemize}
+		\end{frame}
+		
+				\begin{frame}{Object Oriented Principles -Polymorphism}
+					\section{Polymorphism}
+					\subsection{Polymorphism}
+					\begin{itemize}
+						\item Polymorphism in allows subclasses of a class to define their own unique behaviors and yet share some of the same functionality of the parent class.
+					\begin{itemize}
+						\item compile-time polymorphism. 
+						\item runtime polymorphism.
+					\end{itemize} 
+					\item The classic example is the Shape class and all the classes that can inherit from it (square, circle, dodecahedron, irregular polygon, splat and so on).
+				\end{itemize}
+				\end{frame}
+				\begin{frame}
+					
+				\lstinputlisting[language=python, firstline=1,lastline=17]{code/polymorphism.py}
+				
+
+				\end{frame}
+				\begin{frame}
+					
+					\lstinputlisting[language=python, firstline=18,lastline=31]{code/polymorphism.py}
+					
+					
+				\end{frame}	
+%				\begin{frame}{Object Oriented Principles - Abstraction}
+%					\section{Abstraction}
+%					
+%					\subsection{Abstract Classes}
+%					Abstract classes represent classes that cannot be instantiated. However other classes can inherit from abstract classes and then be instantiated with the properties of the abstract class. It is used as a process of hiding the implementation from the user.\\
+%					
+%					Facts about abstract classes:
+%					\begin{itemize}
+%						\item{Contain the word \textit{abstract} in their declaration.}
+%						\item{May or may not contain \textit{abstract methods}(=methods whose body still needs to be defined by the heirs).}
+%						\item{If a class has at least one abstract method it needs to be declared abstract.}
+%					\end{itemize}
+%					\end{frame}
+%					
+%				\begin{frame}
+%					\lstinputlisting[language=Java]{code/Bike.java}
+%				\end{frame}
+	\begin{frame}{Object Oriented Principles - Encapsulation}
+		\section{Encapsulation}
+		\subsection{Encapsulation}
+		\begin{itemize}
+			\item Encapsulation is all about wrapping variables and methods in one single unit.
+			%\item It enables the important concept of data hiding.
+			\item Encapsulation is also known as data hiding. Why? 
+			\item Because, when you design your class you may (and you should) make your variables hidden from other classes and provide methods to manipulate the data instead. 
+			\item Your class is designed as a black-box. 
+			\item You have access to several methods from outside (classes) and a return type for each of those methods. 
+			\item Objects can hold crucial data for your application and you do not want that data to be changeable from anywhere in the code.
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+			\lstinputlisting[language=python ]{code/encapsulation.py}
+	\end{frame}
+	\begin{frame}{References}
+		\begin{itemize}
+			\item https://javatutorial.net
+			\item https://pythonspot.com
+			\item Image source: 
+			\href{https://www.google.de/search?q=objects+and+classes+in+java&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjaifOUnLbdAhWCJFAKHfriDX4Q\_AUICygC&biw=1301&bih=678#imgrc=OMVi4MfR9G1omM:}{Objects and Classes} 	
+			\item https://www.geeksforgeeks.org/classes-objects-java/
+		\end{itemize}
+	\end{frame}
+%%	\begin{frame}{Object Oriented Principles - Encapsulation}
+%		\section{Object Oriented Principles Encapsulation}
+%	\includegraphics[scale=0.38]{images/encapsuln.png}
+%	
+%	\end{frame}
+%
+%	\begin{frame}{Object Oriented Principles - Encapsulation}
+%				\section{Object Oriented Principles Encapsulation}
+%			\includegraphics[scale=0.5]{images/encapsuln1.png}
+%		\end{frame}
+		
+\end{document}
