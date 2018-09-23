@@ -11,7 +11,7 @@ $ chmod +x ros_catkin_installer.sh
 ```
 Then execute as
 ```
-$ sudo ./ros_catkin_installer.sh
+$ ./ros_catkin_installer.sh
 ```
 
 ## Installation menu
