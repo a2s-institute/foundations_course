@@ -153,7 +153,7 @@ function create_catkin_workspace {
     mkdir src
     cd src
     cd ..
-    catkin init
+    catkin config --extend /opt/ros/$ROS_DISTRO
     catkin build
     echo "Sourcing the workspace"
     source devel/setup.bash
