@@ -90,9 +90,6 @@ function ros_install {
     install_pkg ros-$ROS_DISTRO-$pkg
   done
 
-  # Make sure the .ros folder is owned by the user instead of root
-  sudo chown -R $SUDO_USER:$SUDO_USER ~/.ros/
-
   # Initialize rosdep
   sudo rosdep init
   rosdep update
@@ -108,38 +105,6 @@ function ros_install {
   done
 
   source /opt/ros/kinetic/setup.bash 
-}
-
-function ros_bashrc {
-  # Add ROS to the bashrc in the home folder and create a backup of the bashrc
-  echo "Adding ROS to your bashrc"
-  # Check if it is already in the bashrc
-  if grep -q 'source /opt/ros/$ROS_DISTRO/setup.bash' ~/.bashrc; then
-    echo "ROS $ROS_DISTRO is already present in your bashrc."
-    echo "Nothing to do here"
-    return
-  fi
-  echo "Please choose if you want to add ROS to your bashrc."
-  echo "If you choose No you have to run the following in every terminal you want to use ROS in."
-  echo "source /opt/ros/$ROS_DISTRO/setup.bash"
-  PS3='Would you like to add ROS to your bashrc?: '
-  options=("Yes" "No")
-  select opt in "${options[@]}"
-  do
-  case $opt in
-    "Yes")
-      echo "Adding ROS to .bashrc. A backup file is created as .bashrc_before_ros"
-      cp ~/.bashrc ~/.bashrc_before_ros
-      echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
-      echo "Sourcing .bashrc"
-      source ~/.bashrc
-      break
-      ;;
-    "No")
-      break
-      ;;
-    esac
-  done
 }
 
 function ros_amr_bugfix {
@@ -192,8 +157,6 @@ function create_catkin_workspace {
     catkin build
     echo "Sourcing the workspace"
     source devel/setup.bash
-    # Make sure the workspace is owned by the user instead of root
-    sudo chown -R $SUDO_USER:$SUDO_USER ~/$WORKSPACE/
     catkin_bashrc $WORKSPACE
   fi
 }
@@ -243,7 +206,6 @@ function main_menu {
     "Install everything")
       update_keys
       ros_install
-      ros_bashrc
       ros_amr_bugfix
       create_catkin_workspace
       echo
@@ -254,7 +216,6 @@ function main_menu {
     "Install ROS")
       update_keys
       ros_install
-      ros_bashrc
       main_menu
       break
       ;;
@@ -275,10 +236,5 @@ function main_menu {
     esac
   done
 }
-
-if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "Please execute this script as sudo!"
-    exit
-fi
 
 main_menu
