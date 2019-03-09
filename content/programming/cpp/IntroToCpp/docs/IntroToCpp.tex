@@ -1,0 +1,471 @@
+\documentclass[aspectratio=169]{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usepackage{multimedia}
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{url}       % `\url
+\usepackage{listings}  % Code listings
+\usepackage[T1]{fontenc}
+\usepackage{marvosym}
+\usepackage{float}
+\usepackage{multirow}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+\usepackage{theme/beamerthemehbrs}
+
+\author[Chavan]{Sushant Vijay Chavan}
+\title{Introduction to C++}
+\subtitle{MAS Foundations Course SS-19}
+\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\date{March 15, 2019}
+\subject{Test beamer}
+
+% \thirdpartylogo{path/to/your/image}
+
+
+\begin{document}
+{
+\begin{frame}
+\titlepage
+\end{frame}
+}
+
+\begin{frame}{About me}
+	\begin{itemize}
+		\item I come from a small city called Belgaum in India.
+		\item Completed by B.E. in Electronics and Communications in 2013.
+		\item Worked at Robert Bosch, India as a C++ and OpenGL developer for rendering navigation maps for in-vehicle infotainment systems for 4+ years.
+		\item Joined the MAS course at H-BRS during the summer semester 2018.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What about you?}
+	\begin{itemize}
+		\item What is your name?
+		\item Where do you come from?
+		\item In what field did you complete your bachelors?
+		\item Do you have any experience with basic programming? Which languages?
+		\item Do you have any experience with C++?
+		\item Do you have any work experience?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{About the content}
+	\begin{itemize}
+		\item This contents of these slides are based on a very good tutorial available at \href{https://www.tutorialspoint.com/cplusplus/index.htm}{Tutorials point}
+		\item We cover the following basic topics of C++ today:
+		\begin{itemize}
+			\item Setup of the development environment.
+			\item A "hello world" program to demonstrate the basic syntax.
+			\item Variable declarations and basic data types provided by C++.
+			\item Basic operators (Arithmetic, Relational, Logical, Assignment and Conditional)
+			\item Decision making (if-else and switch) and looping (for, while and do-while)
+			\item Using functions
+			\item Pointers and references
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Topics for Advanced C++ (next session)}
+	\begin{itemize}
+		\item Dynamic memory allocation.
+		\item Writing basic classes and crating objects.
+		\item Using object oriented programming concepts like Inheritance, Overloading, Polymorphism.
+		\item Optional: Using STL (Standard Template Library).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Setting up the development environment}
+%	\framesubtitle{X}
+	\begin{itemize}
+		\item We will use Ubuntu 16.04 for our exercises.
+		\item Check if you have a proper g++ installed on your system using:\\ \verb|g++ --version|
+		\item If you don't have it already, install it using:\\ \verb|sudo apt-get install g++|
+		\item Clone the C++ training repository using: \\ \verb|git clone |
+		\item Test if everything is working fine using: \\ \verb|cd src/testSetup/| \\ \verb|./testBuildSetup.sh| \\ You should get the following message: \textbf{Test successful!}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Hello World!}
+	\begin{itemize}
+		\item A basic C++ code which simply prints \textbf{Hello World} to the console is provided in the \textit{helloWorld} folder.
+		\item Since C++ is a compiled language, every time you make any change to the code, you need to recompile it to see the changes.
+		\item We will use g++ to compile our hello world program. The output will be a binary file (something like a \textit{.exe} file you might have seen on windows) which can be run using the terminal.
+		\item To compile the program, \textit{cd} to the helloWorld directory and use the command: \verb|g++ -o helloWorld helloWorld.cpp|
+		\item Run the compiled program using: \verb|./helloWorld|
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exercise - Self Introduction}
+	\begin{itemize}
+		\item Write a program to print your name and nationality to the screen \textbf{on separate lines}. Hint: Use the Hello World program as an example.
+		\item Create a folder called SelfIntroduction (in linux avoid using spaces in folder or file names like "Self Introduction")
+		\item Create a C++ file called SelfIntroduction.cpp in the newly created folder and write your code in it. \textbf{Do not forget the semicolons after each statement.}
+		\item Compile it using g++ and check your output.
+		\item Output should look like: \\ \verb|Hello, my name is Sushant| \\ \verb|I come from India|
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Variables}
+	\begin{itemize}
+		\item Suppose you want to ask the user of your program to input two integer numbers so that you can display their sum. You will need to store this information somehow in your code. We use variables for this purpose.
+		\item Simply put, a variable is just a name given to a part of the memory (RAM) that we will use to store information.
+		\item C++ provides some basic predefined data types for variables:
+		\begin{itemize}
+			\item \textbf{int} : to store integer values.
+			\item \textbf{char} : to store a \textbf{single} character. For example: \textbf{a}
+			\item \textbf{float} : to store floating point (or fractional) values
+			\item \textbf{double} : to store fractional values with very high precision
+			\item \textbf{bool} : to store binary values (True/False)
+			\item \textbf{void} : to indicate no datatype (we will see more on this when we look at functions)
+		\end{itemize}
+		\item To store strings of character's in C++, we need to include the header called string.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example - Sum of two integers}
+	\begin{itemize}
+		\item cd to the folder \textit{sumOfTwoIntegers}
+		\item Compile and run the provided example.
+		\item Create three more variables in the same file to store the difference, product and fractional part.
+		\item Compute and print the results of the mathematical operations on the input numbers using the \verb|- * and /| operators respectively.
+		\item Use the two inputs as 17 and 3. The output should look like: \\ \verb|Sum of 17 and 3 is: 20| \\ \verb|Difference of 17 and 3 is: 14| \\ \verb|Product of 17 and 3 is: 51| \\ \verb|Division of 17 by 3 is: 5.66667|
+		\item Is the result of your division proper? 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exercise - Print User details}
+	\begin{itemize}
+		\item Write a program to request the user for his first name, last name, nationality and \textbf{year of birth} (not age).
+		\item Compute the user's age using just the current year and year of birth.
+		\item The program should then print the user details as: \verb|Sushant Chavan is a 28 year old Indian|
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Operators}
+	\framesubtitle{Arithmetic}
+	\begin{itemize}
+		\item We already saw 4 arithmetic operators \verb|+, -, * and /| used for addition, subtraction, multiplication and division respectively. There are three more arithmetic operators:
+		\begin{itemize}
+			\item \verb|%| : the modulo operators, used to compute the remainder of a division.
+			\item \verb|++| : increment operator. Increases a variable by 1.
+			\item \verb|--| : decrement operator. Decreases a variable by 1.
+		\end{itemize}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Operators}
+	\framesubtitle{Relational}
+	These operators are used to compare two variables.
+	\begin{itemize}
+		\item \verb|==| : check if two variables are equal. \\For example: \verb|bool result = (num1 == num2);|
+		\item \verb|!=| : check if two variables are not equal.
+		\item \verb|>| : check if left variable is greater than right variable.\\For example: \verb|bool result = (num1 > num2);|
+		\item \verb|<| : check if left variable is less than right variable.
+		\item \verb|>=| : check if left variable is greater than or equal to right variable.
+		\item \verb|<=| : check if left variable is less than or equal to right variable.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Operators}
+	\framesubtitle{Logical}
+	These operators operate on boolean variables or boolean results of operators
+	\begin{itemize}
+		\item \verb|&&| : logical AND operator. This operation returns true if both the input variables to this operator are true.
+		\item || : logical OR operator. This operation returns true if atleast one of the input variables to this operator is true.
+		\item \verb|!| : logical NOT operator. Takes only one input and returns the negation of its value.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Operators}
+	\framesubtitle{Comments}
+	\begin{itemize}
+		\item There are many more types of operators available but we cannot go through all of them due to time constraints.
+		\item Please \href{https://www.tutorialspoint.com/cplusplus/cpp_operators.htm}{click here} to get a better understanding of them.
+		\item Consider the below example where multiple operators are used in a single expression.\\ \verb|int x = a + b * 25 + c / 2| \\ Here the decision of applying the operators in the right order is done using the operator precedence.
+		\item The link mentioned in the previous bullet point also describes this.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example - Operators}
+	\begin{itemize}
+		\item A sample code to demonstrate some operators is available in the folder \textit{operators}.
+		\item This is a very brief example. It is highly recommended that you try many other combinations in your free time.
+		\item Try out how operator precedence affects evaluation of the expressions.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Decision making}
+	\begin{itemize}
+		\item Used to execute a part of the code only if a certain condition is met.
+		\item C++ provides 3 types of decision making constructs:
+		\begin{itemize}
+			\item The simple \textit{if} statement
+			\item The \textit{if-else} statement
+			\item The \textit{switch} statement
+		\end{itemize}
+		\item The if and if-else statements use a boolean expression to determine if a block of code should be executed.
+		\item The switch statement on the other hand compares a variable against a list of values.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Decision making - Example}
+	\begin{itemize}
+		\item cd to the directory \textit{decisionMaking}
+		\item There are two examples to mimic the voting process of an election: one with an if-else and another that uses a switch instead of an if-else.
+		\item In the example for if-else, 
+		\begin{itemize}
+			\item What is \textbf{const} used for?
+			\item Until when do you think the variable partyID is valid? Or in other words what is the \textbf{scope of the variable} partyID?
+		\end{itemize}
+		\item In the example for switch, 
+		\begin{itemize}
+			\item Is it possible to replace the outer if-else statement with a switch statement?
+			\item What will happen if we remove the break keywords?
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Decision making - Exercise}
+	\begin{itemize}
+		\item Write a simple program to check if a visa is needed to enter Germany based on the user's nationality.
+		\item Assume that only citizens of USA, Japan and UK are exempt from requiring a Visa. (keep in mind when entering the user's nationality that C++ is case sensitive. Therefore 'Japan' is different than 'japan').
+		\item The program should print \verb|Visa Required| or \verb|Visa Not Required| based on the nationality of the user.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Looping}
+	\begin{itemize}
+		\item Facilitates execution of a piece of code multiple times.
+		\item Keeps repeating the code block until a control condition becomes false.
+		\item There are three basic types of loops:
+		\begin{itemize}
+			\item The \textit{for} loop
+			\item The \textit{while} loop
+			\item The \textit{do-while} loop
+		\end{itemize}
+		\item Depending on the type of loop used, either at the start of each iteration or at the end of it, the control expression is evaluated and checked if it is true.
+		\item If the expression evaluates to true, the piece of code is repeated again. Otherwise, the execution is stopped and the statement that follows the loop is executed.
+		\item It is possible to loop forever (called an \textbf{infinite loop}) if the control statement never evaluates to false.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Looping}
+	\framesubtitle{Control statements}
+	\begin{itemize}
+		\item We have two very common control statements used in conjunction with loops:
+		\begin{itemize}
+			\item The \textbf{break} statement.
+			\begin{itemize}
+				\item This will immediately terminate the loop unconditionally.
+				\item We do not check if the control expression evaluates to true or false. 
+				\item All statements in of the loop code following the break statement will be skipped.
+			\end{itemize}
+			\item The \textbf{continue} statement.
+			\begin{itemize}
+				\item This control statement does not stop the loop instantaneously.
+				\item It is used to stop just the current iteration of the loop.
+				\item All statements of the loop body that follow this statement will be skipped for this iteration.
+				\item The loop however continues with its next iteration.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Looping - Examples}
+%	\framesubtitle{for loop}
+	\begin{itemize}
+		\item for loop:
+		\begin{itemize}
+			\item cd to the folder \textit{loops} and open the file \textit{forloop.cpp}
+			\item How can we modify this to compute sum of only even numbers?
+			\item How can we modify this code to stop execution if the sum exceeds 1000?
+		\end{itemize}
+		\item while loop : open the file \textit{whileloop.cpp}
+		\item do-while loop : open the file \textit{dowhileloop.cpp}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Looping - Exercise}
+	\begin{itemize}
+		\item Modify the previous program that you wrote to check the Visa requirements for Germany to use loops. Choose any loop type which you think is the best for this use-case.
+		\item The program should not stop after each input and should start over until the user enters \verb|END| as an input.
+		\item The output should look something like: \\ \verb|Enter your nationality: Japan| \\ \verb|Visa Not Required.| \\ $\vdots$\\ \verb|Enter your nationality: China| \\ \verb|Visa Required.| \\ \verb|Enter your nationality: END|
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+	\begin{itemize}
+		\item It is a group of statements that perform a specific task. For example, determining the maximum of two numbers.
+		\item Typically the code is split into many logical functions which helps in easier understanding of the code and better maintainability.
+		\item The below pesudo-code shows the typical structure of a function
+		\item The first line of the function is called the function signature.
+	\end{itemize}
+	\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+	}
+	\begin{lstlisting}
+return_type function_name( parameter list )
+{
+   	body of the function
+}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+	\framesubtitle{Example}
+		\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                showstringspaces=false
+	}
+	\begin{lstlisting}
+int add(int a, int b) // This is a function
+{
+    int sum = a + b;
+    return sum;
+}
+int main()
+{
+    int num1 = 10;
+    int num2 = 20;
+    int sum = add(num1, num2); // This is a function call
+    cout << "Sum = " << sum << endl;
+    return 0;
+}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Functions - Example}
+	\begin{itemize}
+		\item cd to the \textit{functions} directory and open the file \textit{maxValue.cpp}
+		\item Comments:
+		\begin{itemize}
+			\item It is possible to define more than one function with the same function name as long as the parameters differ.
+			\item It is possible to call a function inside another function. Example the max of two number is called inside the function max of three numbers.
+			\item It is not necessary to take the result of a function into a variable.
+			\item It is also possible to call a function within its own body. This is called a recursive function.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+	\framesubtitle{What is the result of this code?}
+	
+			\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                showstringspaces=false
+	}
+	\begin{lstlisting}
+int swap(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    int num1 = 10, num2 = 20;
+    swap(num1, num2);
+    cout << "Swapped numbers: " << num1 << " " << num2 << endl;
+    return 0;
+}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+	\framesubtitle{Pass by value, reference or pointer}
+	\begin{itemize}
+		\item There are three ways in which a variable can be passed as a parameter to a function: 
+		\begin{enumerate}
+			\item Pass by value. \\For example: \verb|int swap(int a, int b)|
+			\item Pass by reference. \\For example: \verb|int swap(int& a, int& b)|
+			\item Pass by pointer. \\For example: \verb|int swap(int* a, int* b)|
+		\end{enumerate}
+		\item \textit{Pass by value} \textbf{creates a copy} of the values that are passed to it and therefore any changes to these variables do not affect the original variables that were used in the function call.
+		\item The other two allow modifying the original variables used during the function call.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Functions - Example}
+	\framesubtitle{Swapping two numbers}
+	\begin{itemize}
+		\item A reference in the simplest terms means giving the memory location associated with a variable another name (like an alias).
+		\item Therefore, since there is no copy created, any changes done to the alias will reflect in the original variable too.
+		\item We use the \verb|&| symbol after a datatype to indicate that it is a reference (or alias) to another variable. \\For example: \verb|int& num1Alias;|
+		\item \textbf{Question:} How can you return more than one return value from a function?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Functions - Exercise}
+	\begin{itemize}
+		\item Write a simple calculator program that can add, subtract, multiply and divide.
+		\item Each of these operations must be computed in a different function.
+		\item Ask the user to input two integers and then ask for the choice of operation he wants to perform.
+		\item Then call the appropriate function written by you based on the user's choice of operation and display the result.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Pointers}
+	\begin{itemize}
+		\item They simply represent the address in the memory where the variable is stored.
+		\item For example, every shopping mall has an address. And who ever knows the address can access this mall.
+		\item A pointer datatype is identified by pre-pending any datatype with a \verb|*| symbol. \\For example: \verb|int* num1Ptr;|
+		\item Since it is an address, we need to first go to the memory location to access the data stored there. This is called de-referencing.
+		\item We use the \verb|*| symbol to dereference a pointer and access its data. For example:\\ \verb|int num1 = 10;| \\ \verb|int* num1Ptr = &num1; // & is used to get the address of the variable| \\ \verb|cout << *num1Ptr << endl;|
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Pointers - Example}
+	\begin{itemize}
+		\item cd to \textit{pointers} directory.
+		\item There are two example's for pointers.
+		\item The \textit{simpleExample.cpp} demonstrates how to initialize and use pointers.
+		\item The \textit{userDetails.cpp} demonstrates how parameters can be passed by pointers to functions. It also shows how to set default values for function parameters.
+	\end{itemize}
+\end{frame}
+
+\end{document}
