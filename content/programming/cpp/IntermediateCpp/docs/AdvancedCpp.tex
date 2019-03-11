@@ -1,0 +1,263 @@
+\documentclass[aspectratio=169]{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usepackage{multimedia}
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{url}       % `\url
+\usepackage{listings}  % Code listings
+\usepackage[T1]{fontenc}
+\usepackage{marvosym}
+\usepackage{float}
+\usepackage{multirow}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+\usepackage{theme/beamerthemehbrs}
+
+\author[Chavan]{Sushant Vijay Chavan}
+\title{Intermediate C++}
+\subtitle{MAS Foundations Course SS-19}
+\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\date{March 19, 2019}
+\subject{Test beamer}
+
+% \thirdpartylogo{path/to/your/image}
+
+
+\begin{document}
+{
+\begin{frame}
+\titlepage
+\end{frame}
+}
+
+\begin{frame}{Topics for today}
+	We cover the following topics of C++ today:
+		\begin{itemize}
+			\item Arrays in C++
+			\item Dynamic memory allocation.
+			\item Writing basic classes and creating objects.
+			\item Using object oriented programming concepts like Inheritance, Polymorphism.
+			\item Optional: Using STL (Standard Template Library).
+		\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays}
+	\begin{itemize}
+		\item Arrays help in maintaining lists of elements of the same datatype.
+		\item Helps us in writing compact and organized code.
+		\item A syntax for creating an array involves using the \verb|[]| after the name of the variable. For example: \\ \verb|int costsOfProducts[5];|
+		\item Here, the number within \verb|[]| represents the size (number of elements) of the array.
+		\item After creating an array, any element of the array can be accessed using the \verb|[]| operator as shown below. \\ \verb|cout << costsOfProducts[2] << endl; // print cost of the 3rd product.|
+		\item  \textbf{The index of elements always starts from 0}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays - Example/Exercise}
+	\begin{itemize}
+		\item cd to the folder \textit{arrays}.
+		\item The program \textit{arrays.cpp} shows a simple example of creating arrays of a few basic datatypes.
+		\item The program \textit{arraysWithFuctions.cpp} shows an example of how to use arrays with functions.
+		\item \textbf{A function accepts an array as a pointer.}
+		\item \textit{Exercise:} Extend this program to initialize a character array with alphabets starting at \verb|J| of \textbf{size 10}. Write a new function to print a char array and use it to print the array you created.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Creating and returning arrays from a function}
+	\begin{itemize}
+		\item In the directory \textit{arrays}, compile and run the program \textit{returnArraysFromFunctions.cpp}.
+		\item What is the output?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Creating and returning arrays from a function}
+	\framesubtitle{Need for Dynamic Memory Allocation}
+	\begin{itemize}
+		\item The memory (RAM) is divided into different segments and two important segments for writing a program are the \textbf{stack} and the \textbf{heap}.
+		\item The segmentation fault in the previous program occurs because the array inside the function was created on the \textbf{stack} and as soon as the function completed, the memory allocated to the array was cleared.
+		\item All local variables are created on the stack and are destroyed when they go out of scope.
+		\item Heap is a large segment of memory where we can allocate any desired chunk of it for our use using the \textbf{new} operator.
+		\item The memory allocated on heap is not deleted after the function goes out of scope. Only a \textbf{delete} operator can clear the memory.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Dynamic Memory Allocation - Example/Exercise}
+	\begin{itemize}
+		\item cd to the folder \textit{dma}.
+		\item Open the program \textit{arraysWithDMA.cpp}.
+		\item Compile and run it.
+		\item \textit{Exercise:} Extend this program by adding a function to generate your name using DMA and another to print the generated name.
+		\begin{itemize}
+			\item The name generation function will not require any inputs.
+			\item Initialize each element of the array with a character from your name.
+			\item The function to print the array requires two inputs: a pointer to your array and the size of the array.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Dynamic Memory Allocation}
+	\framesubtitle{Memory leaks}
+	\begin{itemize}
+		\item As Uncle Ben tells SpiderMan, \textit{With great power comes great responsibility}.
+		\item Since you created the memory at your own discretion, it is your responsibility to clear it when you are done using it.
+		\item Otherwise, you will keep allocating free memory until there comes a time when you run out of memory and no new allocations can be done.
+		\item In such a case, the program simply terminates and sometimes it is very difficult to debug why the program terminated.
+		\item Try out the example in the program \textit{memoryLeak.cpp}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Object Oriented Programming}
+	\framesubtitle{Basics}
+	\begin{itemize}
+		\item C++ was developed with the primary aim of adding features to support object oriented programming (OOP) concepts to the C language.
+		\item A \textbf{class} in OOP represents a template for creating an object. It defines all the properties and behaviors of every object that can be created using it. \\For example, a \textit{student} class which defines the properties such as name, student ID etc. and behaviors such as study, play, etc.
+		\item An \textbf{object} is an instance of a class. \\For example, we can create multiple instances of the above \textit{student} class corresponding to different students belonging to a university.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Class in C++}
+	\framesubtitle{Format}	
+	\lstset{language=C++,
+                basicstyle=\tiny,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                showstringspaces=false
+	}
+	\begin{lstlisting}
+// The class keywork is used to declare the start of a class definition
+class Student {
+  public:
+    Student(string name, int ID) // This is a constructor. It is used to initialize the properties of the class
+    {
+        name_ = name;
+        studentID_ = ID;
+    }
+    
+    ~Student() // This is a destructor. It is used to perform any actions during the destruction of the object.
+    {
+    }
+
+    void play() // This is a method (behaviors)
+    {
+        cout << "Student " << name_ << " is playing." << endl;
+    }
+
+  private:
+    // These are the member variables (properties) of this class
+    string name_;
+    int studentID_;
+}; // Class definitions end with a semicolon.
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Class - Example/Exercise}
+	\begin{itemize}
+		\item An example is provided in the folder \textit{studentInfo}
+		\item \textit{Exercise:} Write a program with a Bird class.
+		\item The class should have the following properties: name, color, abilityToFly (a boolean).
+		\item The class should have two methods (or behaviors): fly() and sing().
+		\item When the method fly is called, we first check if the bird can fly and then print if that the bird is flying. Otherwise print the bird cannot fly. For example: \verb|The Eagle is flying | or \verb| A Penguin cannot fly|.
+		\item When the method sing is called, simply print out the the brd is singing. For example: \verb|The Nightingale is singing|.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Inheritance in C++}
+	\begin{itemize}
+		\item Inheritance defines an \textbf{is-a} relation between classes.
+		\item A class can inherit properties from another class during its class declaration. For example,\\ \verb|class Student : public Person|
+		\item The access specifier determines the mode of inheritance.
+		\item This is followed by the name of the class from which we need inherit methods and variables.
+		\item Open the example \textit{animals.cpp} in the folder \textit{inheritance}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Polymorphism in C++}
+	\begin{itemize}
+		\item There are two type of polymorphisms: 
+		\begin{itemize}
+			\item \textbf{Static} - \textit{Function overloading} (function with same name, but different parameters in the same/derived class). For example:\\ \verb|int sum(int a, int b) { return a + b; }| \\ \verb|int sum(float a, float b) { return a + b; }|
+			\item \textbf{Dynamic} - \textit{Function overriding} (function with same name and same parameters in the derived class). For example, assume class Bird derives from Animal: \\ In class Animal \verb|void move() { cout << "Animal runs" << endl; }| \\ In class Bird, \verb|void move() { cout << "Bird flies" << endl; }| \\ \textit{Notice that the move method is doing different things in the base and derived classes}.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Polymorphism in C++ - Examples/Exercise}
+	\begin{itemize}
+		\item cd to the folder \textit{polymorphism}.
+		\item The program in \textit{functionOverloading.cpp} demonstrates the static polymorphism.
+		\item The program in \textit{functionOverriding.cpp} demonstrates the dynamic polymorphism.
+		\item \textit{Exercise:} Write a simple calculator class that can add and subtract numbers. The calculator provides a \textit{feedInput} method to feed integers or floats to the class.
+		\item There should be two separate functions to add (one to add integers and another for floats). Similarly for subtraction too.
+		\item Derive from this class and write an inverse calculator which adds when we call the subtract methods and vice-versa.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Polymorphism in C++}
+	\framesubtitle{The need for virtual functions}
+	\begin{itemize}
+		\item The inheritance from classes can result in a long chain and it will be difficult for us to keep track of all the different classes that are a part of the chain.
+		\item We desire to have a set of basic functions that are applicable to all the derived classes. The derived classes can override the functions as per their wish.
+		\item With this structure, it should be possible to just use the base class name as the datatype that can represent all the derived classes too.
+		\item Virtual functions help us achieve this.
+		\item Open the file \textit{animals.cpp} from the folder \textit{virtualFunctions}.
+		\item What happens if you do not make the \textit{die()} function virtual, but still overload it in the \textit{Phoenix} class?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Virtual functions - Exercise}
+	\begin{itemize}
+		\item Write a simple program to compute the area and perimeter of different types of Quad's.
+		\item Use a base class called \textit{Quad} which has two pure virtual methods called \textit{computeArea()} and \textit{computePerimeter()}. 
+		\item Derive two classes called \textit{Square} and \textit{Rectangle} and implement the pure virtual functions of the \textit{Quad} class.
+		\item Create objects of the Square and Rectangle classes and store them using the Quad class pointer.
+		\item Test if your code compute's the correct area and perimeter.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{STL}
+	\begin{itemize}
+		\item C++ provides standard libraries that implement some basic data structure's. These are called the standard template libraries (or STL).
+		\item Some important data-structure's often used are:
+		\begin{itemize}
+			\item \href{http://www.cplusplus.com/reference/vector/vector/}{vector} - An alternative to the C++ arrays
+			\item \href{http://www.cplusplus.com/reference/map/map/}{map} - This stores data as a key-value pair.
+			\item \href{http://www.cplusplus.com/reference/set/set/}{set} - Similar to vector, but only stores unique values.
+		\end{itemize}
+		\item These libraries provide a set of utility functions that help in managing large data structures with ease.
+		\item Since STL's are used widely in C++, students are encouraged to learn them and understand how to use atleast the three structures mentioned above.
+	\end{itemize}
+\end{frame}
+
+\end{document}
