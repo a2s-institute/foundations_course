@@ -18,6 +18,14 @@ In case you need any help installing any of this, please ask your study buddy or
 
 *   [texMaker](http://www.xm1math.net/texmaker/index.html)
 
+*   TeXstudio
+
+    ```
+    sudo add-apt-repository ppa:sunderme/texstudio
+    sudo apt-get update
+    sudo apt-get install texstudio
+    ```
+
 *   python 2.7
 
 *   Jupyter notebooks
@@ -25,6 +33,10 @@ In case you need any help installing any of this, please ask your study buddy or
     ```
     sudo pip install jupyter
     ```
+
+*   [Visual Studio Code](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
+
+*   [PyCharm EDU](https://www.jetbrains.com/pycharm-edu/download/#section=linux)
 
 * git
 
