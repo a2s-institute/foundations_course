@@ -26,7 +26,7 @@ In case you need any help installing any of this, please ask your study buddy or
     sudo apt-get install texstudio
     ```
 
-*   python 2.7
+*   python 2.7 (Already installed with Ubuntu 16)
 
 *   Jupyter notebooks
 
