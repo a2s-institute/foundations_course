@@ -16,7 +16,7 @@ $ ./ros_catkin_installer.sh
 
 ## Installation menu
 
-You can choose between four options when executing the script (choose option __4__ if you don't have ROS yet):
+You can choose between four options when executing the script (choose "Install everything" option if you don't have ROS yet):
 
 ### 1. Install ROS
 
