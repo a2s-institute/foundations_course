@@ -1,4 +1,8 @@
 # ROS 
-ROS is a collection of libraries and tools which you can use for developing software applications for robots. ROS stands for Robot Operating System.
+ROS stands for Robot Operating System, is a collection of libraries and tools which you can use for developing software applications for robots. These libraries and tools that comprises ROS are installed on top of Ubuntu, they are released as distributions. We will be using ROS Kinetic which as a long time support (LTS) until April, 2021.
+
+:warning:  Please make sure you have installed Ubuntu 16. As ROS Kinetic is olny compatible with it.
+
+ROS is installed on top of Ubuntu, 
 
 In this folder, there are installation instructions to setup ROS, and the material that will be covered during ROS sessions of the foundtion course.
