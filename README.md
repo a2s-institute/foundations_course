@@ -8,7 +8,7 @@ In case you need any help installing any of this, please ask your study buddy or
 
 ### Software
 *   [Ubuntu 16.04](http://releases.ubuntu.com/16.04.6/)
-*   [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
+*   [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu). Installation instructions can be found [here](https://github.com/hasauino/foundations_course/tree/master/content/ros/ROS%20Installation)
 *   LaTeX
 
     ```
