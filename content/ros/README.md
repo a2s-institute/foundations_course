@@ -3,6 +3,4 @@ ROS stands for Robot Operating System, is a collection of libraries and tools wh
 
 :warning:  Please make sure you have installed Ubuntu 16. As ROS Kinetic is olny compatible with it.
 
-ROS is installed on top of Ubuntu, 
-
 In this folder, there are installation instructions to setup ROS, and the material that will be covered during ROS sessions of the foundtion course.
