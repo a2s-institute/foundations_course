@@ -29,7 +29,7 @@ This will install the following packages:
 * Python PySide (needed for GUI elements)
 * Gnuplot (for plotting graphs)
 
-After this it will ask you whether you want to add the command to source ```setup.bash``` in  your ```.bashrc``` file. Choose "Yes" unless you have more than one ROS distibution and want to manually do this command.
+After this it will ask you whether you want to add the command to source ```setup.bash``` in  your ```.bashrc``` file ([what is .bashrc file?]()). Choose "Yes" unless you have more than one ROS distibution and want to manually do this command.
 
 Adding this command is needed so all ROS commands can be used from anywhere in the terminal and for auto-completion of commands. A backup will be created in the file .bashrc_before_ros. 
 
