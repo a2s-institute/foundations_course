@@ -7,7 +7,7 @@
 In case you need any help installing any of this, please ask your study buddy or come to one of the b-it-bots labs (C025 and C069).
 
 ### Software
-*   [Ubuntu 16.04](https://www.ubuntu.com/download/desktop)
+*   [Ubuntu 16.04](http://releases.ubuntu.com/16.04.6/ubuntu-16.04.6-desktop-amd64.iso)
 *   [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 *   LaTeX
 
