@@ -434,7 +434,7 @@ Inside a ROS package:
 
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
-    {\huge 1- Nodes:}
+    {\huge Nodes:}
     \vspace{1cm}
     \begin{itemize}
         \item A ROS node is a process that exchanges data with other processes through ROS network.
@@ -517,7 +517,158 @@ Inside a ROS package:
            \begin{textblock}{5}(9.5,2)
                \includegraphics[width=1.0\linewidth]{figures/object_recognition.jpg}
               \end{textblock}       
-       \end{frame}                     
+       \end{frame} 
+       
+     \begin{frame}[plain]{}
+         \begin{textblock}{5}(5,10)
+             \includegraphics[width=0.5\linewidth]{figures/platform.png}
+         \end{textblock}
+         \begin{textblock}{5}(4,5.2)
+             \includegraphics[width=0.7\linewidth]{figures/robot_arm.png}
+         \end{textblock}
+         \begin{textblock}{5}(5,1.5)
+             \includegraphics[width=0.6\linewidth]{figures/kinect.png}
+         \end{textblock} 
+         \begin{textblock}{5}(9.5,8)
+             \includegraphics[width=1.2\linewidth]{figures/pick_and_place.png}
+         \end{textblock}           
+         \begin{textblock}{5}(0,5)
+             \includegraphics[width=0.6\linewidth]{figures/laptop.png}
+         \end{textblock}                      
+         \begin{textblock}{5}(9.5,2)
+             \includegraphics[width=1.0\linewidth]{figures/object_recognition.jpg}
+         \end{textblock} 
+         
+         \begin{textblock}{5}(0.1,8)
+        \begin{tikzpicture}
+        \node [rectangle,draw,thick,text width=2.0cm,minimum height=0.7cm,
+        text centered,rounded corners, fill=black!10] {\footnotesize ROS master node};
+        \end{tikzpicture}
+         \end{textblock} 
+
+         \begin{textblock}{5}(5.1,3)
+             \begin{tikzpicture}
+             \node [rectangle,draw,thick,text width=2.0cm,minimum height=0.7cm,
+             text centered,rounded corners, fill=black!10] {\footnotesize Camera driver node};
+             \end{tikzpicture}
+            \end{textblock}
+             
+         \begin{textblock}{5}(6.5,7)
+             \begin{tikzpicture}
+             \node [rectangle,draw,thick,text width=2.0cm,minimum height=0.7cm,
+             text centered,rounded corners, fill=black!10] {\footnotesize Manipulator driver node};
+             \end{tikzpicture}
+            \end{textblock}  
+
+         \begin{textblock}{5}(6.5,11)
+             \begin{tikzpicture}
+             \node [rectangle,draw,thick,text width=2.0cm,minimum height=0.7cm,
+             text centered,rounded corners, fill=black!10] {\footnotesize Robot driver node};
+             \end{tikzpicture}
+         \end{textblock} 
+
+         \begin{textblock}{5}(12,4)
+             \begin{tikzpicture}
+             \node [rectangle,draw,thick,text width=2.3cm,minimum height=0.7cm,
+             text centered,rounded corners, fill=black!10] {\footnotesize Object recognition node};
+             \end{tikzpicture}
+           \end{textblock} 
+
+         \begin{textblock}{5}(12.5,13.5)
+             \begin{tikzpicture}
+             \node [rectangle,draw,thick,text width=2.3cm,minimum height=0.7cm,
+             text centered,rounded corners, fill=black!10] {\footnotesize Motion planning nodes};
+             \end{tikzpicture}
+            \end{textblock}                                                                     
+     \end{frame}                            
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Topics and Messages:}
+    \vspace{1cm}
+    \begin{itemize}
+        \item Nodes send data by publishing messages on a named topic.
+        
+        \item Nodes receive data by subscribing to a topic.
+        
+        \item Multiple nodes can publish/subscribe to the same topic.
+        
+        \item The publishing node and subscribing node are not aware of each other's existence. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Master:}
+    \vspace{1cm}
+    \begin{itemize}
+        \item The first process to run in an application that uses ROS, is the Master.
+        
+        \item The ROS Master provides name registration and lookup to the rest
+        of the nodes.
+        
+        \item In a distributed system, we should run the master on one computer,
+        and other remote nodes can find each other by communicating with
+        this master.
+    \end{itemize}
+\end{frame}
+
+     \begin{frame}[plain]{}
+     \centering
+     \includegraphics[width =1.0\linewidth]{figures/master1.png}                                                              
+     \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master2.png}                                                              
+      \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master3.png}                                                              
+        \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master4.png}                                                              
+        \end{frame}
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master5.png}                                                              
+       \end{frame}                             
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Master:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item ROS master is invoked by this command:
+    \end{itemize}
+         \centering
+         \includegraphics[width =0.75\linewidth]{figures/roscore.png}     
+\end{frame}
+
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+    \centering
+     {\huge \textcolor{white}{Example \\ (TurtleSim)} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    
+    Concepts related to ROS computation graph:
+    
+    \begin{enumerate}
+        \item \textcolor{black!40}{Nodes.}
+        \item \textcolor{black!40}{Topics.}
+        \item \textcolor{black!40}{Messages.}
+        \item \textcolor{black!40}{Master.}
+        \item Parameter Server.
+        \item Services.
+        \item Bags.
+    \end{enumerate}
+\end{frame}
+
     
 \subsection{Community level}
 
