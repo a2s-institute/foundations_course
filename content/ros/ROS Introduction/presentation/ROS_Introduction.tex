@@ -250,8 +250,8 @@ child { node [text width=2cm]{Tools and libraries} };
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Features of ROS}
-    \framesubtitle{Language independent}    
+\begin{frame}{Language independent}
+    \framesubtitle{Features of ROS}    
 
     ROS client libraries.  
     
@@ -284,11 +284,60 @@ child { node [text width=2cm]{Tools and libraries} };
 
 \subsection{Distributed and Modular}
 
+\begin{frame}{Distributed and Modular}
+    \framesubtitle{Features of ROS}    
+    \begin{itemize}
+        \item ROS supports running processes on multiple computers connected together through a LAN.
+        \item In a system running ROS, there will be multiple of processes where each process can do
+        certain task. A process can be changed without altering the remaining processes.
+    \end{itemize}
+\end{frame}
+
+
 \subsection{A lot of libraries and tools}
 
-\subsection{Open Source}
+\begin{frame}{A lot of libraries and tools}
+    \framesubtitle{Features of ROS}    
+    \begin{itemize}
+        \item Examples of libraries:
+            \begin{itemize}
+                \item Navigation stack.
+                \item SLAM (gmapping, hector SLAM, etc..).
+                \item Localization (amcl, etc..).
+                \item Motion planning for manipulators (MoveIt)
+                \item Support for popular libraries (OpenCV, PCL).
+            \end{itemize}
+            
+        \item Examples of tools:
+            \begin{itemize}
+                \item RVIZ:3D Visualization.
+                \item ROS bag files: Logging Sensor Data.
+                \item Catkin: A Build System.
+                \item Command line tools.
+            \end{itemize}        
+    \end{itemize}
+\end{frame}
 
-\subsection{Active Community}
+
+\subsection{Bad Thing About ROS}
+
+\begin{frame}{Bad Thing About ROS}
+            \begin{itemize}
+                \item Learning ROS needs time. 
+                \item It needs a computer. Does not work on a microcontroller!
+                \item Not optimized for multiple robots.
+                \item Supported only on Linux, no support for Windows or macOS.
+            \end{itemize}  
+\end{frame}
+
+
+
+
+
+%---------------------------
+
+\section{ROS Concepts}
+
 
 
 \end{document}
