@@ -18,6 +18,7 @@
 \usepackage{listings}  % Code listings
 \usepackage[T1]{fontenc}
 \usepackage[percent]{overpic}
+\usetikzlibrary{trees}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -319,9 +320,9 @@ child { node [text width=2cm]{Tools and libraries} };
 \end{frame}
 
 
-\subsection{Bad Thing About ROS}
+\subsection{Bad Things About ROS}
 
-\begin{frame}{Bad Thing About ROS}
+\begin{frame}{Bad Things About ROS}
             \begin{itemize}
                 \item Learning ROS needs time. 
                 \item It needs a computer. Does not work on a microcontroller!
@@ -338,6 +339,78 @@ child { node [text width=2cm]{Tools and libraries} };
 
 \section{ROS Concepts}
 
+\begin{frame}{ROS Concepts}
+\tikzstyle{every node}=[draw=white,thick,anchor=west]
+\tikzstyle{selected}=[draw=red,fill=red!30]
+\tikzstyle{optional}=[dashed,fill=gray!50]
+\begin{tikzpicture}[%
+thick, grow via three points={one child at (0.5,-0.7) and
+    two children at (0.5,-0.7) and (0.5,-1.4)},
+edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+\node {ROS concepts}
+child { node {File system level}}		
+child { node {Computation graph level}}
+child { node {Community level}};
+\end{tikzpicture}
+\end{frame}
 
+
+\subsection{File system level}
+
+\begin{frame}{File system level}
+  \framesubtitle{ROS Concepts}
+    
+ \centering
+ \scalebox{0.9}{\begin{tikzpicture}[sibling distance=9em, level distance = 2.0cm, thick,
+     every node/.style = {shape=rectangle, rounded corners,
+         draw, align=center}]]
+        \node [text width=4cm, fill = yellow]{File system}
+         child { node [text width=2cm, fill = orange!50]{ROS package} 
+        child { node [text width=2cm]{Messages} }
+        child { node [text width=2cm]{Services} }
+        child { node [text width=2cm]{Source code} }
+        child { node [text width=2cm]{Other..} }
+        };
+        \end{tikzpicture}}
+\end{frame}
+
+
+\begin{frame}{File system level}
+    \framesubtitle{ROS Concepts}
+    
+    \centering
+    \scalebox{0.9}{\begin{tikzpicture}[sibling distance=9em, level distance = 2.0cm, thick,
+        every node/.style = {shape=rectangle, rounded corners,
+            draw, align=center}]]
+        \node [text width=4cm, fill = yellow]{File system}
+        child { node [text width=2cm, fill = black!20]{Meta package \\ (stack)} 
+            child { node [text width=2cm, fill = orange!50]{package} }
+            child { node [text width=2cm, fill = orange!50]{package} }
+            child { node [text width=2cm, fill = orange!50]{package} }
+            child { node [text width=2cm, fill = none, draw = none]{..} }
+        };
+        \end{tikzpicture}}
+\end{frame}
+
+
+\begin{frame}{File system level}
+    \framesubtitle{ROS Concepts}
+Inside a ROS package:
+
+\vspace{0.5cm}
+\centering
+\includegraphics[width=.9\linewidth]{figures/example_package.png}
+\end{frame}
+
+    
+\subsection{Computation graph level}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+\end{frame}
+
+
+
+\subsection{Community level}
 
 \end{document}
