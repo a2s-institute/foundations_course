@@ -669,7 +669,110 @@ Inside a ROS package:
     \end{enumerate}
 \end{frame}
 
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Parameter Server:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item A network-shared dictionary accessible to all nodes.
+        \item Typically used to store static data, like parameters and configurations.
+        \item A central location to store static values.
+        \item  All nodes can access and modify those values.
+        \item Parameter server is a part of ROS Master.
+    \end{itemize}  
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Services:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item Sometimes a publish/subscribe model is not enough, it’s a one-way
+        communication.
+        \item ROS Services provide an additional way of interaction, a  \textbf{request / reply}
+        interaction.
+    \end{itemize}  
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Bags:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item ROS bag is a mechanism for recording data for later playback.
+        \item You can record a complete session, with all the topics and messages
+        being exchanged along with their time stamping.
+    \end{itemize}  
+\end{frame}
     
 \subsection{Community level}
+\begin{frame}{Community level}
+    \framesubtitle{ROS Concepts}
+    
+    Concepts related to ROS development process and it's community:
+    
+    \begin{enumerate}
+        \item ROS Distributions.
+        \item The ROS Wiki.
+        \item Mailing Lists.
+        \item ROS Answers.
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Community level}
+    \framesubtitle{ROS Concepts}
+    {\huge ROS Distributions:}
+    \vspace{7.0cm}
+     \begin{textblock}{3}(1,5)
+        \includegraphics[width = 1.0\linewidth]{figures/melodic.jpg}
+        
+        \centering
+        ROS Melodic\\
+        \footnotesize 5.2018 - 5.2023\\
+        (LTS)\\
+        (Ubuntu 18 EOL)
+        
+     \end{textblock}
+     \begin{textblock}{3}(4.5,5)
+         \includegraphics[width = 1.0\linewidth]{figures/lunar.png}
+         
+         \centering
+         ROS Lunar\\
+         \footnotesize 5.2017 - 4.2019
+     \end{textblock}
+     \begin{textblock}{3}(8,5)
+         \includegraphics[width = 1.0\linewidth]{figures/kinetic.png}
+         
+         \centering
+         ROS Kinetic\\
+         \footnotesize 5.2016 - 4.2021\\
+         (LTS)\\
+         (Ubuntu 16 EOL)\\
+         (what we use)
+         
+     \end{textblock}  
+     \begin{textblock}{3}(11.5,5)
+         \includegraphics[width = 1.0\linewidth]{figures/indigo.png}
+         
+         \centering
+         ROS Indigo\\
+         \footnotesize 7.2014 - 4.2019\\
+         (LTS)\\
+         (Ubuntu 14 EOL)\\
+     \end{textblock}                       
+\end{frame}
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{white}{Thank you}}
+    
+    \vspace{0.5cm}
+    
+    {\huge \textcolor{white}{Any questions?}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
 
 \end{document}
