@@ -17,7 +17,7 @@
 \usepackage{url}       % `\url
 \usepackage{listings}  % Code listings
 \usepackage[T1]{fontenc}
-
+\usepackage[percent]{overpic}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -68,14 +68,67 @@
     \begin{itemize}
         \item A way to standardize writing software for robots.
         \item It enhances {\huge code reusability} \includegraphics[scale=0.02]{figures/recycling.png}.
-        \item ROS is open-source \includegraphics[scale=0.09]{figures/openSource.png}.
+        \item ROS is open-source \includegraphics[scale=0.09]{figures/open_source.png}.
         \item It is a meta-operating system.
-        \item ROS can be installed on Ubuntu and Debian (so it’s currently supported on Linux only). 
+        \item ROS can be installed on Ubuntu and Debian (so it’s currently supported on Linux only).
+        
+        \includegraphics[width=.1\linewidth]{figures/linux_logo.png}
+        \includegraphics[width=.1\linewidth]{figures/ubuntu_logo.png} 
+        \includegraphics[width=.06\linewidth]{figures/debian_logo.png} 
     \end{itemize}
 \end{frame}
 
 
 \subsection{What ROS is NOT}
+\begin{frame}{What ROS is NOT}
+    \framesubtitle{Robot Operating System}
+    \begin{itemize}
+        \item It is NOT a programming language.
+        \item It is NOT an integrated development environment
+        (IDE).
+        \item It is NOT a stand-alone operating system 
+    \end{itemize}
+\end{frame}
+
+
+%---------------------------
+
+\section{Analogy Between ROS and Operating Systems}
+
+\begin{frame}{Analogy Between ROS and Operating Systems}
+    \begin{overpic}[width=.45\linewidth]{figures/analogy1.png}
+        \put (130,80) {Software Applications}
+        \put (130,50) {work on}
+        \put (130,20) {Different hardware}        
+    \end{overpic}
+\end{frame}
+
+\begin{frame}{Analogy Between ROS and Operating Systems}
+    \centering
+    \begin{overpic}[width=.4\linewidth]{figures/analogy2.png}
+        \put (35,90) {Application} 
+        \put (9,65) {\footnotesize Operating System} 
+        \put (12,43) {\footnotesize Device Drivers}   
+    \end{overpic}
+\end{frame}
+
+\begin{frame}{Analogy Between ROS and Operating Systems}
+    \centering
+    \begin{overpic}[width=.3\linewidth]{figures/analogy3.png}
+        \put (2,102) {Mapping algorithm}
+        \put (21.5,74) {ROS} 
+        \put (11,49) {Laser driver} 
+        \put (-25,10) {Laser scanner} 
+    \end{overpic}
+\end{frame}
+
+
+\begin{frame}{Analogy Between ROS and Operating Systems}
+    \centering
+    \begin{overpic}[width=.8\linewidth]{figures/analogy4.png}
+    \end{overpic}
+\end{frame}
+
 
 
 
