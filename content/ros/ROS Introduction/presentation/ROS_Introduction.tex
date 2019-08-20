@@ -198,4 +198,28 @@
     \end{overpic}
 \end{frame}
 
+\begin{frame}{Analogy Between ROS and Operating Systems}
+    \begin{overpic}[width=.45\linewidth]{figures/analogy8.png}
+        \put (130,77) {Robot Applications}
+        \put (3,75) {\scriptsize Mapping}
+        \put (33,75) {\scriptsize Navigation}
+        \put (66,75) {\scriptsize pick \& place}
+        \put (130,50) {work on}
+        \put (130,20) {Different hardware}        
+    \end{overpic}
+\end{frame}
+
+\begin{frame}[label=figs2]{Analogy Between ROS and Operating Systems}
+\centering
+ \scalebox{0.9}{\begin{tikzpicture}[sibling distance=9em, level distance = 4.0cm, thick,
+every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center}]]
+\node [text width=4cm, fill = yellow]{ROS \\ \scriptsize Robot Operating system}
+child { node [text width=2cm]{Hardware abstraction} }
+child { node [text width=2cm]{Message passing} }
+child { node [text width=2cm]{File system} }
+child { node [text width=2cm]{Tools and libraries} };
+\end{tikzpicture}}
+\end{frame}
+
 \end{document}
