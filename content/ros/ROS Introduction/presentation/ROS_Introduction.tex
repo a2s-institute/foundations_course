@@ -19,6 +19,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[percent]{overpic}
 \usetikzlibrary{trees}
+\usepackage[absolute,overlay]{textpos}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -407,10 +408,117 @@ Inside a ROS package:
 
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
+    \begin{itemize}
+        \item In an application that uses ROS, the computations are executed by a collection of processes called Nodes.
+        \item Nodes are connected together in a peer-to-peer network.
+        \item This network of nodes do all the computation and is referred to as ROS computation graph.
+        \item ROS Nodes can be run on single or multiple computers.
+    \end{itemize}
 \end{frame}
 
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    
+    Concepts related to ROS computation graph:
+    
+    \begin{enumerate}
+        \item Nodes.
+        \item Topics.
+        \item Messages.
+        \item Master.
+        \item Parameter Server.
+        \item Services.
+        \item Bags.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge 1- Nodes:}
+    \vspace{1cm}
+    \begin{itemize}
+        \item A ROS node is a process that exchanges data with other processes through ROS network.
+        
+        \item It may be a python script, a C++ written process, or even a MATLAB script.
+        
+        \item Nodes perform computation.
+    \end{itemize}
+\end{frame}
+
+ \begin{frame}[plain]{}
+     \begin{textblock}{5}(5,10)
+         \includegraphics[width=0.5\linewidth]{figures/platform.png}
+     \end{textblock}
+    \end{frame}
+    
+     \begin{frame}[plain]{}
+         \begin{textblock}{5}(5,10)
+             \includegraphics[width=0.5\linewidth]{figures/platform.png}
+            \end{textblock}
+         \begin{textblock}{5}(4,5.2)
+             \includegraphics[width=0.7\linewidth]{figures/robot_arm.png}
+            \end{textblock}
+          \begin{textblock}{5}(0,5)
+              \includegraphics[width=0.6\linewidth]{figures/laptop.png}
+            \end{textblock} 
+        \end{frame}
+        
+         \begin{frame}[plain]{}
+             \begin{textblock}{5}(5,10)
+                 \includegraphics[width=0.5\linewidth]{figures/platform.png}
+                \end{textblock}
+                \begin{textblock}{5}(4,5.2)
+                    \includegraphics[width=0.7\linewidth]{figures/robot_arm.png}
+                \end{textblock}
+                \begin{textblock}{5}(9.5,8)
+                    \includegraphics[width=1.2\linewidth]{figures/pick_and_place.png}
+                \end{textblock}                
+          \begin{textblock}{5}(0,5)
+              \includegraphics[width=0.6\linewidth]{figures/laptop.png}
+            \end{textblock} 
+            \end{frame}
+        
+     \begin{frame}[plain]{}
+         \begin{textblock}{5}(5,10)
+             \includegraphics[width=0.5\linewidth]{figures/platform.png}
+            \end{textblock}
+            \begin{textblock}{5}(4,5.2)
+                \includegraphics[width=0.7\linewidth]{figures/robot_arm.png}
+            \end{textblock}
+            \begin{textblock}{5}(5,1.5)
+                \includegraphics[width=0.6\linewidth]{figures/kinect.png}
+            \end{textblock}  
+                \begin{textblock}{5}(9.5,8)
+                    \includegraphics[width=1.2\linewidth]{figures/pick_and_place.png}
+                  \end{textblock}                      
+          \begin{textblock}{5}(0,5)
+              \includegraphics[width=0.6\linewidth]{figures/laptop.png}
+            \end{textblock} 
+        \end{frame}  
 
 
+      
+     \begin{frame}[plain]{}
+         \begin{textblock}{5}(5,10)
+             \includegraphics[width=0.5\linewidth]{figures/platform.png}
+           \end{textblock}
+           \begin{textblock}{5}(4,5.2)
+               \includegraphics[width=0.7\linewidth]{figures/robot_arm.png}
+           \end{textblock}
+           \begin{textblock}{5}(5,1.5)
+               \includegraphics[width=0.6\linewidth]{figures/kinect.png}
+           \end{textblock} 
+                \begin{textblock}{5}(9.5,8)
+                    \includegraphics[width=1.2\linewidth]{figures/pick_and_place.png}
+                 \end{textblock}           
+           \begin{textblock}{5}(0,5)
+               \includegraphics[width=0.6\linewidth]{figures/laptop.png}
+           \end{textblock}                      
+           \begin{textblock}{5}(9.5,2)
+               \includegraphics[width=1.0\linewidth]{figures/object_recognition.jpg}
+              \end{textblock}       
+       \end{frame}                     
+    
 \subsection{Community level}
 
 \end{document}
