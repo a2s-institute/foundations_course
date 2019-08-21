@@ -426,8 +426,9 @@ Inside a ROS package:
         \item Topics.
         \item Messages.
         \item Master.
-        \item Parameter Server.
         \item Services.
+        \item Actions
+        \item Parameter Server.
         \item Bags.
     \end{enumerate}
 \end{frame}
@@ -592,10 +593,24 @@ Inside a ROS package:
         \item Nodes receive data by subscribing to a topic.
         
         \item Multiple nodes can publish/subscribe to the same topic.
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Topics and Messages:}
+    \vspace{1cm}
+    \begin{itemize}
+        \item Publisher node publishes the messages on a topic at a chosen frequency.
+        
+        \item This \textbf{publish/subscribe} communication paradigm is a many-to-many one-way transport mechanism of data.
         
         \item The publishing node and subscribing node are not aware of each other's existence. 
     \end{itemize}
 \end{frame}
+
+
 
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
@@ -663,11 +678,92 @@ Inside a ROS package:
         \item \textcolor{black!40}{Topics.}
         \item \textcolor{black!40}{Messages.}
         \item \textcolor{black!40}{Master.}
-        \item Parameter Server.
         \item Services.
+        \item Actions
+        \item Parameter Server.
         \item Bags.
     \end{enumerate}
 \end{frame}
+
+
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Services:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item In many scenarios a publish/subscribe model is not enough, it’s a one-way
+        communication.
+        
+        \item Example scenario: plan a path service.
+        
+        
+        \item ROS Services provide an additional way of communication between nodes, a  \textbf{request / reply}
+        interaction.
+    \end{itemize}  
+\end{frame}
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Services:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item It happens between two nodes, the service \textbf{server} node, and the service \textbf{client} node.
+        
+        \item A Client node sends a request for a named service, a node serving this service responds, and the communication is over.
+        
+        \item it is a one-to-one, two-way, one-time communication.
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}[plain]{}
+ \centering
+ \includegraphics[width =1.0\linewidth]{figures/service1.png}                                                              
+\end{frame} 
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service2.png}                                                              
+\end{frame} 
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service1.png}                                                              
+\end{frame} 
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service3.png}                                                              
+\end{frame} 
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service4.png}                                                              
+  \end{frame} 
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service5.png}                                                              
+  \end{frame}
+\begin{frame}[plain]{}
+    \centering
+    \includegraphics[width =1.0\linewidth]{figures/service1.png}                                                              
+  \end{frame}       
+     
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{white}{Example \\ (TurtleSim again)} }
+   \end{frame}
+   \setbeamercolor{background canvas}{bg=white}     
+     
+        
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Actions:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item ..
+    \end{itemize}  
+\end{frame}
+
 
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
@@ -682,17 +778,6 @@ Inside a ROS package:
     \end{itemize}  
 \end{frame}
 
-\begin{frame}{Computation graph level}
-    \framesubtitle{ROS Concepts}
-    {\huge Services:}
-    \vspace{0.2cm}
-    \begin{itemize}
-        \item Sometimes a publish/subscribe model is not enough, it’s a one-way
-        communication.
-        \item ROS Services provide an additional way of interaction, a  \textbf{request / reply}
-        interaction.
-    \end{itemize}  
-\end{frame}
 
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
@@ -712,10 +797,11 @@ Inside a ROS package:
     Concepts related to ROS development process and it's community:
     
     \begin{enumerate}
-        \item ROS Distributions.
         \item The ROS Wiki.
+        \item Repositories.
         \item Mailing Lists.
         \item ROS Answers.
+        \item ROS Distributions.
     \end{enumerate}
 \end{frame}
 
