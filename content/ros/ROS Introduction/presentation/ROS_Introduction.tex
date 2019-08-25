@@ -710,7 +710,7 @@ Inside a ROS package:
     \begin{itemize}
         \item It happens between two nodes, the service \textbf{server} node, and the service \textbf{client} node.
         
-        \item A Client node sends a request for a named service, a node serving this service responds, and the communication is over.
+        \item A Client node sends a request for a named service and waits for the response, a node serving this service responds, and the communication is over.
         
         \item it is a one-to-one, two-way, one-time communication.
     \end{itemize}  
@@ -760,9 +760,27 @@ Inside a ROS package:
     {\huge Actions:}
     \vspace{0.2cm}
     \begin{itemize}
-        \item ..
+        \item ROS services are not suitable for long-term tasks, a client that have sent a service request keeps on waiting for the response from the server. ROS actions solves this.
+        
+        \item In ROS actions, an action client sends a request to the server, the client doesn't have to wait for the response.
+
     \end{itemize}  
 \end{frame}
+
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Actions:}
+    \vspace{0.2cm}
+    \begin{itemize}        
+        \item Action client can  request for feedback which the action server provides during execution. 
+        
+        \item Once the server finishes executing the task, it send a result message to the client.
+    \end{itemize}  
+\end{frame}
+
+
+
 
 
 \begin{frame}{Computation graph level}
@@ -848,6 +866,23 @@ Inside a ROS package:
          (Ubuntu 14 EOL)\\
      \end{textblock}                       
 \end{frame}
+
+
+
+
+
+
+\section{References}
+\begin{frame}{References}
+
+    \begin{enumerate}
+        \item \href{http://wiki.ros.org/ROS/Introduction}{ROS Wiki}.
+        \item \href{http://design.ros2.org/articles/why_ros2.html}{ROS2 Wiki, on the drawbacks of ROS:  \tiny{http://design.ros2.org/articles/why\_ros2.html}}.
+        \item \href{https://www.youtube.com/watch?v=qhnlmrGQVvM}{Overview on ROS services: \tiny{https://www.youtube.com/watch?v=qhnlmrGQVvM}}.
+        \item \href{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile&do=get&target=ros_tutorial.pdf}{ROS introduction slides by Rada: \tiny{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile\&do=get\&target=ros\_tutorial.pdf}}.
+    \end{enumerate}
+\end{frame}
+
 
 \setbeamercolor{background canvas}{bg=black}
 \begin{frame}[plain]{}  
