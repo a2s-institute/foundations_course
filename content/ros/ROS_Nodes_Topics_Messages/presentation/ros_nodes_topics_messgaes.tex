@@ -21,6 +21,7 @@
 \usetikzlibrary{trees}
 \usepackage[absolute,overlay]{textpos}
 
+
 \usepackage{theme/beamerthemehbrs}
 
 \author[MAS]{Hassan Umari}
@@ -45,9 +46,114 @@
 \begin{frame}{Recap}
     \framesubtitle{Summary of yesterday's session}
     \begin{itemize}
-        \item 
+        \item ROS is a collection of libraries and tools that helps you when you develop software for robots.
+              
+        \item ROS provides several ways to transfer data between nodes:
+        
+        \begin{enumerate}
+            \item ROS topics and messages (\textbf{publish/subscribe}).
+            \item ROS services (\textbf{request/reply}).
+            \item ROS actions (\textbf{request/reply}).
+            \item Parameter server.
+        \end{enumerate}   
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Recap}
+    \framesubtitle{Summary of yesterday's session}
+    \begin{itemize}
+        \item We will focus today on the ROS topics and messages..
+    \end{itemize}
+\end{frame}
+
+
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master1.png}                                                              
+        \end{frame} 
+        \begin{frame}[plain]{}
+            \centering
+            \includegraphics[width =1.0\linewidth]{figures/master2.png}                                                              
+        \end{frame} 
+        \begin{frame}[plain]{}
+            \centering
+            \includegraphics[width =1.0\linewidth]{figures/master3.png}                                                              
+        \end{frame} 
+        \begin{frame}[plain]{}
+            \centering
+            \includegraphics[width =1.0\linewidth]{figures/master4.png}                                                              
+        \end{frame}
+        
+        
+
+        
+\section{ROS nodes in Python}
+
+\subsection{A simple ROS node in Python}
+
+\begin{frame}[fragile]{A simple ROS node}
+    \framesubtitle{}
+    \lstset{language=python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+#!/usr/bin/env python
+
+
+import rospy
+from time import sleep
+
+rospy.init_node("print_text")
+
+
+while True:
+    print "Hello world!"
+    sleep(1)
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{A simple ROS node}
+    \framesubtitle{}
+    \lstset{language=python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+\begin{lstlisting}
+#!/usr/bin/env python
+
+import rospy
+
+
+rospy.init_node("print_text")  
+rate = rospy.Rate(1)
+
+while not rospy.is_shutdown():
+    print "Hello world!"
+    rate.sleep()
+\end{lstlisting}
+\end{frame}
+\subsection{Writing a publisher node in Python}
+
+\subsection{creating a package}
+\begin{frame}{ROS Nodes}
+    
+\end{frame}
+
+
+
+
+
 
 
 
