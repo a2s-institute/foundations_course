@@ -20,7 +20,11 @@
 \usepackage[percent]{overpic}
 \usetikzlibrary{trees}
 \usepackage[absolute,overlay]{textpos}
+\usepackage{tcolorbox}
 
+
+
+\newtcolorbox{terminal}{colback=black!70!white,colframe=black!70!white}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -63,7 +67,7 @@
 \begin{frame}{Recap}
     \framesubtitle{Summary of yesterday's session}
     \begin{itemize}
-        \item We will focus today on the ROS topics and messages..
+        \item We will focus today on ROS topics and messages..
     \end{itemize}
 \end{frame}
 
@@ -120,7 +124,7 @@ while True:
 
 
 \begin{frame}[fragile]{A simple ROS node}
-    \framesubtitle{}
+    \framesubtitle{ROS Nodes}
     \lstset{language=python,
         basicstyle=\ttfamily,
         keywordstyle=\color{blue}\ttfamily,
@@ -143,7 +147,44 @@ while not rospy.is_shutdown():
     rate.sleep()
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}{Three ways to run a node}
+    \framesubtitle{ROS Nodes}
+    
+    There are 3 ways to run a node:
+    \begin{enumerate}
+        \item Like you do always. Example (in case of python node):
+                \begin{terminal}
+                \color{green} \ttfamily{python <file name>}
+                \end{terminal}
+        \item using rosrun commands:
+        \begin{terminal}
+        \color{green} \ttfamily{rosrun <package name> <node name>}
+        \end{terminal}
+        
+        \item Using launch files. \tiny{(we'll see it later)}
+
+    \end{enumerate}
+\end{frame}
+
+
 \subsection{Writing a publisher node in Python}
+
+\begin{frame}[fragile]{A simple ROS node}
+    \framesubtitle{}
+    \lstset{language=python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+\begin{lstlisting}
+
+\end{lstlisting}
+\end{frame}
+
 
 \subsection{creating a package}
 \begin{frame}{ROS Nodes}
