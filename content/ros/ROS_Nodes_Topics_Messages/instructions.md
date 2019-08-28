@@ -1,43 +1,5 @@
 # Pracical part
 
-<style>
-   div
-   {
-     display: inline-block;
-   }
-   
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-    width: 120px;
-  top: 100%;
-  left: 50%; 
-  margin-left: -60px; 
-}
-
-</style>
 
 ## Creating a ROS package
 
@@ -78,13 +40,27 @@ commad has the following syntax:
 ```
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
-<div>Where <code>depend1, depend2, depend3 </code> are <div style="display: inline-block" class="tooltip">dependencies<span class="tooltiptext">dependencies are ..</span>
-</div> </div> 
-you might use in your package.  
+Where ```depend1, depend2, depend3```  are [dependencies](#what-is-a-dependency) you might use in your package.  
+
+
 
 ### Why?
 
 
- ## References:
+
+
+
+
+
+## Extra stuff
+
+### What is a dependency?
+When you write a code, you probablly include some libraries. Every library you use is a dependency your code needs inorder for it to be compiled successfully. In ROS, this is needed particularly when you write C++ nodes. For example, if you write a C++ node that includes the following:
+```cpp
+#include "std_msgs/String.h"
+```
+It measns your package has a dependency on ```std_msgs```.
+ 
+## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
 
