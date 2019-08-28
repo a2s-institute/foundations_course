@@ -78,7 +78,20 @@ It measns your package has a dependency on ```std_msgs```.
 
 
 ### Compilation?
+<details><summary>CLICK ME</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
 
 ## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+
+
 
