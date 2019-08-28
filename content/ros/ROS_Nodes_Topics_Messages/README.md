@@ -98,7 +98,7 @@ roscd myFirstPackage/scripts/
 
 - Give the script files execuation permission. Example:
 ```
-sudo chmod +X 01_simple_node.py
+sudo chmod +x 01_simple_node.py
 ```
 - use ```rosrun```:
 ```
@@ -110,6 +110,8 @@ rosrun myFirstPackage 01_simple_node.py
 
 - ```rosrun``` searches withing the directory tree of the given package. The scripts doesn't even have to be located in ```scripts``` folder. It's only common between ROS users to place Python scripts inside the ```scripts``` folder.
   
+- :warning:  ```rosrun``` will not find your Python scripts if you don't change their access permession to executable.
+
 - ```rosrun``` takes options and arguments that will be covered later.
 
 ### How does ```rosrun``` find my files?
