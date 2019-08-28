@@ -17,7 +17,7 @@ catkin_create_pkg myFirstPackage std_msgs rospy
 catkin build
 ```
 
-<details><summary>For detailed explanation:</summary>
+<details><summary>More details:</summary>
 
 <br/>
 
@@ -67,8 +67,61 @@ catkin_create_pkg myFirstPackage std_msgs rospy
 ```
 catkin build
 ```
+You're done!  
+You can now navigate to this package direclty using ```roscd```:
+
+- One more thing:
+
+ROS uses the ```ROS_PACKAGE_PATH``` environment variable when it looks up for packages and nodes. Try to see to where it points at:
+
+```
+echo $ROS_PACKAGE_PATH
+```
 
 </details>
+
+
+
+
+## Using ```rosrun``` to run a node
+
+```rosrun``` can be used to run a node directly without the need to navigate to it's directory. 
+
+```
+rosrun <package> <executable> 
+```
+- create a ```scripts``` folder inside ```myFirstPackage/scripts``` and place our scripts there.
+- In a terminal (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd>), navigate to the ```scripts``` folder.
+```
+roscd myFirstPackage/scripts/
+```
+
+- Give the script files execuation permission. Example:
+```
+sudo chmod +X 01_simple_node.py
+```
+- use ```rosrun```:
+```
+rosrun myFirstPackage 01_simple_node.py
+```
+<details><summary>More details:</summary>
+
+<br/>
+
+- ```rosrun``` searches withing the directory tree of the given package. The scripts doesn't even have to be located in ```scripts``` folder. It's only common between ROS users to place Python scripts inside the ```scripts``` folder.
+  
+- ```rosrun``` takes options and arguments that will be covered later.
+
+### How does ```rosrun``` find my files?
+It searches the directories listed in the ```ROS_PACKAGE_PATH``` environment variable. Try to see to where it points at:
+
+```
+echo $ROS_PACKAGE_PATH
+```
+
+
+</details>
+
 
 
 <br/>
@@ -97,6 +150,7 @@ It measns your package has a dependency on ```std_msgs```.
 
 ## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+ - ros commands help option
 
 
 
