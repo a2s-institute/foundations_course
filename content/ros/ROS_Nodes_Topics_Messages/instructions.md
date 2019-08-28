@@ -59,7 +59,7 @@ catkin build
 
 ## Extra stuff
 
-### What is a dependency?
+### Dependencies?
 When you write a code, you probablly include some libraries. Every library you use is a dependency your code needs inorder for it to be compiled successfully. In ROS, this is needed particularly when you write C++ nodes. For example, if you write a C++ node that includes the following:
 ```cpp
 #include "std_msgs/String.h"
@@ -68,7 +68,7 @@ It measns your package has a dependency on ```std_msgs```.
  
 
 
-### Compilation
+### Compilation?
 
 ## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
