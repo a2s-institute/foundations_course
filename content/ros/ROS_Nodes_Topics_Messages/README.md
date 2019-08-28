@@ -20,6 +20,7 @@ catkin build
 <details><summary>For detailed explanation:</summary>
 
 <br/>
+
 In order to let ROS commands find your scripts, launch files, source files, binaries,
  etc.., you have to create a package and put it inside the ```src``` folder of your workspace (ex. ```catkin_ws/src```).
 
