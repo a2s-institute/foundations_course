@@ -78,12 +78,6 @@ It measns your package has a dependency on ```std_msgs```.
 
 
 ### Compilation?
-
-## References:
- - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
-
-
-
 <details><summary>CLICK ME</summary>
 <p>
 
@@ -95,3 +89,9 @@ print("hello world!")
 
 </p>
 </details>
+
+## References:
+ - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+
+
+
