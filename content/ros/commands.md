@@ -26,7 +26,20 @@ Runs ```turtlesim_node``` from ```turtlesim``` package. And apply a name remappi
 ```/turtle1/cmd_vel``` to ```/vel```.
 
 ## ```rosnode``` command
-
+- List all the running nodes:
+```
+rosnode list
+```
+- Get more info. about a certain node:
+```
+rosnode info <node name>
+```
+- Others:
+```
+rosnode kill <node name>
+rosnode ping <node name>
+```
+...etc
 
 
 

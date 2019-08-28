@@ -104,6 +104,8 @@ sudo chmod +x 01_simple_node.py
 ```
 rosrun myFirstPackage 01_simple_node.py
 ```
+
+
 <details><summary>More details:</summary>
 
 <br/>
@@ -121,7 +123,21 @@ It searches the directories listed in the ```ROS_PACKAGE_PATH``` environment var
 echo $ROS_PACKAGE_PATH
 ```
 
-
+### ```rosnode``` command:
+- List all the running nodes:
+```
+rosnode list
+```
+- Get more info. about a certain node:
+```
+rosnode info <node name>
+```
+- Others:
+```
+rosnode kill <node name>
+rosnode ping <node name>
+```
+...etc
 </details>
 
 
