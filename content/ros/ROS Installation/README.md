@@ -16,7 +16,7 @@ $ ./ros_catkin_installer.sh
 
 ## Installation menu
 
-You can choose between four options when executing the script (choose option __4__ if you don't have ROS yet):
+You can choose between four options when executing the script (choose "Install everything" option if you don't have ROS yet):
 
 ### 1. Install ROS
 
@@ -29,7 +29,15 @@ This will install the following packages:
 * Python PySide (needed for GUI elements)
 * Gnuplot (for plotting graphs)
 
-After this it will ask you to source your .bashrc. This is needed so all ROS commands can be used from anywhere in the terminal and for auto-completion of commands. A backup will be created in the file .bashrc_before_ros.
+After this it will ask you whether you want to add the command to source ```setup.bash``` in  your ```.bashrc``` file ([what is .bashrc file?](extra_info.md)). Choose "Yes" unless you have more than one ROS distibution and want to manually do this command.
+
+Adding this command is needed so all ROS commands can be used from anywhere in the terminal and for auto-completion of commands. A backup will be created in the file .bashrc_before_ros. 
+
+If you choose no, you will have to manually source ```setup.bash``` everytime you open a new terminal, as follows:
+
+```
+source /opt/ros/kinetic/setup.bash
+```
 
 ### 2. Apply ROS bugfix
 

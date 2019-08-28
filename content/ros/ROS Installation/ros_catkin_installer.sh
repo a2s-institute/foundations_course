@@ -78,7 +78,7 @@ function update_keys {
   echo
   echo "Updating keys and updating apt-get"
   sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+  sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
   sudo apt-get update
 }
 
@@ -104,7 +104,7 @@ function ros_install {
     install_pkg $pkg
   done
 
-  source /opt/ros/kinetic/setup.bash 
+  environment_setup_bashrc
 }
 
 function ros_amr_bugfix {
@@ -183,6 +183,40 @@ function catkin_bashrc {
       cp ~/.bashrc ~/.bashrc_before_catkin
       echo "Adding catkin workspace to bashrc"
       echo "source ~/$1/devel/setup.bash" >> ~/.bashrc
+      echo "Sourcing .bashrc"
+      source ~/.bashrc
+      break
+      ;;
+    "No")
+      break
+      ;;
+    esac
+  done
+}
+
+function environment_setup_bashrc {
+  echo
+  echo "Adding environment setup bash file to your bashrc"
+  # Check if setup.bash source command was already added to bashrc
+  if grep -q "/opt/ros/kinetic/setup.bash" ~/.bashrc; then
+    echo "Environment setup source command was already added to your bashrc."
+    echo "Nothing to do here."
+    return
+  fi
+  echo
+  echo "Please choose if you want to add ROS environment setup bash file to your bashrc. Choosing Yes is recommended unless you have more than one ROS distribution installed."
+  echo "If you choose No you have to run the following in every terminal you want to use catkin commands in."
+  echo "source /opt/ros/kinetic/setup.bash"
+  PS3='Would you like to add Catkin to your bashrc?: '
+  options=("Yes" "No")
+  select opt in "${options[@]}"
+  do
+  case $opt in
+    "Yes")
+      echo "Adding ROS environment setup bash file to your bashrc. A backup file is created as .bashrc_before_ros"
+      cp ~/.bashrc ~/.bashrc_before_ros
+      echo "Adding ROS environment setup bash file to your bashrc"
+      echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
       echo "Sourcing .bashrc"
       source ~/.bashrc
       break

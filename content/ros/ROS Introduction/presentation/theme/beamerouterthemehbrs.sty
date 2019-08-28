@@ -1,0 +1,175 @@
+%An outer theme dictates (roughly) the overall layout of frames. It specifies where any navigational elements should go (like a mini table of contents or navigational mini frames) and what they should look like. Typically, an outer theme specifies how the following elements are rendered:
+% ∙ The head- and footline.
+% ∙ The sidebars.
+% ∙ The logo.
+% ∙ The frame title.
+
+\mode<presentation>
+
+\newlength{\extrapadding}
+\extrapadding=1.75mm
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title Frame
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{title page}{hbrs}{%
+	\setcounter{framenumber}{0} %Set title frame counter to 0
+
+
+    \ifx\@thirdpartylogo\@empty
+        \begin{tikzpicture}
+      		\node[anchor=south west,yshift=\extrapadding, xshift=\extrapadding] at (current page.south west){
+      		\includegraphics[height=1cm]{theme/images/Logo-HBRS-cyan.png}
+    	};
+            \node[anchor=south east,yshift=\extrapadding, xshift=-10\extrapadding] at (current page.south east){
+            \includegraphics[height=1cm]{theme/images/b-it.pdf}
+        };
+    	\end{tikzpicture}
+    \else
+
+        \begin{tikzpicture}
+            \node[anchor=south west,yshift=\extrapadding, xshift=\extrapadding] at (current page.south west){
+                \includegraphics[height=.7cm]{theme/images/Logo-HBRS-cyan.png}
+            };
+            \node[anchor=south east,yshift=\extrapadding, xshift=-10\extrapadding] at (current page.south east){
+                \includegraphics[height=.7cm]{theme/images/b-it.pdf}
+            };
+            \node[anchor=south east,yshift=\extrapadding, xshift=-30\extrapadding] at (current page.south east){
+                \includegraphics[height=.7cm]{\@thirdpartylogo}
+            };
+    	\end{tikzpicture}
+
+    \fi%
+
+
+
+    % Input the title
+    \usebeamerfont{title}%
+    \usebeamercolor[fg]{title}%
+    \begin{minipage}[b][2\baselineskip][b]{\textwidth}%
+      \raggedright
+      \inserttitle
+    \end{minipage}
+    \vskip-.5\baselineskip
+
+
+    \vfill
+
+    % Input the subtitle
+    \usebeamerfont{subtitle}%
+    \usebeamercolor[fg]{subtitle}%
+    \begin{minipage}{\textwidth}
+      \raggedright%
+      \insertsubtitle%
+    \end{minipage}\vskip.25\baselineskip
+
+
+    % Input the date
+    \usebeamerfont{date}%
+    \usebeamercolor[fg]{date}%
+    \begin{minipage}{\textwidth}
+      \raggedright%
+      \insertdate%
+    \end{minipage}
+    \vfill
+    % Input the author's name
+    \usebeamerfont{author}%
+    \usebeamercolor[fg]{author}%
+    \begin{minipage}{\textwidth}
+      \raggedright%
+      \insertauthor%
+    \end{minipage}
+
+}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Header
+%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate*{headline}{hbrs}{
+ \ifnum\c@framenumber=0\else%
+\leavevmode%
+
+\fi%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\defbeamertemplate*{footline}{hbrs}{
+ \ifnum\c@framenumber=0\else%
+ \leavevmode%
+  	\begin{tikzpicture}[overlay]
+    \node[anchor=south west,yshift=\extrapadding, xshift=2\extrapadding] at (current page.south west){
+	\includegraphics[height=0.45cm]{theme/images/Logo-HBRS-cyan.png}
+	};
+
+    \node[anchor=south west,yshift=\extrapadding, xshift=20\extrapadding] at (current page.south west){
+        \includegraphics[height=0.45cm]{theme/images/b-it.pdf}
+    };
+
+    \ifx\@thirdpartylogo\@empty
+        \relax
+    \else
+        % If you have added a third party logo, you might need to adjust its position
+        % change the xshift value to something that suits your needs
+        \node[anchor=south west,yshift=\extrapadding, xshift=32\extrapadding] at (current page.south west){
+            \includegraphics[height=0.45cm]{\@thirdpartylogo}
+        };
+    \fi%
+
+
+
+    \node[anchor=south east,  yshift=\extrapadding, xshift=-\extrapadding] at (current page.south east) {
+        \usebeamerfont{title in head/foot}\insertshorttitle~ -
+        \usebeamerfont{author in head/foot}\textbf{\insertshortauthor}\hspace*{2em}
+        \usebeamercolor[fg]{framenumber}%
+        \usebeamerfont{framenumber}%
+        \insertframenumber/\inserttotalframenumber
+        };
+
+
+
+
+    \end{tikzpicture}
+\fi
+ }{}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Frame title
+%%%%%%%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{frametitle}{hbrs}[1	][]{%
+	\vskip-1em % Align the text with the top border
+	\vskip 4\extrapadding
+	\usebeamercolor[fg]{frametitle}%
+	\usebeamerfont{frametitle}%
+	\insertframetitle\par%
+    \vskip 0.25em
+	\usebeamercolor[fg]{framesubtitle}%
+	\usebeamerfont{framesubtitle}%
+	\insertframesubtitle
+}%
+
+
+% Formatting for allowframebrakes
+\newcounter{cont}
+\makeatletter
+\setbeamertemplate{frametitle continuation}{%
+    \setcounter{cont}{\beamer@endpageofframe}%
+    \addtocounter{cont}{1}%
+    \addtocounter{cont}{-\beamer@startpageofframe}%
+    (\insertcontinuationcount/\arabic{cont})%
+}
+\makeatletter
+
+
+
+\mode<all>
+\endinput
