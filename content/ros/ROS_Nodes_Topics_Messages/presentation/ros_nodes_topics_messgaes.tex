@@ -153,7 +153,7 @@ while not rospy.is_shutdown():
     
     There are 3 ways to run a node:
     \begin{enumerate}
-        \item Like you normally do. Example (in case of python node):
+        \item Like you normally do {\tiny{(not recommended)}}. Example (in case of python node):
                 \begin{terminal}
                 \color{green} \ttfamily{python <file name>}
                 \end{terminal}
@@ -165,6 +165,19 @@ while not rospy.is_shutdown():
         \item Using launch files. \tiny{(we'll see it later)}
 
     \end{enumerate}
+\end{frame}
+
+\begin{frame}{Let's create a package first!}
+    \framesubtitle{ROS Nodes}
+\begin{itemize}
+    \item ROS commands find your files (python scripts, cpp files, launch files, message definitions) if they are located in a package inside the workspace.
+    
+    \item Normally, a package looks like this:
+ 
+\end{itemize}
+
+\includegraphics[width = 1\linewidth]{figures/package.png}
+
 \end{frame}
 
 

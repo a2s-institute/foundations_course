@@ -8,7 +8,7 @@
 ```
 cd ~/catkin_ws/src/
 ``` 
-- Create a package with ```std_msgs``` and ```rospy``` as dependencies:
+- Create a package named ```myFirstPackage```, with ```std_msgs``` and ```rospy``` as dependencies:
 ```
 catkin_create_pkg myFirstPackage std_msgs rospy 
 ```
@@ -21,8 +21,7 @@ catkin build
 
 <br/>
 
-In order to let ROS commands find your scripts, launch files, source files, binaries,
- etc.., you have to create a package and put it inside the ```src``` folder of your workspace (ex. ```catkin_ws/src```).
+In order to let ROS commands find your scripts, launch files, source files, etc.., you have to create a package and put it inside the ```src``` folder of your workspace (ex. ```catkin_ws/src```).
 
 A package is nothing more than a folder with at least these two files:
     
