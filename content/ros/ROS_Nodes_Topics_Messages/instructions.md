@@ -44,9 +44,14 @@ Where ```depend1, depend2, depend3```  are [dependencies](#what-is-a-dependency)
 
 
 
-### Why?
-
-
+Creat a package named as ```myFirstPackage``` with ```rospy``` and ```std_msgs``` as dependencies:
+```
+catkin_create_pkg myFirstPackage std_msgs rospy 
+```
+- [Compile](#compilation) using ```catkin build``` command:
+```
+catkin build
+```
 
 
 
@@ -61,6 +66,10 @@ When you write a code, you probablly include some libraries. Every library you u
 ```
 It measns your package has a dependency on ```std_msgs```.
  
+
+
+### Compilation
+
 ## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
 
