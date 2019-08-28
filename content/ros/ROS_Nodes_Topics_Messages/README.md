@@ -1,4 +1,4 @@
-# Pracical part
+# Practical part
 
 
 ## Creating a ROS package
