@@ -32,7 +32,7 @@ package/
 cd ~/catkin_ws/src/
 ```
 
-This command assumes the workspace is located in the home directory and named as ```catkin_ws```. The ROS installation script which you used for installing ROS, let's you choose a name for this workspace. If you don't have a workspace for some reason, see the [installation page](../ROS\ Installation/).
+This command assumes the workspace is located in the home directory and named as ```catkin_ws```. The ROS installation script which you used for installing ROS, let's you choose a name for this workspace. If you don't have a workspace for some reason, see the [installation page](https://github.com/mas-group/foundations_course/tree/day2_session/content/ros/ROS%20Installation).
 
 - Use the ```catkin_create_pkg``` command to create the package for you. This 
 commad has the following syntax:
