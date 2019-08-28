@@ -3,6 +3,19 @@
 
 ## Creating a ROS package
 
+
+```
+cd ~/catkin_ws/src/
+``` 
+```
+catkin_create_pkg myFirstPackage std_msgs rospy 
+```
+```
+catkin build
+```
+
+<details><summary>For detailed explanation:</summary>
+
 In order to let ROS commands find your scripts, launch files, source files, binaries,
  etc.., you have to create a package and put it inside the ```src``` folder of your workspace (ex. ```catkin_ws/src```).
 
@@ -24,9 +37,7 @@ package/
 ├── src/
 └── srv/
 ```
-
  ### How?
-
 - Navigate to the ```src``` folder of your ROS workspace.
 ```
 cd ~/catkin_ws/src/
@@ -53,7 +64,7 @@ catkin_create_pkg myFirstPackage std_msgs rospy
 catkin build
 ```
 
-
+</details>
 
 
 <br/>
@@ -78,17 +89,7 @@ It measns your package has a dependency on ```std_msgs```.
 
 
 ### Compilation?
-<details><summary>CLICK ME</summary>
-<p>
 
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
-</p>
-</details>
 
 ## References:
  - http://wiki.ros.org/ROS/Tutorials/CreatingPackage
