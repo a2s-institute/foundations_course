@@ -40,7 +40,7 @@ commad has the following syntax:
 ```
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
-Where ```depend1, depend2, depend3```  are [dependencies](#what-is-a-dependency) you might use in your package.  
+Where ```depend1, depend2, depend3```  are [dependencies](#dependencies) you might use in your package.  
 
 
 
