@@ -112,7 +112,7 @@ rosrun myFirstPackage 01_simple_node.py
   
 - :warning:  ```rosrun``` will not find your Python scripts if you don't change their access permession to executable.
 
-- ```rosrun``` takes options and arguments that will be covered later.
+- ```rosrun``` takes options and more arguments that will be covered later.
 
 ### How does ```rosrun``` find my files?
 It searches the directories listed in the ```ROS_PACKAGE_PATH``` environment variable. Try to see to where it points at:
