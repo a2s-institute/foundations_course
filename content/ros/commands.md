@@ -41,7 +41,30 @@ rosnode ping <node name>
 ```
 ...etc
 
+## ```rostopic``` command
 
+- Get the current list of topics.
+```
+rostopic list
+```
+- Print published messages.
+
+```
+rostopic echo <topic name>
+```
+
+- Get field type of a topic:
+```
+rostopic type <topic name>
+```
+- Get information about ROS a topic:
+```
+rostopic info <topic name>
+```
+- Display publishing rate of topic:
+```
+rostopic hz <topic name>
+```
 
 ## References:
 - ROS wiki.
