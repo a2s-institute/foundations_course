@@ -25,6 +25,7 @@
 
 
 \newtcolorbox{terminal}{colback=black!70!white,colframe=black!70!white}
+\newtcolorbox{focus}{colback=black!10!white,colframe=black!10!white}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -97,7 +98,7 @@
 \subsection{A simple ROS node in Python}
 
 \begin{frame}[fragile]{A simple ROS node}
-    \framesubtitle{}
+    \framesubtitle{   ../scripts/00\_simple\_node.py}
     \lstset{language=python,
         basicstyle=\ttfamily,
         keywordstyle=\color{blue}\ttfamily,
@@ -123,8 +124,9 @@ while True:
 \end{frame}
 
 
+
 \begin{frame}[fragile]{A simple ROS node}
-    \framesubtitle{ROS Nodes}
+    \framesubtitle{   ../scripts/01\_simple\_node.py}
     \lstset{language=python,
         basicstyle=\ttfamily,
         keywordstyle=\color{blue}\ttfamily,
@@ -147,6 +149,30 @@ while not rospy.is_shutdown():
     rate.sleep()
 \end{lstlisting}
 \end{frame}
+
+
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{../scripts/02\_simple\_publisher.py}
+    \begin{focus}
+        \centering
+        \fontsize{9}{1} \ttfamily rospy.init\_node({\color{blue}'node name'})
+    \end{focus}
+    
+    \begin{itemize}
+        \item nodes name must be unique. If you want to make sure the name of the node is unique:
+        
+        
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily rospy.init\_node({\color{blue}'node name'}, anonymous= {\color{blue}True})
+        \end{focus}
+        \item node name will look like this: \ttfamily /print\_text\_19637\_1567065017476
+    \end{itemize}
+    
+\end{frame}
+
+
 
 \begin{frame}{Three ways to run a node}
     \framesubtitle{ROS Nodes}
@@ -227,16 +253,14 @@ while not rospy.is_shutdown():
         \item  Let's extend our previous node and make it publish a String ROS message.
     \end{itemize}   
 \end{frame}
-
-
-
-
-
-
+ 
 \begin{frame}[fragile]{Writing a publisher node in Python}
-    \framesubtitle{ROS Nodes, Topics, and Messages}
+    \framesubtitle{../scripts/02\_simple\_publisher.py}
+    
+
+                   
     \lstset{language=python,
-        basicstyle=\ttfamily,
+        basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
         stringstyle=\color{red}\ttfamily,
         commentstyle=\color{green}\ttfamily,
@@ -244,11 +268,83 @@ while not rospy.is_shutdown():
         showstringspaces=false
     }
 \begin{lstlisting}
+#!/usr/bin/env python
 
+import rospy
+
+from std_msgs.msg import String
+
+rospy.init_node('talker')
+
+pub = rospy.Publisher('myFirstTopic', String, queue_size=10)
+
+rate = rospy.Rate(1)
+
+my_message = String()
+my_message.data = "Hello there! How are you?"
+
+while not rospy.is_shutdown():
+    pub.publish(my_message)
+    rate.sleep()
 \end{lstlisting}
 \end{frame}
 
 
+
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{../scripts/02\_simple\_publisher.py}
+    \begin{focus}
+        \centering
+        \fontsize{9}{1} \ttfamily rospy.Publisher({\color{blue}name}, {\color{blue}data\_class}, {\color{blue}queue\_size})
+    \end{focus}
+    
+    \begin{itemize}
+        \item {\ttfamily name}: Name of the topic to publish on.
+        
+        \item {\ttfamily data\_class}: The type of message. It is a ROS message class.
+        
+        \item {\ttfamily queue\_size}: The size of the outgoing message queue.
+        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{../scripts/02\_simple\_publisher.py}
+    \begin{focus}
+        
+        \ttfamily rospy.Publisher(\\
+                                 {\color{red}name},\\
+                                 {\color{red}data\_class},\\
+                                 {\color{blue}subscriber\_listener=None}, \\
+                                 {\color{blue}tcp\_nodelay=False},\\
+                                 {\color{blue}latch=False},\\
+                                 {\color{blue}headers=None},\\
+                                 {\color{red}queue\_size=None}\\)
+    \end{focus}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{Things to note..}
+    
+    \begin{itemize}
+        \item  ROS messages are implemented as classes.
+        \item  To publish a message you also need to define a \textbf{Publisher} class.
+        \item Most of ROS concepts and functionalities are implemented as classes. This is why understanding OOP helps you understand ROS better.
+    \end{itemize}   
+\end{frame}
+
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    
+    \begin{itemize}
+        \centering
+        \item  Go to the README file and do the instructions of section: \textbf{some of ROS commands}.
+    \end{itemize}   
+\end{frame}
 
 
 
