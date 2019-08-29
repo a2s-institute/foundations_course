@@ -100,6 +100,10 @@ roscd my_first_package/scripts/
 ```
 sudo chmod +x 01_simple_node.py
 ```
+:bulb: you can do that for all the files ending with ```.py``` in one command:
+```
+sudo chmod +x *.py
+```
 - use ```rosrun```:
 ```
 rosrun my_first_package 01_simple_node.py
