@@ -7,3 +7,7 @@
 - Get the message description (class attributes).
 - Write a node that publishes on that topic to make the turtle move (any movement).
 - Modify your node to make the trutle move in a circle. (Hint: tangential velocity = radius * angular velocity)
+
+Note: the turtle can only move forward in the x direction, and rotate around the z-axis.
+
+![spinning turtle](presentation/figures/task1.gif)

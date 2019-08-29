@@ -385,6 +385,21 @@ while not rospy.is_shutdown():
             \color{green} \ttfamily{rostopic echo <topic name>}
         \end{terminal}
         
+     \end{itemize}
+     
+\end{frame}
+
+
+\begin{frame}{More ROS commands}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    \begin{itemize}
+                
+        \item Publish a message from terminal:
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rostopic pub <topic name> <msg type> <msg>}
+        \end{terminal}        
+        
         
         \item Get message type of a topic:
         
@@ -480,7 +495,12 @@ while not rospy.is_shutdown():
 \end{frame}
 
 
-
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{black}{Exercise 1}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
 
 
 
@@ -490,10 +510,20 @@ while not rospy.is_shutdown():
 
 \begin{frame}[fragile]{Writing a subscriber node in Python}
     \framesubtitle{ROS Nodes, Topics, and Messages}
+    \lstset{language=python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
     
-    \begin{itemize}
-        \item  Let's ..
-    \end{itemize}   
+    
+    from std_msgs.msg import String
+    
+    \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Writing a publisher node in Python}
