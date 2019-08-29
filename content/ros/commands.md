@@ -7,7 +7,7 @@ catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
 Example:
 ```
-catkin_create_pkg myFirstPackage std_msgs rospy 
+catkin_create_pkg my_first_package std_msgs rospy 
 ```
 ## ```rosrun``` command
 ```

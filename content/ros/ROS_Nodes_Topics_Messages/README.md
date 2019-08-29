@@ -8,9 +8,9 @@
 ```
 cd ~/catkin_ws/src/
 ``` 
-- Create a package named ```myFirstPackage```, with ```std_msgs``` and ```rospy``` as dependencies:
+- Create a package named ```my_first_package```, with ```std_msgs``` and ```rospy``` as dependencies:
 ```
-catkin_create_pkg myFirstPackage std_msgs rospy 
+catkin_create_pkg my_first_package std_msgs rospy 
 ```
 - Complie:
 ```
@@ -59,9 +59,9 @@ Where ```depend1, depend2, depend3```  are [dependencies](#dependencies) you mig
 
 
 
-Creat a package named as ```myFirstPackage``` with ```rospy``` and ```std_msgs``` as dependencies:
+Creat a package named as ```my_first_package``` with ```rospy``` and ```std_msgs``` as dependencies:
 ```
-catkin_create_pkg myFirstPackage std_msgs rospy 
+catkin_create_pkg my_first_package std_msgs rospy 
 ```
 - [Compile](#compilation) using ```catkin build``` command:
 ```
@@ -90,10 +90,10 @@ echo $ROS_PACKAGE_PATH
 ```
 rosrun <package> <executable> 
 ```
-- create a ```scripts``` folder inside ```myFirstPackage/scripts``` and place our scripts there.
+- create a ```scripts``` folder inside ```my_first_package/scripts``` and place our scripts there.
 - In a terminal (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd>), navigate to the ```scripts``` folder.
 ```
-roscd myFirstPackage/scripts/
+roscd my_first_package/scripts/
 ```
 
 - Give the script files execuation permission. Example:
@@ -102,7 +102,7 @@ sudo chmod +x 01_simple_node.py
 ```
 - use ```rosrun```:
 ```
-rosrun myFirstPackage 01_simple_node.py
+rosrun my_first_package 01_simple_node.py
 ```
 
 
@@ -142,11 +142,11 @@ rosnode ping <node name>
 
 
 ## some of ROS commands:
-- put the script (```02_simple_publisher.py```) inside our package (```myFirstPackage/scripts```). Give it execution permission.
+- put the script (```02_simple_publisher.py```) inside our package (```my_first_package/scripts```). Give it execution permission.
 
 - Run the script using ```rosrun```.
 ```
-rosrun myFirstPackage 02_simple_publisher.py
+rosrun my_first_package 02_simple_publisher.py
 ```
 
 - Let's see the current list of topics.  To do that we will use ```rostopic list``` command:
