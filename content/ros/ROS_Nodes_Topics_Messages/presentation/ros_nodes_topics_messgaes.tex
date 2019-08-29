@@ -243,6 +243,27 @@ while not rospy.is_shutdown():
 \end{frame}
 
 
+\begin{frame}{More ROS commands}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    \begin{itemize}
+        \item List all the running nodes::
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rosnode list}
+        \end{terminal}
+        
+        \item Get more info. about a certain node:
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rosnode info <node name>}
+        \end{terminal}
+        
+              
+        
+    \end{itemize}
+    
+\end{frame}
+
 
 \subsection{Writing a publisher node in Python}
 
@@ -346,6 +367,65 @@ while not rospy.is_shutdown():
     \end{itemize}   
 \end{frame}
 
+
+
+
+\begin{frame}{More ROS commands}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    \begin{itemize}
+        \item Get the current list of topics:
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rostopic list}
+        \end{terminal}
+        
+        \item Print published messages:
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rostopic echo <topic name>}
+        \end{terminal}
+        
+        
+        \item Get field type of a topic::
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rostopic type <topic name>}
+        \end{terminal}
+  
+  
+    \end{itemize}
+    
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}[fragile]{rospy reference}
+    \framesubtitle{}
+
+\begin{itemize}
+    \item rospy full documentation (all the classes, all the functions ..etc):
+    
+    \vspace{0.5cm}
+     \url{http://docs.ros.org/kinetic/api/rospy/html/}
+\end{itemize}
+    
+\end{frame}
 
 
 

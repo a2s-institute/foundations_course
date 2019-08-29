@@ -141,6 +141,40 @@ rosnode ping <node name>
 </details>
 
 
+## some of ROS commands:
+- put the script (```02_simple_publisher.py```) inside our package (```myFirstPackage/scripts```). Give it execution permission.
+
+- Run the script using ```rosrun```.
+```
+rosrun myFirstPackage 02_simple_publisher.py
+```
+
+- Let's see the current list of topics.  To do that we will use ```rostopic list``` command:
+```
+rostopic list
+```
+- Let's see the messages we are publishing. To do that we will use ```rostopic echo``` command:
+
+```
+rostopic echo /myFirstTopic
+```
+
+<details><summary>More details:</summary>
+
+- Get field type of a topic:
+```
+rostopic type <topic name>
+```
+- Get information about ROS a topic:
+```
+rostopic info <topic name>
+```
+- Display publishing rate of topic:
+```
+rostopic hz <topic name>
+```
+<br/>
+</details>
 
 <br/>
 <br/>
