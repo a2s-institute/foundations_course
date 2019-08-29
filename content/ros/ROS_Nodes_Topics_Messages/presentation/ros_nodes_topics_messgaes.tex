@@ -386,7 +386,7 @@ while not rospy.is_shutdown():
         \end{terminal}
         
         
-        \item Get field type of a topic::
+        \item Get message type of a topic:
         
         \begin{terminal}
             \color{green} \ttfamily{rostopic type <topic name>}
@@ -400,6 +400,119 @@ while not rospy.is_shutdown():
 
 
 
+\subsection{How to use ROS messages}
+
+\begin{frame}{How to use ROS messages}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    \begin{itemize}
+        \item ROS messages are just classes with attributes you can fill.
+        
+        \item ROS messages are defined in a separate files and have to be placed in a package. (will be covered today).
+        
+        \item The following command can be used to see the class attributes, or the description, of a ROS message:
+        
+        \begin{terminal}
+            \color{green} \ttfamily{rosmsg show <package/msg>}
+        \end{terminal}
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{How to use ROS messages}
+    \framesubtitle{Example}
+
+        \begin{terminal}
+            \color{green} \ttfamily{rosmsg show std\_msgs/String }
+        \end{terminal}
+
+    The output is:
+    
+            \begin{terminal}
+                \color{green} \ttfamily{string data}
+                
+            \end{terminal}
+   
+   \begin{itemize}
+       \item It means ROS {\ttfamily \colorbox{yellow}{String}} message is a class with an attribute named {\ttfamily \colorbox{yellow}{data}} of type string (Python string).
+   \end{itemize} 
+\end{frame}
+
+
+\begin{frame}{How to use ROS messages}
+    \framesubtitle{Importing a ROS message}
+    
+    
+    \begin{itemize}
+        \item {\ttfamily \colorbox{yellow}{String}} message is located in the {\ttfamily \colorbox{yellow}{std\_msgs}}.
+    \end{itemize} 
+\end{frame}
+
+
+
+\begin{frame}[plain]{}
+\includegraphics[width=1.0\linewidth]{figures/std_msgs.png}
+\end{frame}
+
+\begin{frame}[plain]{}
+    \includegraphics[width=1.0\linewidth]{figures/string.png}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{How to use ROS messages}
+    \framesubtitle{Importing a ROS message}
+    \lstset{language=python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+
+    
+    from std_msgs.msg import String
+
+    \end{lstlisting}
+\end{frame}
+
+
+
+
+
+
+
+
+\subsection{Writing a subscriber node in Python}
+
+\begin{frame}[fragile]{Writing a subscriber node in Python}
+    \framesubtitle{ROS Nodes, Topics, and Messages}
+    
+    \begin{itemize}
+        \item  Let's ..
+    \end{itemize}   
+\end{frame}
+
+\begin{frame}[fragile]{Writing a publisher node in Python}
+    \framesubtitle{../scripts/02\_simple\_publisher.py}
+    
+    
+    
+    \lstset{language=python,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+
+    \end{lstlisting}
+\end{frame}
 
 
 
@@ -411,9 +524,8 @@ while not rospy.is_shutdown():
 
 
 
-
-
-
+\section{ROS messages}
+    
 
 \begin{frame}[fragile]{rospy reference}
     \framesubtitle{}
