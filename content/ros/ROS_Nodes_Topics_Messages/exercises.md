@@ -6,29 +6,23 @@
 - Find out the type of message of this topic.
 - Get the message description (class attributes).
 - Write a node that publishes on that topic to make the turtle move (any movement).
-- Modify your node to make the trutle move in a circle. (Hint: tangential velocity = radius * angular velocity)
+- Modify your node to make the trutle move in a circle. (Hint: tangential linear velocity = radius x angular velocity)
 
 Note: the turtle can only move forward in the x direction, and rotate around the z-axis.
 
 ![spinning turtle](presentation/figures/task1.gif)
 
-<details><summary>Solution, don't click if you didn't solve yet</summary>
+<details><summary>Solution (don't click if you didn't solve yet)</summary>
 
 ```python
 #!/usr/bin/env python
 
 import rospy
-
-
 from geometry_msgs.msg import Twist
 
 rospy.init_node('commander')
-
-
 pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
-
 rate = rospy.Rate(100)
-
 
 msg = Twist()
 
