@@ -644,20 +644,19 @@ rospy.spin()
     \begin{itemize}
         \item You can define multiple publishers and subscribers in a node.
         \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only!
+        \item To make your code look neat, you can wrap ROS stuff in a class and hide them!
     \end{itemize} 
     \vspace{0.5cm}
-    Let's see an example with multiple publishers/subscribers and use some OOP...
+    Let's see an example with multiple publishers/subscribers and let's define them in a class...
 \end{frame}
 
 
-\begin{frame}{General notes}
-    \framesubtitle{more on ROS nodes}
-    \begin{itemize}
-        \item You can define multiple publishers and subscribers in a node.
-        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only!
-    \end{itemize} 
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{black}{Let's see script \textbf{05\_node\_example.py}}}
 \end{frame}
-
+\setbeamercolor{background canvas}{bg=white}
 
 
 
