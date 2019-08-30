@@ -40,10 +40,7 @@ msg.linear.x = v
 msg.angular.z = w
 
 while not rospy.is_shutdown():
-    msg.linear.x = v
     pub.publish(msg)
     rate.sleep()
-
-
 ```
 </details>
