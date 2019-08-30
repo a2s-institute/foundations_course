@@ -145,7 +145,7 @@ rosnode ping <node name>
 </details>
 
 
-## some of ROS commands:
+## Some of ROS commands:
 - put the script (```02_simple_publisher.py```) inside our package (```my_first_package/scripts```). Give it execution permission.
 
 - Run the script using ```rosrun```.
@@ -179,6 +179,30 @@ rostopic hz <topic name>
 ```
 <br/>
 </details>
+
+
+## Simple subscriber
+
+- Run our subscriber ```04_simple_subscriber.py``` node (after doing necessary steps):
+  
+```
+rosrun my_first_package 04_simple_subscriber.py
+```
+- The script is listening but there are no messages being published.
+- Run our publisher node in a second terminal:
+```
+rosrun my_first_package 02_simple_publisher.py
+```
+- You can also publish from the terminal directly using ```rostopic pub``` command:
+```
+rostopic pub /myFirstTopic std_msgs/String "data: 'hey there'"
+```
+
+
+
+
+
+
 
 <br/>
 <br/>

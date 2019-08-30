@@ -26,6 +26,7 @@
 
 \newtcolorbox{terminal}{colback=black!70!white,colframe=black!70!white}
 \newtcolorbox{focus}{colback=black!10!white,colframe=black!10!white}
+\newtcolorbox{terminal2}[1]{colback=white,colframe=black!70!white,fonttitle=\bfseries,title=#1}
 
 \usepackage{theme/beamerthemehbrs}
 
@@ -459,7 +460,7 @@ while not rospy.is_shutdown():
     
     
     \begin{itemize}
-        \item {\ttfamily \colorbox{yellow}{String}} message is located in the {\ttfamily \colorbox{yellow}{std\_msgs}}.
+        \item {\ttfamily \colorbox{yellow}{String}} message is located in the {\ttfamily \colorbox{yellow}{std\_msgs}} package.
     \end{itemize} 
 \end{frame}
 
@@ -471,6 +472,8 @@ while not rospy.is_shutdown():
 
 \begin{frame}[plain]{}
     \includegraphics[width=1.0\linewidth]{figures/string.png}
+    
+    {\scriptsize Note: this is not the file that is imported in out script though! this file is not even Python nor C++. We will see later what this file is.}
 \end{frame}
 
 
@@ -478,7 +481,7 @@ while not rospy.is_shutdown():
 
 \begin{frame}[fragile]{How to use ROS messages}
     \framesubtitle{Importing a ROS message}
-    \lstset{language=python,
+{    \lstset{language=python,
         basicstyle=\ttfamily,
         keywordstyle=\color{blue}\ttfamily,
         stringstyle=\color{red}\ttfamily,
@@ -486,12 +489,29 @@ while not rospy.is_shutdown():
         morecomment=[l][\color{magenta}]{\#},
         showstringspaces=false
     }
+   
+\begin{terminal2}
+    {Python}
     \begin{lstlisting}
-
-    
     from std_msgs.msg import String
+    \end{lstlisting} 
+\end{terminal2}
+}
 
-    \end{lstlisting}
+{	\lstset{language=C++,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#}
+    }
+\begin{terminal2}
+    {C++}
+    \begin{lstlisting}
+    #include "std_msgs/String.h"
+    \end{lstlisting} 
+\end{terminal2}
+}
 \end{frame}
 
 
@@ -509,28 +529,6 @@ while not rospy.is_shutdown():
 \subsection{Writing a subscriber node in Python}
 
 \begin{frame}[fragile]{Writing a subscriber node in Python}
-    \framesubtitle{ROS Nodes, Topics, and Messages}
-    \lstset{language=python,
-        basicstyle=\ttfamily,
-        keywordstyle=\color{blue}\ttfamily,
-        stringstyle=\color{red}\ttfamily,
-        commentstyle=\color{green}\ttfamily,
-        morecomment=[l][\color{magenta}]{\#},
-        showstringspaces=false
-    }
-    \begin{lstlisting}
-    
-    
-    from std_msgs.msg import String
-    
-    \end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]{Writing a publisher node in Python}
-    \framesubtitle{../scripts/02\_simple\_publisher.py}
-    
-    
-    
     \lstset{language=python,
         basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
@@ -540,13 +538,70 @@ while not rospy.is_shutdown():
         showstringspaces=false
     }
     \begin{lstlisting}
+    
+    #!/usr/bin/env python
+    
+    import rospy
+    from std_msgs.msg import String
 
+    def my_callback_function(msg):
+        print msg
+    
+    rospy.init_node('listener')
+    rate = rospy.Rate(100) 
+    sub = rospy.Subscriber('myFirstTopic', String,
+                            callback=my_callback_function)
+    
+    while not rospy.is_shutdown():
+        pass
+    
+    
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Writing a subscriber node in Python}
+    \lstset{language=python,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import String
+
+
+def my_callback_function(msg):
+    print msg
+
+rospy.init_node('listener')
+rate = rospy.Rate(100)
+
+rospy.Subscriber('myFirstTopic', String, callback=my_callback_function)
+
+rospy.spin()
+
+    
     \end{lstlisting}
 \end{frame}
 
 
 
-
+\begin{frame}[fragile]{Writing a subscriber node in Python}
+    \framesubtitle{Importing a ROS message}
+    
+    
+    \begin{itemize}
+        \centering
+        \item go to the README, and let's do section:\\ 
+        \textbf{Simple subscriber}
+    \end{itemize} 
+\end{frame}
 
 
 
