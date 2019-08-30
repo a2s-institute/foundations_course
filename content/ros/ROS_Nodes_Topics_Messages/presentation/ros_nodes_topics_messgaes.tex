@@ -473,7 +473,7 @@ while not rospy.is_shutdown():
 \begin{frame}[plain]{}
     \includegraphics[width=1.0\linewidth]{figures/string.png}
     
-    {\scriptsize Note: this is not the file that is imported in out script though! this file is not even Python nor C++. We will see later what this file is.}
+    {\scriptsize Note: this is not the file that is imported in our script though! this file is not even Python nor C++. We will see later what this file is.}
 \end{frame}
 
 
@@ -529,6 +529,7 @@ while not rospy.is_shutdown():
 \subsection{Writing a subscriber node in Python}
 
 \begin{frame}[fragile]{Writing a subscriber node in Python}
+    \framesubtitle{../scripts/03\_simple\_subscriber.py}
     \lstset{language=python,
         basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
@@ -561,6 +562,8 @@ while not rospy.is_shutdown():
 
 
 \begin{frame}[fragile]{Writing a subscriber node in Python}
+        \framesubtitle{../scripts/04\_simple\_subscriber.py}
+        
     \lstset{language=python,
         basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
@@ -593,7 +596,7 @@ rospy.spin()
 
 
 \begin{frame}[fragile]{Writing a subscriber node in Python}
-    \framesubtitle{Importing a ROS message}
+    \framesubtitle{Subscriber class}
     
     
     \begin{itemize}
@@ -604,12 +607,74 @@ rospy.spin()
 \end{frame}
 
 
+\begin{frame}[fragile]{Writing a subscriber node in Python}
+    \framesubtitle{Subscriber class}
+    \begin{focus}
+        
+        \ttfamily rospy.Subscriber(\\
+        {\color{red}name},\\
+        {\color{red}data\_class},\\
+        {\color{blue}callback=None}, \\
+        {\color{blue}callback\_args=None},\\
+        {\color{blue}queue\_size=None},\\
+        {\color{blue}buff\_size=65536},\\
+        {\color{red}tcp\_nodelay=False}\\)
+    \end{focus}
+    
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Writing a subscriber node in Python}
+    \framesubtitle{Subscriber class}
+    
+    
+    \begin{itemize}
+        \centering
+        \item go to the README, and let's do section:\\ 
+        \textbf{Simple subscriber}
+    \end{itemize} 
+\end{frame}
+
+
+\subsection{General notes}
+\begin{frame}{General notes}
+    \framesubtitle{more on ROS nodes}
+    \begin{itemize}
+        \item You can define multiple publishers and subscribers in a node.
+        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only!
+    \end{itemize} 
+    \vspace{0.5cm}
+    Let's see an example with multiple publishers/subscribers and use some OOP...
+\end{frame}
+
+
+\begin{frame}{General notes}
+    \framesubtitle{more on ROS nodes}
+    \begin{itemize}
+        \item You can define multiple publishers and subscribers in a node.
+        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only!
+    \end{itemize} 
+\end{frame}
 
 
 
 
 
-\section{ROS messages}
+
+
+
+
+\section{Building / Compilation of Packages}
+
+\section{Custom ROS Messages}
+
+\section{Parameter Server}
+
+\section{Names in ROS}
+
+\section{ROS Launch Files}
     
 
 \begin{frame}[fragile]{rospy reference}
