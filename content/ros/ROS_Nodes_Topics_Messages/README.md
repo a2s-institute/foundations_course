@@ -72,7 +72,7 @@ You can now navigate to this package direclty using ```roscd```:
 
 - One more thing:
 
-ROS uses the ```ROS_PACKAGE_PATH``` environment variable when it looks up for packages and nodes. Try to see to where it points at:
+ROS uses the ```ROS_PACKAGE_PATH``` environment variable when it looks up for packages and nodes. Try to see where it points at:
 
 ```
 echo $ROS_PACKAGE_PATH

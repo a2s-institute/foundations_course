@@ -247,7 +247,7 @@ while not rospy.is_shutdown():
 \begin{frame}{More ROS commands}
     \framesubtitle{ROS Nodes, Topics, and Messages}
     \begin{itemize}
-        \item List all the running nodes::
+        \item List all the running nodes:
         
         \begin{terminal}
             \color{green} \ttfamily{rosnode list}
@@ -423,7 +423,7 @@ while not rospy.is_shutdown():
     \begin{itemize}
         \item ROS messages are just classes with attributes you can fill.
         
-        \item ROS messages are defined in a separate files and have to be placed in a package. (will be covered today).
+        \item ROS messages are defined in separate files and have to be placed in a package. (will be covered today).
         
         \item The following command can be used to see the class attributes, or the description, of a ROS message:
         
@@ -614,11 +614,11 @@ rospy.spin()
         \ttfamily rospy.Subscriber(\\
         {\color{red}name},\\
         {\color{red}data\_class},\\
-        {\color{blue}callback=None}, \\
+        {\color{red}callback=None}, \\
         {\color{blue}callback\_args=None},\\
         {\color{blue}queue\_size=None},\\
         {\color{blue}buff\_size=65536},\\
-        {\color{red}tcp\_nodelay=False}\\)
+        {\color{blue}tcp\_nodelay=False}\\)
     \end{focus}
     
 \end{frame}
@@ -662,12 +662,47 @@ rospy.spin()
 
 
 
+\section{Catkin and Custom ROS messages}
 
 
 
-\section{Building / Compilation of Packages}
+\subsection{Catkin}
 
-\section{Custom ROS Messages}
+
+\begin{frame}{Catkin}
+    
+    \begin{itemize}
+        \item In ROS, packages are compiled and built using Catkin.
+        
+    \end{itemize}
+    \end{frame}
+\begin{frame}{A ROS package}
+    
+    \begin{itemize}
+        \item A ROS package might look like this:
+        
+    \end{itemize}
+    \includegraphics[width = 1\linewidth]{figures/package.png}  
+\end{frame}
+
+\begin{frame}{A ROS package}
+    
+    \begin{itemize}
+        \item A ROS package might look like this:
+        
+    \end{itemize}
+    
+    \begin{overpic}[width = 1\linewidth]{figures/package.png}
+        \thicklines
+        \put(36, 6){\color{red}\circle{13}}
+        \put(66, 6){\color{red}\circle{13}  }
+    \end{overpic}
+    
+\end{frame}
+
+
+
+\subsection{Custom ROS Messages}
 
 \section{Parameter Server}
 
