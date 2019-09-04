@@ -1,6 +1,5 @@
 # Practical part
 
-
 ## Creating a ROS package
 
 - Navigate to workspace. Example:
@@ -84,6 +83,11 @@ echo $ROS_PACKAGE_PATH
 
 
 ## Using ```rosrun``` to run a node
+:warning: Don't forget to run ROS master before doing any of the instructions that follows. To run the master, use the following command:
+
+```
+roscore
+```
 
 ```rosrun``` can be used to run a node directly without the need to navigate to it's directory. 
 

@@ -711,11 +711,62 @@ rospy.spin()
              \centering
        \fontsize{9}{1} \ttfamily rospy.get\_param({\color{blue}param\_name},{\color{blue}default=value})
         \end{focus}
+        
+       \item A node can set a parameter on the parameter server:
+       \begin{focus}
+           \centering
+           \fontsize{9}{1} \ttfamily rospy.set\_param({\color{blue}param\_name},{\color{blue}param\_value})
+        \end{focus}
     \end{itemize}
 \end{frame}
 
 
-\section{Names in ROS}
+
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{black}{Let's see script \textbf{06\_parameters\_example.py}}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+
+
+\begin{frame}{Parameter Server}
+    \framesubtitle{Examples}
+
+The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{move}}  and has a namespace of {\ttfamily \colorbox{yellow}{/robot1}}, so the resolved node name is   {\ttfamily \colorbox{yellow}{/robot1/move}} 
+
+    
+\end{frame}
+
+
+\begin{frame}{Parameter Server}
+
+    \begin{itemize}
+        \item Global naming:
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily  var = rospy.get\_param("/speed") \\ \vspace{0.2cm}  resolves to  $\Rightarrow$ {\color{red} /speed}
+        \end{focus}
+        
+        \item Relative naming:
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily var = rospy.get\_param("speed")\\ \vspace{0.2cm}  resolves to  $\Rightarrow$ {\color{red} /robot1/speed}
+        \end{focus}  
+        
+        \item Private naming:
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily var = rospy.get\_param("$\sim$speed")\\ \vspace{0.2cm}  resolves to  $\Rightarrow$ {\color{red} /robot1/move/speed}
+        \end{focus}        
+        
+    \end{itemize}
+    
+\end{frame}
+
+
+
 
 \section{ROS Launch Files}
 
