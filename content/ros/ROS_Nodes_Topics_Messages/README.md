@@ -227,6 +227,27 @@ rosnode list
 </details>
 
 
+
+## Custom ROS messages
+
+You will learn how to create a message, and how to edit ```CMakeLists.txt``` and ```package.xml``` files in order to build the package.
+
+- Go to [this repository](https://github.com/mas-group/minimal_ros_packages) and clone it inside your workspace:
+  
+```
+cd ~/catkin_ws/src
+```
+```
+git clone https://github.com/mas-group/minimal_ros_packages.git
+```
+- Build the package:
+```
+catkin build
+```
+
+- This is a meta-package, it consists of several packages. We will work with ```msg_minimal```.
+- Go to [msg_minimal](https://github.com/mas-group/minimal_ros_packages/tree/master/msg_minimal) And do the instructions there (in the README of that package).
+
 <br/>
 <br/>
 <br/>
