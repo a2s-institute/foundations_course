@@ -204,8 +204,27 @@ rostopic pub /myFirstTopic std_msgs/String "data: 'hey there'"
 
 
 
+## Using launch files
 
+- Create a ```launch``` folder in your package ```my_first_package```.
+- Place our launch files in it.
+- Use ```roslaunch``` command to run ```01_simple.launch```:
 
+```
+roslaunch my_first_package 01_simple.launch
+```
+
+- Check topic names, and notice how our node name was changed.
+```
+rosnode list
+```
+<details><summary>More details:</summary>
+
+- Launch files don't necessarily have to be placed in a ```launch``` folder, they just have to be placed anywhere inside the package. ```roslaunch``` command will find them.
+
+- When you run a launch file, it also brings up the master, so you don't have to run ```roscore``` command
+<br/>
+</details>
 
 
 <br/>

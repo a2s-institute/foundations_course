@@ -697,6 +697,21 @@ rospy.spin()
 
 \begin{frame}{ROS Launch Files}
     \begin{itemize}
+        \item To run a launch file:
+             \begin{terminal}
+                 \color{green} \ttfamily{roslaunch <package name> <launch file>}
+              \end{terminal}
+              
+        \item Example
+        \begin{terminal}
+            \color{green} \ttfamily{roslaunch my\_first\_package 00\_simple.launch}
+          \end{terminal}              
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{ROS Launch Files}
+    \begin{itemize}
         \item Ros launch files are XML files that consists for tags.
         
         \item They have {\ttfamily \colorbox{gray!30!white}{.launch}} file extension.
@@ -718,7 +733,7 @@ rospy.spin()
             
             \item Define arguments for the launch file itself.
             
-            \item Include other launch files, and pass arguments to it.
+            \item Include other launch files, and pass arguments to them.
             
             \item Bring up the master (no need to call {\ttfamily \colorbox{gray!30!white}{roscore}}).
             
@@ -732,6 +747,38 @@ rospy.spin()
 \end{frame}
 
 
+\begin{frame}[fragile]{ROS Launch Files}
+    \framesubtitle{../launch/01\_simple.launch}
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+    <!-- Example launch file to run 
+    the turtlesim node and our script 06-->
+    
+    <launch>
+    
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+    
+    <node pkg="my_first_package" type="06_parameters_example.py" 
+     name="commander"/>
+    
+    </launch>
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{ROS Launch Files}
+    \begin{itemize}
+        \centering
+        \item Go to the README, and do section  \\   \textbf{Using launch files}
+    \end{itemize}  
+\end{frame}
 
 \section{Names in ROS}
 
