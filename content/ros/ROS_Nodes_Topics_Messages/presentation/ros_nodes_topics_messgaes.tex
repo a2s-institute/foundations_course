@@ -688,7 +688,7 @@ rospy.spin()
 
 <launch>
 
-<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
 
 </launch>
     \end{lstlisting}
@@ -763,10 +763,10 @@ rospy.spin()
     
     <launch>
     
-    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
-    
-    <node pkg="my_first_package" type="06_parameters_example.py" 
-     name="commander"/>
+        <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+        
+        <node pkg="my_first_package" type="06_parameters_example.py" 
+         name="commander"/>
     
     </launch>
     \end{lstlisting}
@@ -779,6 +779,16 @@ rospy.spin()
         \item Go to the README, and do section  \\   \textbf{Using launch files}
     \end{itemize}  
 \end{frame}
+
+
+
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{black}{Exercise 2}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
 
 \section{Names in ROS}
 \begin{frame}{Names in ROS}
@@ -882,9 +892,9 @@ rospy.spin()
     
     <launch>
     
-    <group ns="/first">
-    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
-    </group>
+        <group ns="/first">
+            <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+        </group>
     
     </launch>
     \end{lstlisting}
@@ -907,28 +917,56 @@ rospy.spin()
 \end{frame}
 
 
-\begin{frame}{Name Remappings}
+\begin{frame}[plain]{Name Remappings}
     \framesubtitle{How to? Using rosrun}
     \begin{itemize}     
-        \item From the terminal using {\ttfamily \colorbox{gray!30!white}{rosrun}} command:
+        \item Example, from the terminal using {\ttfamily \colorbox{gray!30!white}{rosrun}} command:
         \begin{terminal}
-            \color{green} \fontsize{9}{1} \ttfamily{rosrun <package name> <node name> \_\_ns:=<namespace>}
+            \color{green} \fontsize{8}{1} \ttfamily{rosrun turtlesim turtlesim\_node /turtle1/cmd\_vel:=/vel}
         \end{terminal} 
         
-        Example:
+                        
+                        Changes topic name to:
+                        \begin{focus}
+                            /vel  
+                        \end{focus}
+
+
+        \item Example, from the terminal changing node name:
         \begin{terminal}
-            \color{green} \fontsize{9}{1} \ttfamily{rosrun turtlesim turtlesim\_node \_\_ns:=first   }
+            \color{green} \fontsize{8}{1} \ttfamily{rosrun turtlesim turtlesim\_node /turtlesim:=/second\_turtle}
         \end{terminal} 
         
         
-        Node name becomes:
+        Changes node name to:
         \begin{focus}
-            /first/turtlesim  
-        \end{focus}
-        \item Notice the forward slash (/) is used as a separator.
+        /second\_turtle
+        \end{focus}                        
     \end{itemize}  
 \end{frame}
 
+
+
+\begin{frame}[fragile]{Name Remappings}
+    \framesubtitle{How to? from a launch file}
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+      }
+      \begin{lstlisting}
+<!-- Example launch file using remap tag-->
+
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle">
+    <remap from="/turtle1/cmd_vel" to="/vel"/>
+    </node>
+</launch>
+      \end{lstlisting}  
+\end{frame}
 
 
 

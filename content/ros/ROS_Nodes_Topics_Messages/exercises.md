@@ -38,3 +38,24 @@ while not rospy.is_shutdown():
     rate.sleep()
 ```
 </details>
+
+# Task 2
+
+- Write a launch file to run two nodes of the turtlesim node, and a third node which is the script you wrote in task 1.
+
+![spinning turtle](presentation/figures/task1.gif)  ![spinning turtle](presentation/figures/task1.gif)
+
+
+<details><summary>Solution (don't click if you didn't solve yet)</summary>
+
+```xml
+<!-- launch file to run two turtles and make then spin-->
+
+<launch>
+<node pkg="turtlesim" type="turtlesim_node" name="turtle1"/>
+<node pkg="turtlesim" type="turtlesim_node" name="turtle2"/>
+<node pkg="my_first_package" type="youScript.py" name="rename_it_as_you_want"/>
+
+</launch>
+```
+</details>
