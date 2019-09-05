@@ -1,0 +1,10 @@
+<!-- Example launch file, setting private parameters-->
+
+<launch>
+    <node pkg="my_first_package" type="07_parameters_example.py" name="commander">
+        <param name="rate" value="100"/>
+        <param name="radius" value="0.5"/>
+        <param name="angular_speed" value="1"/>
+    </node>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+</launch>

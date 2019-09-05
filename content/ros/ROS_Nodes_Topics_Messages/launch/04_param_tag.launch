@@ -1,0 +1,10 @@
+<!-- Example launch file using param tag-->
+
+<launch>
+    <param name="rate" value="100"/>
+    <param name="radius" value="0.5"/>
+    <param name="angular_speed" value="1"/>
+
+    <node pkg="my_first_package" type="06_parameters_example.py" name="commander"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+</launch>

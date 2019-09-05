@@ -21,14 +21,14 @@ class Turtle:
             turtle_number {int} -- turtle's number (default: {1})
         """
         # define a private variable of type Publisher (an instance of Publisher)
-        self.__pub = rospy.Publisher('/turtle'+str(turtle_number)+'/cmd_vel',
+        self.__pub = rospy.Publisher('turtle'+str(turtle_number)+'/cmd_vel',
                                      Twist, queue_size=10)
         self.__vel_msg = Twist()
         # define subscribers for pose and color topics, and assign callbacks
-        rospy.Subscriber('/turtle'+str(turtle_number)+'/pose', Pose,
+        rospy.Subscriber('turtle'+str(turtle_number)+'/pose', Pose,
                          callback=self.__pose_cb)
 
-        rospy.Subscriber('/turtle'+str(turtle_number)+'/color_sensor', Color,
+        rospy.Subscriber('turtle'+str(turtle_number)+'/color_sensor', Color,
                          callback=self.__color_cb)
 
         # private attribute to hold the turtle pose

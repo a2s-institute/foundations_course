@@ -878,7 +878,9 @@ rospy.spin()
 
 
 \begin{frame}[fragile]{Namespaces}
-    \framesubtitle{How to? from a launch file}
+    \framesubtitle{How to? from a launch file  \\ 
+        \vspace{0.2cm}
+    ../launch/02\_group\_tag.launch}
     \lstset{language=xml,
         basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
@@ -948,7 +950,10 @@ rospy.spin()
 
 
 \begin{frame}[fragile]{Name Remappings}
-    \framesubtitle{How to? from a launch file}
+    \framesubtitle{How to? from a launch file\\
+        \vspace{0.2cm}
+        ../launch/03\_remap\_tag.launch
+        }
     \lstset{language=xml,
         basicstyle=\scriptsize,
         keywordstyle=\color{blue}\ttfamily,
@@ -969,7 +974,62 @@ rospy.spin()
 \end{frame}
 
 
+\begin{frame}{Name resolution}
+\begin{itemize}
+    \item When you define a resource name (ex: node name, topic name, etc..), you can specify how names should be resolved.
+    
 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Name resolution}
+    \begin{itemize}
+        
+        \item Example, suppose the snippet below is for a node named {\ttfamily \colorbox{gray!30!white}{talker}} and has a namespace of {\ttfamily \colorbox{gray!30!white}{group1}} (so the resolved node name is {\ttfamily \colorbox{gray!30!white}{/group1/talker}}):
+        
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily rospy.Publisher({\color{blue}myTopic}, {\color{blue}String}, {\color{blue}queue\_size=10})
+        \end{focus}
+        
+        \item The resolved topic name  (what appears when you do {\ttfamily \colorbox{gray!30!white}{rostopic list}}) will be:
+        
+        \begin{focus}
+            \centering
+            \fontsize{9}{1} \ttfamily /group1/myTopic
+        \end{focus}
+        
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Name resolution}
+    \begin{itemize}
+        
+        \item The previous example shows \textbf{relative} name resolution, which is the default way names are resolved in ROS.
+        
+        \item The following table shows all types of name resolutions
+    \end{itemize}
+\end{frame}
+
+    \begin{frame}[label=figs1]{Figures}
+        \framesubtitle{Tables, graphs, and images}
+        \begin{table}[!b]
+            %        {\carlitoTLF % Use monospaced lining figures
+            \begin{tabularx}{\textwidth}{XXcc}
+                \textbf{node name} & \textbf{syntax} &\textbf{type} & \textbf{resolved name} \\
+                \toprule
+                /group1/talker & {\ttfamily \colorbox{gray!30!white}{myTopic}} & relative  & /group1/myTopic \\
+                %
+                /group1/talker & {\ttfamily \colorbox{gray!30!white}{/myTopic}} & global  & /myTopic \\
+                %
+                /group1/talker & {\ttfamily \colorbox{gray!30!white}{$\sim$myTopic}} & private  &  /group1/talker/myTopic \\                
+                \bottomrule
+            \end{tabularx}%}
+        \end{table}
+    \end{frame}
 
 \section{Parameter Server}
 
@@ -1006,6 +1066,9 @@ rospy.spin()
     \end{itemize}
 \end{frame}
 
+
+
+
 \begin{frame}{Parameter Server}
     \framesubtitle{rospy interface to the parameter server}
     \begin{itemize}
@@ -1033,6 +1096,7 @@ rospy.spin()
 
 
 
+
 \setbeamercolor{background canvas}{bg=yellow}
 \begin{frame}[plain]{}  
     \centering
@@ -1042,12 +1106,47 @@ rospy.spin()
 
 
 
+
+\begin{frame}[fragile]{Parameter Server}
+    \framesubtitle{Using launch files\\
+        \vspace{0.2cm}
+        ../launch/04\_param\_tag.launch
+    }
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+<!-- Example launch file using param tag-->
+
+<launch>
+<param name="rate" value="100"/>
+<param name="radius" value="0.5"/>
+<param name="angular_speed" value="1"/>
+
+<node pkg="my_first_package" type="06_parameters_example.py" name="commander"/>
+<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+</launch>
+    \end{lstlisting}  
+\end{frame}
+
+
+
 \begin{frame}{Parameter Server}
-    \framesubtitle{Examples}
+    \framesubtitle{Name resolution}
 
-The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{move}}  and has a namespace of {\ttfamily \colorbox{yellow}{/robot1}}, so the resolved node name is   {\ttfamily \colorbox{yellow}{/robot1/move}} 
 
-    
+
+    \begin{itemize}
+        \item Name resolution applies also to parameter names (as we discussed earlier).
+        
+        
+        \item The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{move}}  and has a namespace of {\ttfamily \colorbox{yellow}{/robot1}}, so the resolved node name is   {\ttfamily \colorbox{yellow}{/robot1/move}}.
+    \end{itemize}
 \end{frame}
 
 
@@ -1076,6 +1175,54 @@ The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{
     
 \end{frame}
 
+
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+\textcolor{black}{Let's use private parameter names instead of relative}
+            
+           \huge{  \textbf{07\_parameters\_example.py}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+
+
+
+\begin{frame}[fragile]{Parameter Server}
+    \framesubtitle{Using launch files\\
+        \vspace{0.2cm}
+        ../launch/05\_private\_params.launch
+    }
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+<!-- Example launch file, setting private parameters-->
+
+<launch>
+<node pkg="my_first_package" type="07_parameters_example.py" name="commander">
+<param name="rate" value="100"/>
+<param name="radius" value="0.5"/>
+<param name="angular_speed" value="1"/>
+</node>
+<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+</launch>
+    \end{lstlisting}  
+\end{frame}
+
+
+
+\setbeamercolor{background canvas}{bg=yellow}
+\begin{frame}[plain]{}  
+    \centering
+    {\huge \textcolor{black}{Exercise 3}}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
 
 
 
