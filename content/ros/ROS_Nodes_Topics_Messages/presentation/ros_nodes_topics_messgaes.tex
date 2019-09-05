@@ -658,6 +658,81 @@ rospy.spin()
 \end{frame}
 \setbeamercolor{background canvas}{bg=white}
 
+
+
+
+\section{ROS Launch Files}
+
+\begin{frame}{ROS Launch Files}
+    \begin{itemize}
+        \item If you are working on a project that is comprised of multiple nodes, it's not practical to run each node manually everytime!
+        \vspace{0.4cm}
+        \item ROS Launch files provide a way to run/launch multiple nodes at once.
+         
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}[fragile]{ROS Launch Files}
+    \framesubtitle{../launch/00\_simple.launch}
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+<!-- Example launch file to run the turtlesim node-->
+
+<launch>
+
+<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+
+</launch>
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{ROS Launch Files}
+    \begin{itemize}
+        \item Ros launch files are XML files that consists for tags.
+        
+        \item They have {\ttfamily \colorbox{gray!30!white}{.launch}} file extension.
+        
+        \item You would ideally place them inside a {\ttfamily \colorbox{gray!30!white}{launch}} folder inside your package.
+    \end{itemize}  
+    \includegraphics[width=1.0\linewidth]{figures/package2.png}
+\end{frame}
+
+\begin{frame}{ROS Launch Files}
+    \begin{itemize}        
+        \item With launch files, you can do the following:
+        \begin{itemize}
+            \item Define nodes to be run.
+            
+            \item Set ROS parameters on the parameter server.
+            
+            \item Name remapping (will be covered later).
+            
+            \item Define arguments for the launch file itself.
+            
+            \item Include other launch files, and pass arguments to it.
+            
+            \item Bring up the master (no need to call {\ttfamily \colorbox{gray!30!white}{roscore}}).
+            
+            \item Push a group of nodes into a separate namespace (will be covered later).
+           
+             \item The list goes on..          
+           \end{itemize} 
+
+        
+    \end{itemize}  
+\end{frame}
+
+
+
 \section{Names in ROS}
 
 \section{Parameter Server}
@@ -768,7 +843,6 @@ The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{
 
 
 
-\section{ROS Launch Files}
 
 
 \section{Catkin and Custom ROS messages}
