@@ -1251,8 +1251,10 @@ rospy.spin()
 \begin{frame}{Catkin}
     
     \begin{itemize}
-        \item Catkin is not a compiler. It is a tool that handles the compilation process from source files to executables. It invokes system's compiler (ex. g++) and handles your package dependencies.
-        
+        \item Catkin is not a compiler. It is a tool that handles the compilation process starting from source files up to generating executables. 
+        \vspace{0.3cm}
+        \item It invokes system's compiler (ex. g++, gcc, etc..) and handles your package dependencies.
+        \vspace{0.3cm}        
         \item to do that, Catkin needs information on what to compile, where to find, etc...
         
     \end{itemize}
@@ -1270,8 +1272,8 @@ rospy.spin()
     
     \begin{overpic}[width = 1\linewidth]{figures/package.png}
         \thicklines
-        \put(34, 6){\color{red}\circle{13}}
-        \put(64, 6){\color{red}\circle{13}  }
+        \put(91, 8){\color{red}\circle{13}}
+        \put(63, 8){\color{red}\circle{13}  }
     \end{overpic}
     
 \end{frame}
@@ -1337,7 +1339,7 @@ rospy.spin()
 
 
 
-\subsection{Package Manifest}
+\subsection{CMakeLists file}
 
 \begin{frame}{CMakeLists.txt}
     
@@ -1351,9 +1353,174 @@ rospy.spin()
 
 
 \subsection{Custom ROS Messages}
+\begin{frame}{Custom ROS message}
+\framesubtitle{How to define them}    
+    \begin{itemize}
+        \item Custom messages are defined in separate text files.
+        
+        \item These files have {\ttfamily \colorbox{gray!30!white}{.msg}} extension and have to be placed in {\ttfamily \colorbox{gray!30!white}{msg}} folder inside the package.
+    \end{itemize}
+    \includegraphics[width=1\linewidth]{figures/package3.png}
+\end{frame}
 
 
 
+\begin{frame}{Custom ROS message}
+    \framesubtitle{msg file format}  
+    
+    \begin{itemize}
+        \item The format is as follows:
+    \end{itemize}
+      
+    \begin{focus}
+        \ttfamily
+    fieldtype1  \hspace{0.5cm} fieldname1\\
+    fieldtype2  \hspace{0.5cm} fieldname2\\
+    fieldtype3  \hspace{0.5cm} fieldname3
+    \end{focus}
+\end{frame}
+
+
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Examples}  
+    
+    \begin{itemize}
+        \item {\ttfamily \colorbox{yellow}{String.msg}}:
+   
+    
+    \begin{focus}
+        \ttfamily
+        string data
+    \end{focus}
+    
+    
+    \item The {\ttfamily \colorbox{yellow}{String}} message has one field of built-in type {\ttfamily \colorbox{gray!30!white}{string}}.
+     \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Built-in types}  
+    
+    \begin{itemize}
+        \item Some of the built-in field types:
+
+        \begin{table}[!b]
+            %        {\carlitoTLF % Use monospaced lining figures
+            \begin{tabularx}{\textwidth}{XXX}
+                \textbf{Built-in type} & \textbf{C++} &\textbf{Python}  \\
+                \toprule
+                   bool & uint8\_t & bool  \\
+                   
+                   int8 &    int8\_t &  int\\
+                   
+                   int32 & int32\_t &  int\\
+                   
+                   string & std::string & string (str) \\
+                   
+                   float32 & float & float\\
+
+                \bottomrule
+            \end{tabularx}%}
+        \end{table}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Examples}  
+    
+    \begin{itemize}
+        \item {\ttfamily \colorbox{yellow}{Twist.msg}}:
+
+    \begin{focus}
+        \ttfamily
+        Vector3  linear\\
+        Vector3  angular
+    \end{focus}
+    
+    
+    \item It's possible to embed other message descriptions. In this example {\ttfamily \colorbox{gray!30!white}{Vector3}} is another message.
+    \end{itemize}
+    
+
+\end{frame}
+
+
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Examples}  
+    
+    \begin{itemize}
+        
+                \item {\ttfamily \colorbox{yellow}{Twist.msg}}:
+                
+                \begin{focus}
+                    \ttfamily
+                    Vector3  linear\\
+                    Vector3  angular
+                \end{focus}
+                
+                
+        \item {\ttfamily \colorbox{yellow}{Vector3.msg}}:
+        
+        \begin{focus}
+            \ttfamily
+            float64 x\\
+            float64 y\\
+            float64 z
+        \end{focus}
+        
+
+    \end{itemize}
+    
+    
+\end{frame}
+
+
+
+\begin{frame}{Custom ROS message}
+  
+    
+    \begin{itemize}
+        
+        \item Let's define a custom message!
+        
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Behind the scenes}  
+    
+    \begin{itemize}
+        
+        \item Catkin uses these message description files to generate Python and C++ source files.
+        \vspace{0.5cm}
+        \item The generated source files actually define the messages as classes, with public attributes matching the fields defined in the message description file.
+        \vspace{0.5cm}        
+       
+        \item The generated source files are what you actually import or include in your nodes.
+    
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Custom ROS message}
+    \framesubtitle{Behind the scenes}  
+    
+    \begin{itemize}
+        
+        \item This is why you need to build your package after writing a new  {\ttfamily \colorbox{gray!30!white}{.msg}} file. Otherwise you won't be able to import it.
+        \vspace{0.5cm}
+        \item You need to explicitly tell Catkin about your {\ttfamily \colorbox{gray!30!white}{.msg}} files and the dependencies needed to generate message classes.
+        \vspace{0.5cm} 
+        \item You do that in both the {\ttfamily \colorbox{yellow}{CMakeLists.txt}} and {\ttfamily \colorbox{yellow}{package.xml}} files.
+        
+    \end{itemize}
+\end{frame}
 
     
 
