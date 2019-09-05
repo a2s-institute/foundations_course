@@ -781,6 +781,157 @@ rospy.spin()
 \end{frame}
 
 \section{Names in ROS}
+\begin{frame}{Names in ROS}
+    \begin{itemize}
+        \item Resources in ROS computation graph (nodes, topics, parameters, etc..) must all have unique names.
+
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{Names in ROS}
+    \begin{itemize}
+        \item Suppose we have a {\ttfamily \colorbox{gray!30!white}{camera}} node that publishes on a topic named {\ttfamily \colorbox{gray!30!white}{image}}
+        
+        \item what if you added a camera to your robot, and want to run two {\ttfamily \colorbox{gray!30!white}{camera}} nodes?
+        
+        \item You will get name collision if you run the node twice!
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{Names in ROS}
+    \begin{itemize}
+        
+        
+        \item ROS provides two mechanisms to avoid such situation:
+        \begin{itemize}
+            \item Namespaces.
+            \item Remappings.
+        \end{itemize}
+    \end{itemize}  
+\end{frame}
+
+\subsection{Namespaces}
+\begin{frame}{Namespaces}
+    \framesubtitle{Names in ROS}
+    \begin{itemize}
+        
+        
+        
+        \item A node can be run under a namespace. For example, if we have two cameras, left camera, and right camera, the two {\ttfamily \colorbox{gray!30!white}{camera}} nodes can have different namespaces:
+       
+       \item Node names:
+       \begin{focus}
+         /left/camera\\ /right/camera  
+        \end{focus} 
+        
+        \item Topic names:
+        
+              \begin{focus}
+                  /left/image\\ /right/image  
+               \end{focus}  
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{Namespaces}
+    \framesubtitle{How to? Using rosrun}
+    \begin{itemize}     
+        \item From the terminal using {\ttfamily \colorbox{gray!30!white}{rosrun}} command:
+        \begin{terminal}
+            \color{green} \fontsize{9}{1} \ttfamily{rosrun <package name> <node name> \_\_ns:=<namespace>}
+        \end{terminal} 
+        
+        Example:
+                \begin{terminal}
+                    \color{green} \fontsize{9}{1} \ttfamily{rosrun turtlesim turtlesim\_node \_\_ns:=first   }
+                \end{terminal} 
+                
+                        
+                        Node name becomes:
+                \begin{focus}
+                  /first/turtlesim  
+                    \end{focus}
+    \item Notice the forward slash (/) is used as a separator.
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}[fragile]{Namespaces}
+    \framesubtitle{How to? from a launch file}
+    \begin{itemize}     
+        \item Using the  {\ttfamily \colorbox{gray!30!white}{group}} tag, you can push down resource names under a chosen namespace.
+    \end{itemize}  
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Namespaces}
+    \framesubtitle{How to? from a launch file}
+    \lstset{language=xml,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        commentstyle=\color{green}\ttfamily,
+        morecomment=[l][\color{magenta}]{\#},
+        showstringspaces=false
+    }
+    \begin{lstlisting}
+    <!-- Example launch file using the group tag-->
+    
+    <launch>
+    
+    <group ns="/first">
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+    </group>
+    
+    </launch>
+    \end{lstlisting}
+\end{frame}
+
+
+\subsection{Name Remappings}
+\begin{frame}{Name Remappings}
+    \begin{itemize}
+
+        \item The second way ROS provides to change resource names is \textbf{remapping}.
+        
+        \item With name remapping, you can rename any resource. Examples:
+        \begin{itemize}
+            \item rename a node.
+            \item Change the name of the topic a node publishes/subscribes to.
+        \end{itemize}
+        \item Again, this is done without having to edit source code of the node. (node is reusable without altering it).
+    \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{Name Remappings}
+    \framesubtitle{How to? Using rosrun}
+    \begin{itemize}     
+        \item From the terminal using {\ttfamily \colorbox{gray!30!white}{rosrun}} command:
+        \begin{terminal}
+            \color{green} \fontsize{9}{1} \ttfamily{rosrun <package name> <node name> \_\_ns:=<namespace>}
+        \end{terminal} 
+        
+        Example:
+        \begin{terminal}
+            \color{green} \fontsize{9}{1} \ttfamily{rosrun turtlesim turtlesim\_node \_\_ns:=first   }
+        \end{terminal} 
+        
+        
+        Node name becomes:
+        \begin{focus}
+            /first/turtlesim  
+        \end{focus}
+        \item Notice the forward slash (/) is used as a separator.
+    \end{itemize}  
+\end{frame}
+
+
+
+
 
 \section{Parameter Server}
 
@@ -934,8 +1085,8 @@ The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{
     
     \begin{overpic}[width = 1\linewidth]{figures/package.png}
         \thicklines
-        \put(36, 6){\color{red}\circle{13}}
-        \put(66, 6){\color{red}\circle{13}  }
+        \put(34, 6){\color{red}\circle{13}}
+        \put(64, 6){\color{red}\circle{13}  }
     \end{overpic}
     
 \end{frame}
@@ -1029,6 +1180,12 @@ The examples that follows, assume the node name is {\ttfamily \colorbox{yellow}{
     
     \vspace{0.5cm}
      \url{http://docs.ros.org/kinetic/api/rospy/html/}
+     
+    \item ROS wiki
+    
+    \item On ROS names: ``Programming Robots with ROS: a practical introduction to the Robot Operating System" Book, 2015, by Quigley and others.
+    
+    \item More on ROS names: \url{https://wiki.ros.org/Remapping%20Arguments}
 \end{itemize}
     
 \end{frame}
