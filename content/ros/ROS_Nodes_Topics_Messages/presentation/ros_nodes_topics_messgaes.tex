@@ -643,7 +643,7 @@ rospy.spin()
     \framesubtitle{more on ROS nodes}
     \begin{itemize}
         \item You can define multiple publishers and subscribers in a node.
-        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only! (unless you use background threads)
+        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only! {\scriptsize(If you are spawning multiple processes in your script, then you can call it once for each process).}
         \item To make your code look neat, you can wrap ROS stuff in a class and hide them!
     \end{itemize} 
     \vspace{0.5cm}
