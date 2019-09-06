@@ -1,0 +1,7 @@
+<!-- Example launch file using remap tag-->
+
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle">
+    <remap from="/turtle1/cmd_vel" to="/vel"/>
+    </node>
+</launch>
