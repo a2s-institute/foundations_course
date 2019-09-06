@@ -49,7 +49,7 @@ cd ~/catkin_ws/src/
 This command assumes the workspace is located in the home directory and named as ```catkin_ws```. The ROS installation script which you used for installing ROS, lets you choose a name for this workspace. If you don't have a workspace for some reason, see the [installation page](https://github.com/mas-group/foundations_course/tree/master/content/ros/ROS%20Installation).
 
 - Use the ```catkin_create_pkg``` command to create the package for you. This 
-commad has the following syntax:
+command has the following syntax:
 
 ```
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
@@ -58,7 +58,7 @@ Where ```depend1, depend2, depend3```  are [dependencies](#dependencies) you mig
 
 
 
-Creat a package named as ```my_first_package``` with ```rospy``` and ```std_msgs``` as dependencies:
+Create a package named as ```my_first_package``` with ```rospy``` and ```std_msgs``` as dependencies:
 ```
 catkin_create_pkg my_first_package std_msgs rospy 
 ```
@@ -67,7 +67,7 @@ catkin_create_pkg my_first_package std_msgs rospy
 catkin build
 ```
 You're done!  
-You can now navigate to this package direclty using ```roscd```:
+In a new terminal (to source the workspace's setup.bash file after our changes), you can navigate now to this package direclty using ```roscd```:
 
 - One more thing:
 
@@ -100,7 +100,7 @@ rosrun <package> <executable>
 roscd my_first_package/scripts/
 ```
 
-- Give the script files execuation permission. Example:
+- Make the script executable. Example:
 ```
 sudo chmod +x 01_simple_node.py
 ```
@@ -118,7 +118,7 @@ rosrun my_first_package 01_simple_node.py
 
 <br/>
 
-- ```rosrun``` searches withing the directory tree of the given package. The scripts doesn't even have to be located in ```scripts``` folder. It's only common between ROS users to place Python scripts inside the ```scripts``` folder.
+- ```rosrun``` searches withing the directory tree of the given package. The scripts doesn't even have to be located in the ```scripts``` folder. It's only common between ROS users to place Python scripts inside the ```scripts``` folder.
   
 - :warning:  ```rosrun``` will not find your Python scripts if you don't change their access permession to executable.
 
