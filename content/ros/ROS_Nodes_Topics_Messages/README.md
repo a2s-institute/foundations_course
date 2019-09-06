@@ -40,6 +40,7 @@ package/
 ├── src/
 └── srv/
 ```
+
  ### How?
 - Navigate to the ```src``` folder of your ROS workspace.
 ```
@@ -262,7 +263,7 @@ catkin build
 ## Extra stuff
 
 ### Dependencies?
-When you write a code, you probablly include some libraries. Every library you use is a dependency your code needs inorder for it to be compiled successfully. In ROS, this is needed particularly when you write C++ nodes. For example, if you write a C++ node that includes the following:
+When you write a code, you probablly include some libraries. Every library you use is a dependency your code needs in order for it to be compiled successfully. In ROS, this is needed particularly when you write C++ nodes. For example, if you write a C++ node that includes the following:
 ```cpp
 #include "std_msgs/String.h"
 ```

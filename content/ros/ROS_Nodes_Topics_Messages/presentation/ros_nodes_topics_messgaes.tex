@@ -69,7 +69,7 @@
 \begin{frame}{Recap}
     \framesubtitle{Summary of yesterday's session}
     \begin{itemize}
-        \item We will focus today on ROS topics and messages..
+        \item Today, we will focus on ROS topics and messages.
     \end{itemize}
 \end{frame}
 
@@ -253,7 +253,7 @@ while not rospy.is_shutdown():
             \color{green} \ttfamily{rosnode list}
         \end{terminal}
         
-        \item Get more info. about a certain node:
+        \item Get more info about a certain node:
         
         \begin{terminal}
             \color{green} \ttfamily{rosnode info <node name>}
@@ -354,7 +354,7 @@ while not rospy.is_shutdown():
     \begin{itemize}
         \item  ROS messages are implemented as classes.
         \item  To publish a message you also need to define a \textbf{Publisher} class.
-        \item Most of ROS concepts and functionalities are implemented as classes. This is why understanding OOP helps you understand ROS better.
+        \item Most ROS functionalities are implemented as classes.
     \end{itemize}   
 \end{frame}
 
@@ -643,7 +643,7 @@ rospy.spin()
     \framesubtitle{more on ROS nodes}
     \begin{itemize}
         \item You can define multiple publishers and subscribers in a node.
-        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only!
+        \item You can call {\ttfamily \colorbox{gray!30!white}{init\_node}} function once only! (unless you use background threads)
         \item To make your code look neat, you can wrap ROS stuff in a class and hide them!
     \end{itemize} 
     \vspace{0.5cm}
@@ -714,7 +714,8 @@ rospy.spin()
     \begin{itemize}
         \item Ros launch files are XML files that consists for tags.
         
-        \item They have {\ttfamily \colorbox{gray!30!white}{.launch}} file extension.
+        
+        \item They have a {\ttfamily \colorbox{gray!30!white}{.launch}} file extension.
         
         \item You would ideally place them inside a {\ttfamily \colorbox{gray!30!white}{launch}} folder inside your package.
     \end{itemize}  

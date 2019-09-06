@@ -66,7 +66,7 @@ while not rospy.is_shutdown():
 
 - Write a launch file to run two nodes of the turtlesim node, and two nodes of ```07_parameters_example.py``` script.
 
- - In the launch file, define required paramters such that the turtles rotate at different speeds and radii
+ - In the launch file, define required parameters such that the turtles rotate at different speeds and radii
 
 :bulb: Hint: You may need the group tag ```<group ns="namespace">```
 
