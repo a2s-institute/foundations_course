@@ -40,7 +40,13 @@ rosrun rviz rviz
 - Create a node that subscribes to two topics:
     - a topic of type ```OccupancyGrid``` for receiving the map.
     - a topic of type ```geometry_msgs/PointStamped``` intended for recieving the location at which the node has to check for the occupancy value.
-- The node should publish the result on a topic of type ```String```.
+- Define a custom message with the following fields:
+    - **value, type ```int```:** the occupancy value (-1, 100, or 0).
+    - **x, type ```float```: x** coordinate of the point.
+    - **y, type ```float```:** y coordinate of the point.
+    - **result, type ```string```:** "unknown", "occupied", or "free".
+- The node should publish the result as a message of the type you created.
+  
 - Create a launch file to call your node, ```map_server``` node, and Rviz node. Make your node customizable using ROS paramters and define these paramters in your launch file.
 
 :bulb: You can publish the point from Rviz using this &nbsp; &nbsp;  ![publish point](figures/publishPointRviz_button.png)  &nbsp; &nbsp;  button.
