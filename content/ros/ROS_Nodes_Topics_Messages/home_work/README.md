@@ -39,7 +39,7 @@ rosrun rviz rviz
 
 - Create a node that subscribes to two topics:
     - a topic of type ```OccupancyGrid``` for receiving the map.
-    - a topic of type ```geometry_msgs/PointStamped``` intended for recieving the location at which the node has to check it's occupancy value.
+    - a topic of type ```geometry_msgs/PointStamped``` intended for recieving the location at which the node has to check for the occupancy value.
 - The node should publish result on a topic of type ```String```.
 - Create a launch file to call your node, ```map_server``` node, and Rviz node. Make your node costumizable using ROS paramters and define these paramters in your launch file.
 
