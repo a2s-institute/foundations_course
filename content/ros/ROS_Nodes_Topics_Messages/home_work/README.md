@@ -27,7 +27,7 @@ roslaunch home_work map.launch
 ## Rviz
 
 - To visualize the map, you can use Rviz. Rviz is a program that comes with ROS.
-- It can subscribe to a topic of and can visualize the messages bein published on it.
+- It can subscribe to a topic can visualize the messages bein published on it.
 - It supports popular ROS messages like images, laser scans, point clouds, occupancy grid maps, and more.
 
 - To run Rviz:
