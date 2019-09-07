@@ -43,4 +43,4 @@ rosrun rviz rviz
 - The node should publish result on a topic of type ```String```.
 - Create a launch file to call your node, ```map_server``` node, and Rviz node. Make your node costumizable using ROS paramters and define these paramters in your launch file.
 
-:Hint: You can publish the point from Rviz using this &nbsp; &nbsp;  ![publish point](figures/publishPointRviz_button.png)  &nbsp; &nbsp;  button.
+::Hint:: You can publish the point from Rviz using this &nbsp; &nbsp;  ![publish point](figures/publishPointRviz_button.png)  &nbsp; &nbsp;  button.
