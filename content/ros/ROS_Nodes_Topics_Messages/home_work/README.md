@@ -13,7 +13,7 @@ This is a 2D occupancy grid map. It represents the environmet as a grid that con
 - First, place the ```home_work``` folder in your workspce (inside ```catkin_ws/src```), and build it using ```catkin build``` command.
 
 
-- The map is saved in the ```map``` folder (```../home_work/map```). ROS comes with a package (```map_server``` package) which can be used to read map files, and publish the map as a ROS message. There is launch file which runs ```map_server``` node with the given map file.
+- The map is saved in the ```map``` folder (```../home_work/map```). ROS comes with a package (```map_server``` package) which can be used to read map files, and publish the map as a ROS message. There is a launch file which runs the ```map_server``` node with the given map file.
 
 ```
 roslaunch home_work map.launch
