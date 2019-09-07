@@ -49,4 +49,8 @@ rosrun rviz rviz
   
 - Create a launch file to call your node, ```map_server``` node, and Rviz node. Make your node customizable using ROS paramters and define these paramters in your launch file.
 
-:bulb: You can publish the point from Rviz using this &nbsp; &nbsp;  ![publish point](figures/publishPointRviz_button.png)  &nbsp; &nbsp;  button.
+:bulb: You can publish the point from Rviz using this &nbsp; &nbsp;  ![publish point](figures/publishPointRviz_button.png)  &nbsp; &nbsp;  button. 
+
+- When you use Rviz to publish a point, make sure Rviz uses the same coordiante frame as the map (i.e. Rviz fixed frame set to ```map```):
+  
+![Rviz fixed frame](figures/rviz_fixed_frame.png)
