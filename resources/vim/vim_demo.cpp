@@ -1,9 +1,3 @@
-// Movement (b, w, e, G, gg, $, 0, })
-// Normal->Insert (i, a, I, A, o, O)
-// removing/changing text (dd, D, cc, C, r, R)
-
-
-
 // TODO change wheelz to wheels (find and replace)
 std::unique_ptr<Wheel_Kinematics> get_wheel_kinematics(int enables[NUM_WHEELS])
 {
@@ -17,6 +11,7 @@ std::unique_ptr<Wheel_Kinematics> get_wheel_kinematics(int enables[NUM_WHEELS])
     wheelz_info[0]->conf.piv_off =  1e-2;        // pivot offset
     wheelz_info[0]->conf.wheel_d =  8e-2;        // distance between wheelz
     wheelz_info[0]->status.delta =  0;           // pivot angle
+    wheels_info[0].status.ena_w  =  enables[0];  // smart-wheel enable
 
     wheelz_info[1]->conf.x_pos   = -0.21;
     wheelz_info[1]->conf.y_pos   =  0.21;
@@ -24,6 +19,7 @@ std::unique_ptr<Wheel_Kinematics> get_wheel_kinematics(int enables[NUM_WHEELS])
     wheelz_info[1]->conf.piv_off =  1e-2;
     wheelz_info[1]->conf.wheel_d =  8e-2;
     wheelz_info[1]->status.delta =  M_PI/2.0;
+    wheels_info[1].status.ena_w  =  enables[1];
 
     wheelz_info[2]->conf.x_pos   = -0.21;
     wheelz_info[2]->conf.y_pos   = -0.21;
@@ -31,6 +27,7 @@ std::unique_ptr<Wheel_Kinematics> get_wheel_kinematics(int enables[NUM_WHEELS])
     wheelz_info[2]->conf.piv_off =  1e-2;
     wheelz_info[2]->conf.wheel_d =  8e-2;
     wheelz_info[2]->status.delta =  M_PI;
+    wheels_info[2].status.ena_w  =  enables[2];
 
     // TODO add another wheel info (shift+v [visual line], p)
 
