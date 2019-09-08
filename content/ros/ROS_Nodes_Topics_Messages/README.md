@@ -95,7 +95,7 @@ roscore
 ```
 rosrun <package> <executable> 
 ```
-- create a ```scripts``` folder inside ```my_first_package/scripts``` and place our scripts there.
+- create a ```scripts``` folder inside ```my_first_package``` and place our scripts there.
 - In a terminal (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd>), navigate to the ```scripts``` folder.
 ```
 roscd my_first_package/scripts/
@@ -109,7 +109,7 @@ sudo chmod +x 01_simple_node.py
 ```
 sudo chmod +x *.py
 ```
-- use ```rosrun```:
+- use ```rosrun``` (did you run the master first!):
 ```
 rosrun my_first_package 01_simple_node.py
 ```
