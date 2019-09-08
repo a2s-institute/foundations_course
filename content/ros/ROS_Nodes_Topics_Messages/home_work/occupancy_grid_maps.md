@@ -18,4 +18,4 @@ In memory it could be stored as:
 ```python
  map data = [0, 0, 0, 0, ... , 0, 100 ,100 ,100 ,0 ,0 , ... ]
  ```
-- Note that this array is not useful unless more information (meta information) is given about the map. Such as the cell size (map resolution), origin of map, size of map, etc..
+- Note that this array is not useful unless more information (meta information) is given about the map (such as the cell size or map resolution,     origin of map, size of map, etc..).
