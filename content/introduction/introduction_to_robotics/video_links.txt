@@ -1,10 +1,14 @@
-01_PPT: https://www.youtube.com/watch?v=QYuG3ed92ko
+01_BTT2: https://www.youtube.com/watch?v=V-QG2F1_hR0
 02_TU_MSL: https://www.youtube.com/watch?v=TTiJqmRrO1U
-03_Home: https://www.youtube.com/watch?v=qWL9EmMc5cE
+03_Storing_Groceries: https://www.youtube.com/watch?v=cPvZFBAOsA8
 04_APC: https://www.youtube.com/watch?v=6K1PCPMrRzc
 05_Nimbro: https://www.youtube.com/watch?v=lcarnB_2P6E
 06_mapping: recording of gmapping
 07_3D_detection: https://www.youtube.com/watch?v=vgKyzIJxSk0
-08_visual_servoing: https://www.youtube.com/watch?v=q4GOGKp9ebw
-09_motion_planning: https://www.youtube.com/watch?v=LaThdWSOT8U
-10_force_control: https://www.youtube.com/watch?v=tIhEK5f00QU
+08_RCNN_clipped: https://www.youtube.com/watch?v=OOT3UIXZztE
+09_SSD_clipped: https://www.youtube.com/watch?v=Gmek2_swk9A
+10_visual_servoing: https://www.youtube.com/watch?v=q4GOGKp9ebw
+11_action_recognition: https://www.youtube.com/watch?v=G0PXKCEgIoA
+12_motion_planning: https://www.youtube.com/watch?v=LaThdWSOT8U
+13_force_control: https://www.youtube.com/watch?v=tIhEK5f00QU
+14_peg_in_hole_task: https://www.youtube.com/watch?v=usFQ8hNtE8c
