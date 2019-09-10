@@ -4,6 +4,7 @@
 04_APC: https://www.youtube.com/watch?v=6K1PCPMrRzc
 05_Nimbro: https://www.youtube.com/watch?v=lcarnB_2P6E
 06_mapping: recording of gmapping
+06b_ropod_navigation: recording of ropod navigation
 07_3D_detection: https://www.youtube.com/watch?v=vgKyzIJxSk0
 08_RCNN_clipped: https://www.youtube.com/watch?v=OOT3UIXZztE
 09_SSD_clipped: https://www.youtube.com/watch?v=Gmek2_swk9A
