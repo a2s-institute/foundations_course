@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+\begin{document}
+
+    \begin{center}
+        {\Huge My Title}\\~\\
+        {\Large Alex Mitrevski}\\~\\
+        {\Large 20.09.2019}
+    \end{center}
+
+    \tableofcontents
+
+    \newpage
+
+    My first Latex document
+
+    \section{This is a section title}
+    \label{sec:mysection}
+
+    We are now in section \ref{sec:mysection}.
+
+    \subsection{This is a subsection}
+
+    The following is a figure with a caption:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{hbrs_logo.png}
+        \caption{My caption}
+        \label{fig:mycaption}
+    \end{figure}
+
+    In figure \ref{fig:mycaption}, we can see the university logo.
+
+    Here's a bulleted list:
+    \begin{itemize}
+        \item My item
+        \item My second item
+    \end{itemize}
+
+    The following is a numbered list:
+    \begin{enumerate}
+        \item My numbered item
+        \item My second numbered item
+    \end{enumerate}
+
+    We can display content side by side using minipages:
+
+    \begin{minipage}{0.45\textwidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{hbrs_logo.png}
+            \caption{My caption}
+            \label{fig:mycaption2}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        Right column
+    \end{minipage}
+
+    \newpage
+
+    The folowing is a numbered equation:
+    \begin{equation}
+        \int{\ln xdx} = x\ln x - x + c
+        \label{eq:intlnx}
+    \end{equation}
+
+    See equation \ref{eq:intlnx}.
+
+    The following is an unnumbered equation:
+    \begin{equation*}
+        \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}
+    \end{equation*}
+
+    Here's a sequence of aligned equations:
+    \begin{align}
+        P(a|b) &= \frac{P(a, b)}{P(b)} \\
+               &= \frac{P(b|a)P(a)}{P(b)}
+    \end{align}
+
+    Here's an inline equation: $f(x) = x^2$. We can then continue with the text.
+
+    This is a citation: \cite{mycitation}.
+
+    The bibliography is displayed below (generated from the bibtex file \emph{bibliography.bib}).
+
+    \bibliographystyle{ieeetr}
+    \bibliography{bibliography}
+\end{document}
