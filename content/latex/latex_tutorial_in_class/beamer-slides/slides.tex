@@ -1,0 +1,49 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+    \begin{frame}
+        \begin{center}
+            {\Huge Presentation Title}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Contents}
+        \tableofcontents
+    \end{frame}
+
+    \section{First Section}
+
+    \begin{frame}
+    \frametitle{My title}
+        My slide content
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{My equation slide}
+        \begin{equation*}
+            y = x^2
+        \end{equation*}
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Block frame}
+        \begin{block}{Block title}
+            \begin{equation}
+                \int{\ln xdx} = x\ln x - x + c
+            \end{equation}
+        \end{block}
+    \end{frame}
+
+    \section{Second section}
+
+    \begin{frame}
+    \frametitle{My figure slide}
+        \begin{figure}
+            \includegraphics[scale=0.15]{hbrs_logo.png}
+        \end{figure}
+    \end{frame}
+\end{document}
