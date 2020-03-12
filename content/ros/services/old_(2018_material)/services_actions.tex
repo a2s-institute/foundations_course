@@ -1,0 +1,192 @@
+\documentclass{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}  % Code listings
+\usepackage[T1]{fontenc}
+\usepackage{url}       % `\url
+\usepackage{dsfont}
+\usepackage{hyperref}
+
+\usepackage{xcolor} %https://en.wikibooks.org/wiki/LaTeX/Colors
+
+\usepackage{theme/beamerthemehbrs}
+
+\author[Kramer]{Erick Kramer}
+\title{Introduction to service and client ROS}
+\subtitle{}
+\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\date{04.04.2018}
+\subject{Test beamer}
+
+% \thirdpartylogo{path/to/your/image}
+
+
+\begin{document}
+	{
+		\begin{frame}
+			\titlepage
+		\end{frame}
+	}
+	
+	\AtBeginSection[]{% Print an outline at the beginning of sections
+		\begin{frame}<beamer>
+			\tableofcontents[currentsection]
+		\end{frame}%
+	}%
+	
+	\section{Services (Theory)}
+	\begin{frame}
+		\frametitle{What is a Service?}
+		\begin{itemize}
+			\item{It is a request/reply communication paradigm.}
+			\item{It is composed of two pairs of messages, one for the request and one for the reply.}
+			\item{Two nodes participate in the communication process.}
+			\item{One node offers the service and other node requests the service and waits for the response.}
+			\item{A service is defined using \textbf{srv} files}
+			
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Service type}
+		\begin{itemize}
+			\item{The service type is the package resource name of the .srv file, i.e. package name + name of the \texttt{.srv} file.}
+			\item{E.g. \colorbox{lightgray}{\texttt{mysrvs/srv/PolledImage.srv}} has the service type \colorbox{lightgray}{\texttt{mysrvs/PolledImage}} }
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Service Tools}
+		\begin{itemize}
+			\item{rossrv - Displays information about .srv data structures.}
+			\begin{itemize}
+				\item{\colorbox{lightgray}{rossrv show} - Show service description}
+				\item{\colorbox{lightgray}{rossrv info} - Alias for rossrv show}
+				\item{\colorbox{lightgray}{rossrv list} - List all services}
+				\item{\colorbox{lightgray}{rossrv md5} - Display service md5sum}
+				\item{\colorbox{lightgray}{rossrv package} - List services in a package}
+				\item{\colorbox{lightgray}{rossrv packages} - List packages that contain services}
+				
+			\end{itemize}
+			\item{rosservice - Lists and queries ROS services}
+			\begin{itemize}
+				\item{\colorbox{lightgray}{rosservice list} - print information about active services}
+				\item{\colorbox{lightgray}{rosservice call} - call the service with the provided args}
+				\item{\colorbox{lightgray}{rosservice type} - print service type}
+				\item{\colorbox{lightgray}{rosservice find} - find services by service type}
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Service file}
+		\begin{itemize}
+			\item{The service file present the following structure: \\
+				  \begin{center}
+				  	\texttt{\#Request\\
+				  message\_type message\\
+				  - - -\\
+				  \#Response\\
+				  message\_type message}
+				  \end{center}}
+			\item{E.g. \\\begin{center}
+				\texttt{
+						string str\\
+					int8 a\\
+					uint32 b\\
+					int64 c\\
+					- - -\\
+					float64 result}
+					\end{center}
+				}
+		\end{itemize}
+	\end{frame}
+	\section{Services (Practice)}
+	\begin{frame}
+		\frametitle{Instructions}
+		\begin{enumerate}
+			\item{Go to the following file \colorbox{lightgray}{\texttt{content/ros/patterns.md}} and follow the instructions.}
+		\end{enumerate}
+	\end{frame}
+	\section{Actions (Theory)}
+	\begin{frame}
+		\frametitle{Actionlib}
+		\begin{itemize}
+			\item{Actionlib stack gives a standardized interface containing preemptable tasks, i.e. tasks capable of being interrupted with the option of resuming the task at a later time.}
+			\item{Actionlib package allows us to create servers that could perform "long-running" goals.}
+			\item{Actions give the ability to cancel a service request during execution.}
+			\item{Actions are also useful to get periodic feedback about the request.}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Client-Server Interaction}
+		\begin{itemize}
+			\item{The communication is composed of two elements: ActionClient and ActionServer.}
+			\item{The client allows the users to request "goals", while the server executes those goals.}
+			\begin{figure}[h!]
+				\includegraphics[scale=0.4]{client_server_interaction}
+			\end{figure}
+			
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Message specification}
+		\begin{itemize}
+			%\item{Using an action specification, we need to define Goal, Feedback, and Result messages for the communication between clients and servers.}
+			\item{\textbf{Goal: } Provides the sense of accomplishment for a certain task. It is sent to the ActionServer by the ActionClient.}
+			\item[-]{ \textit{E.g. for a moving base, a goal could be a "PoseStamped" message that contains the information about where the robot should move.}}
+			\item{\textbf{Feedback: } Allows the ActionServer to provides information about the current status of a certain goal to the ActionClient.}
+			\item[-]{\textit{E.g for a moving base, the current pose of the robot.}}
+			\item{\textbf{Result: } Message sent from the ActionServer to the ActionClient when the goal is completed.}
+			\item[-]{\textit{E.g. the final pose of our moving base.}}
+		\end{itemize}
+	\end{frame}
+	\defverbatim[colored]\sleepSort{
+		\begin{lstlisting}[language=Python,tabsize=2]
+		#Define the goal
+		uint32 dishwasher_id
+		- - -
+		#Define the result
+		uint32 total_dishes_cleaned
+		- - -
+		#Define a feedback message
+		float32 percent_complete
+		\end{lstlisting}}
+	\begin{frame}
+		\frametitle{Messages specification}
+		\begin{itemize}
+			\item{The elements of the actions are specified in the \textbf{.action} file.}
+			\item{The action files are placed in a \textbf{./action} directory inside the package.}
+			\item{An example of the structure would be}
+			\sleepSort
+		\end{itemize}
+	\end{frame}
+	\section{Actions (Example)}
+	\begin{frame}
+		\begin{itemize}
+			\item{\url{http://wiki.ros.org/actionlib_tutorials/Tutorials/Writing\%20a\%20Simple\%20Action\%20Client\%20\%28Python\%29}}
+			\item{\url{http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionServer\%28ExecuteCallbackMethod\%29}}
+			\item{\url{http://wiki.ros.org/actionlib_tutorials/Tutorials/Writing\%20a\%20Simple\%20Action\%20Server\%20using\%20the\%20Execute\%20Callback\%20\%28Python\%29}}
+		\end{itemize}
+	\end{frame}
+	\section{Reference}
+	\begin{frame}
+		\frametitle{References}
+		\begin{itemize}
+			\item{\url{http://wiki.ros.org/srv}}
+			\item{\url{http://wiki.ros.org/actionlib}}
+		
+		\end{itemize}
+	\end{frame}
+\end{document}

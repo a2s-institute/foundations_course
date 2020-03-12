@@ -766,6 +766,8 @@ Inside a ROS package:
     \begin{itemize}
         \item ROS services are not suitable for long-term tasks, a client that have sent a service request keeps on waiting for the response from the server. ROS actions solves this.
         
+        \item ROS actions are also useful for preemptable, i.e. tasks capable of being interrupted with the option of resuming the task at a later time.
+        
         \item In ROS actions, an action client sends a request to the server, the client doesn't have to wait for the response.
 
     \end{itemize}  
@@ -894,6 +896,8 @@ Inside a ROS package:
          \item \href{https://www.youtube.com/watch?v=LoRXdNMuslQ}{Overview on ROS actions: \tiny{https://www.youtube.com/watch?v=LoRXdNMuslQ}}.   
              
         \item \href{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile&do=get&target=ros_tutorial.pdf}{ROS introduction slides by Rada: \tiny{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile\&do=get\&target=ros\_tutorial.pdf}}.
+        
+        \item Previous material of the foundation\_course. 
     \end{enumerate}
 \end{frame}
 
