@@ -54,7 +54,7 @@
 - Create a new package named: "my_second_package",  with `std_msgs`, `rospy` as dependencies.
 - Build your workspace.
 - Create a folder inside the package for our service files, it must be named as: `srv`. *(ignore this step if you already had)*
-- Create an `.srv` file for our useless node, it should have a string field in both the request and reply. Name it as "**Talk.srv**"
+- Create a `.srv` file for our useless node, it should have a string field in both the request and reply. Name it as "**Talk.srv**"
 - Create a second `.srv` file named: "**CellCheck.srv**". It should have the following:
   - Request: should have one field of type: `geometry_msgs/Point`, name it as: "**location**".
   - Reply: should have two fields:
