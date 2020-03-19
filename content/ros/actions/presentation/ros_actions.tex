@@ -162,14 +162,36 @@
         \vspace{3mm}
         
         \item They are provided in the {\ttfamily \colorbox{gray!30!white}{actionlib}} ROS stack which is installed by default when you install ROS.
-        
-        \vspace{3mm}
-        
-        \item There are no command-line tools to introspect ROS actions. Example: \\ \vspace{2mm}  there is no {\ttfamily \colorbox{gray!30!white}{rosaction list}} command!
+       
     \end{itemize}  
 \end{frame}
 
 
+\begin{frame}{ROS Actions}
+    
+    {\huge Actions:}
+    \vspace{0.2cm}
+    \begin{itemize}
+               
+        \item There are no command-line tools to introspect ROS actions.
+        
+        \begin{itemize}
+            \item Example: there is no {\ttfamily \colorbox{gray!30!white}{rosaction list}} command!
+            \item Since {\ttfamily \colorbox{gray!30!white}{actionlib}} is built on top of ROS messages, an action server exposes the following topics which can be used for introspection:
+            
+            \begin{itemize}
+                \item {\ttfamily /<action name>/cancel}
+                \item {\ttfamily /<action name>/feedback}
+                \item {\ttfamily /<action name>/goal}
+                \item {\ttfamily /<action name>/result}
+                \item {\ttfamily /<action name>/status}
+            \end{itemize}
+            
+        \end{itemize}
+        
+        
+    \end{itemize}  
+\end{frame}
 
 
 \subsection{Action Description Files}
