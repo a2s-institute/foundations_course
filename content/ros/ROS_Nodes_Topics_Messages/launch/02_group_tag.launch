@@ -1,9 +1,0 @@
-    <!-- Example launch file using the group tag-->
-    
-    <launch>
-    
-        <group ns="/first">
-            <node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
-        </group>
-    
-    </launch>

@@ -1,7 +1,0 @@
-<!-- Example launch file to run the turtlesim node-->
-
-<launch>
-
-<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
-
-</launch>

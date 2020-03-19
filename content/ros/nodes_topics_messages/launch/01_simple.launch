@@ -1,0 +1,10 @@
+<!-- Example launch file to run 
+the turtlesim node and our script 06-->
+
+<launch>
+
+<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+
+<node pkg="my_first_package" type="06_parameters_example.py" name="commander"/>
+
+</launch>
