@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+
+
 using namespace std;
 int main(int argc , char* argv[])
 {
 //  cout<<"Hello I am Malika"<<endl;
 //  cout<<"Im from Sri Lanka"<<endl;
 //  cout<<"Whaz up Homies"<<endl;
-
+/*
 int birth=0;
 string first_name="";
 string last_name="";
@@ -24,7 +26,7 @@ time_t t = time(NULL);
 tm *tPtr = localtime(&t);
 int age=(tPtr->tm_year)-birth+1900;
 
-/*
+
 
 cout<<"You are"<<endl;
 cout<<age<<endl;
@@ -51,22 +53,21 @@ string countries[]={"USA","usa","Japan","japan","UK","uk"};
 string count="";
 cout<<"Type your country"<<endl;
 cin>>count;
-bool cas=false;
+bool allowed=false;
 
 int len=sizeof(countries);
 
-for (int i=0;i<=len;i++)
-{
-    if(count==countries[i])
+    for (int i=0;i<=len;i++)
     {
-        cas=true;
+        if(count==countries[i])
+        {
+            allowed=true;
+        }        
+        
     }
 
-    
-    
-}
 
-if(cas)
+if(allowed)
 {
  cout<<"You are excepted"<<endl;
 }
