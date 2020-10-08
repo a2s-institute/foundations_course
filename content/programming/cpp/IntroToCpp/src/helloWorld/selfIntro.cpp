@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-
+#include<algorithm>
 
 using namespace std;
+
 int main(int argc , char* argv[])
 {
 //  cout<<"Hello I am Malika"<<endl;
@@ -49,34 +50,53 @@ cout<<result2<<endl;
 
 */
 
-string countries[]={"USA","usa","Japan","japan","UK","uk"};
+string countries[]={"usa","japan","uk"};
 string count="";
-cout<<"Type your country"<<endl;
-cin>>count;
-bool allowed=false;
-
 int len=sizeof(countries);
 
-    for (int i=0;i<=len;i++)
-    {
-        if(count==countries[i])
+ cout<<"Type your country"<<endl;
+ cin>>count;
+ transform(count.begin(),count.end(),count.begin(),::tolower); // convert to lower case inclded algorith
+while (count!="END")
+{
+     bool allowed=false;
+
+
+
+        for (int i=0;i<=len;i++)
         {
-            allowed=true;
-        }        
-        
+            if(count==countries[i])
+            {
+                allowed=true;
+            }        
+            
+        }
+
+
+    if(allowed)
+    {
+    cout<<"You are exempted"<<endl;
+    cout<<""<<endl;
     }
 
+    else
+    {
+    cout<<"You are not exempted"<<endl;
+    cout<<""<<endl;
 
-if(allowed)
-{
- cout<<"You are excepted"<<endl;
+    }
+
+ cout<<"Type your country"<<endl;
+ cin>>count;
+ transform(count.begin(),count.end(),count.begin(),::tolower); // convert to lower case inclded algorith
+ 
 }
 
-else
-{
-cout<<"You are not excepted"<<endl;
 
+
+ return 0; 
 }
 
-return 0; 
-}
+
+   
+   
