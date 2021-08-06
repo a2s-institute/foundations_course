@@ -7,8 +7,8 @@
 In case you need any help installing any of this, please ask your study buddy or come to one of the b-it-bots labs (C025 and C069).
 
 ### Software
-*   [Ubuntu 16.04](http://releases.ubuntu.com/16.04.6/)
-*   [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu). Installation instructions can be found [here](https://github.com/mas-group/foundations_course/tree/master/content/ros/ROS%20Installation)
+*   [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+*   [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu). Installation instructions can be found [here](https://github.com/mas-group/foundations_course/tree/master/content/ros/ROS%20Installation)
 *   LaTeX
 
     ```
@@ -26,7 +26,7 @@ In case you need any help installing any of this, please ask your study buddy or
     sudo apt-get install texstudio
     ```
 
-*   python 2.7 (Already installed with Ubuntu 16)
+*   python 3.5+ (3.8 already installed with Ubuntu 20.04)
 
 *   Jupyter notebooks
 
@@ -84,7 +84,7 @@ In case you need any help installing any of this, please ask your study buddy or
 
         sudo update-alternatives --set "javaws" "/opt/Oracle_Java/jdk1.8.0_161/bin/javaws"
 
-        sudo update-alternatives --set "jar" "/opt/Oracle_Java/jdk1.8.0_161/bin/jar" 
+        sudo update-alternatives --set "jar" "/opt/Oracle_Java/jdk1.8.0_161/bin/jar"
         ```
 
     After finishing the aforementioned steps the Java JDK installation is complete and the development with Java can begin.
