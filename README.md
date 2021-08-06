@@ -12,7 +12,7 @@ In case you need any help installing any of this, please ask your study buddy or
 *   LaTeX
 
     ```
-    sudo apt-get install texlive-full
+    sudo apt install texlive-full
 
     ```
 
@@ -22,8 +22,8 @@ In case you need any help installing any of this, please ask your study buddy or
 
     ```
     sudo add-apt-repository ppa:sunderme/texstudio
-    sudo apt-get update
-    sudo apt-get install texstudio
+    sudo apt update
+    sudo apt install texstudio
     ```
 
 *   python 3.5+ (3.8 already installed with Ubuntu 20.04)
@@ -41,7 +41,7 @@ In case you need any help installing any of this, please ask your study buddy or
 * git
 
     ```
-    sudo apt-get install git-all
+    sudo apt install git-all
     ```
 
 * Java 8
