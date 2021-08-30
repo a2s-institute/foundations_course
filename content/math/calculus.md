@@ -1,8 +1,0 @@
-### Calculus
-
-Responsible: 
-
-Content:
-*
-*
-*
