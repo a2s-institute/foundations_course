@@ -20,15 +20,22 @@ class LivingCreature {
     // These are the common functions that every living creature must posses
     string getType() { return type_; }
     int getAvgLifeSpan() { return avgLifeSpan_; }
+    
+
 
   protected:
     // These are the common features of every living creature
     string type_;
     int avgLifeSpan_;
+
+
+  private:
+    friend void frienship(){cout<<"This is a friendship"<<endl;}
 };
 
 // The Animal class inherits all the properties and methods of the Living
 // creature here. In addition it has its own set of properties and methods.
+
 class Animal : public LivingCreature {
   public:
     /*
@@ -117,17 +124,33 @@ int main()
 
     // Notice that although the getType() method was not defined in the Animal
     // class we can still use it as it is inhertited from the LivingCreature
-    cout << "\nTesting animal motion of " << animal1->getType() << endl;
-    animal1->run();
 
-    cout << "\nTesting animal motion of " << animal2->getType() << endl;
-    animal2->run();
 
-    cout << "\nTesting bird motion of " << bird1->getType() << endl;
-    bird1->fly();
+    // cout << "\nTesting animal motion of " << animal1->getType() << endl;
+    // animal1->run();
+    
 
-    cout << "\nTesting bird motion of " << bird2->getType() << endl;
-    bird2->fly();
+    // cout << "\nTesting animal motion of " << animal2->getType() << endl;
+    // animal2->run();
+
+    // cout << "\nTesting bird motion of " << bird1->getType() << endl;
+    // bird1->fly();
+
+    // cout << "\nTesting bird motion of " << bird2->getType() << endl;
+    // bird2->fly();
+
+
+    //Friendship
+
+    LivingCreature *living_animal = new LivingCreature("Alive",20); 
+    living_animal->getAvgLifeSpan();
+
+
+
+
+
+
+
 
     // Delete the living creatures
     delete animal1;
