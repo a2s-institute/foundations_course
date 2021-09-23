@@ -1,9 +1,5 @@
 
 #include "Person.h"
-
-
-// using namespace std;
-
 Person::Person()
 {
 
@@ -21,7 +17,6 @@ Person::Person(std::string fName, std::string lName, int Age)
     lastName = lName;
     age = Age;
 }
-
 
 Person::~Person()
 {

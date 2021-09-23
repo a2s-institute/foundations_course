@@ -121,48 +121,48 @@ int main()
     Try uncommenting out the line to see what happens.
      */
 
-    // LivingCreature *genericCreature = new LivingCreature("Generic Creature");
+    //LivingCreature *genericCreature = new LivingCreature("Generic Creature");
 
     // Lets assume we wish to create three living creatures. We will now use an
     // array of the base class pointer's to represent all the different types of
     // living creatures.
 
-    // const int NUM_OF_CREATURES = 4;
-    // LivingCreature *creatures[NUM_OF_CREATURES];
+    const int NUM_OF_CREATURES = 4;
+    LivingCreature *creatures[NUM_OF_CREATURES];
 
-    // // Use the base class pointer to represent objects of the derived classes
-    // creatures[0] = new Mammal("Cheetah");
-    // creatures[1] = new Bird("Eagle");
-    // creatures[2] = new Phoenix("Phoenix");
-    // creatures[3] = new Mammal("Dog");
-
-
+    // Use the base class pointer to represent objects of the derived classes
+    creatures[0] = new Mammal("Cheetah");
+    creatures[1] = new Bird("Eagle");
+    creatures[2] = new Phoenix("Phoenix");
+    creatures[3] = new Mammal("Dog");
 
 
 
-    //   for (int i = 0; i < NUM_OF_CREATURES; i++) {
-    //     creatures[i]->non_virtual();
-    // }
 
-    // // Try moving the creatures
-    // for (int i = 0; i < NUM_OF_CREATURES; i++) {
-    //     creatures[i]->move();
-    // }
 
-    // //Try procreating the creatures
-    // for (int i = 0; i < NUM_OF_CREATURES; i++) {
-    //     creatures[i]->procreate();
-    // }
+      for (int i = 0; i < NUM_OF_CREATURES; i++) {
+        creatures[i]->non_virtual();
+    }
 
-    // //Try killing the creatures
-    // for (int i = 0; i < NUM_OF_CREATURES; i++) {
-    //     creatures[i]->die();
-    // }
+    // Try moving the creatures
+    for (int i = 0; i < NUM_OF_CREATURES; i++) {
+        creatures[i]->move();
+    }
 
-    // //delete the creatures
-    // for (int i = 0; i < NUM_OF_CREATURES; i++) {
-    //     delete creatures[i];
-    // }
+    //Try procreating the creatures
+    for (int i = 0; i < NUM_OF_CREATURES; i++) {
+        creatures[i]->procreate();
+    }
+
+    //Try killing the creatures
+    for (int i = 0; i < NUM_OF_CREATURES; i++) {
+        creatures[i]->die();
+    }
+
+    //delete the creatures
+    for (int i = 0; i < NUM_OF_CREATURES; i++) {
+        delete creatures[i];
+    }
 
     return 0;
 }
