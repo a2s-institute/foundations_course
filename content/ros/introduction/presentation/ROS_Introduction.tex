@@ -23,7 +23,8 @@
 
 \usepackage{theme/beamerthemehbrs}
 
-\author[MAS]{Hassan Umari}
+\author[MAS]{Author :Hassan Umari Edited by Malika Navaratna \& Michal Stolarz}
+
 \title{Introduction to ROS}
 \subtitle{Foundation Course}
 \institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
@@ -75,6 +76,8 @@
         \item ROS is installed on top of Linux.  \includegraphics[width=.1\linewidth]{figures/linux_logo.png}
 
     \end{itemize}
+    
+    % Meta operating system - is built on top of the operating system and allows different processes (nodes) to communicate with each other at runtime. It provides the services you would expect from an operating system, including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management. It also provides tools and libraries for obtaining, building, writing, and running code across multiple computers.
 \end{frame}
 
 
@@ -85,7 +88,7 @@
         \item It is NOT a programming language.
         \item It is NOT an integrated development environment
         (IDE).
-        \item It is NOT a stand-alone operating system 
+        \item It is NOT a stand-alone operating system.
     \end{itemize}
 \end{frame}
 
@@ -232,11 +235,11 @@ child { node [text width=2cm]{Tools and libraries} };
 \begin{frame}{Features of ROS}
 
 \begin{itemize}
-        \item Language independent.
-        \item Distributed and Modular.
-        \item A lot of libraries and tools.
-        \item Open Source.
-        \item Active Community.
+        \item Language independent
+        \item Distributed and modular
+        \item A lot of libraries and tools
+        \item Open source
+        \item Active community
 \end{itemize}
 \end{frame}
 
@@ -244,7 +247,7 @@ child { node [text width=2cm]{Tools and libraries} };
 \begin{frame}{Features of ROS}
 \framesubtitle{Language independent}    
 \begin{itemize}
-    \item ROS functionalities are implemented as a library in different programming languages.
+    \item ROS functionalities are implemented as a library in different programming languages (Python, C++, ...).
     \item  These libraries are referred to as ROS client libraries.
 \end{itemize}
 \end{frame}
@@ -252,7 +255,8 @@ child { node [text width=2cm]{Tools and libraries} };
 \begin{frame}{Language independent}
     \framesubtitle{Features of ROS}    
 
-    ROS client libraries.  
+    ROS client 
+    \color{blue}{\href{http://wiki.ros.org/Client\%20Libraries}{libraries}}.  
     
     \vspace{0.5cm}
     \centering
@@ -261,23 +265,26 @@ child { node [text width=2cm]{Tools and libraries} };
     \begin{itemize}
         \item Main ROS Client libraries:
         \begin{itemize}
-            \item roscpp \hspace{7cm} \includegraphics[width=.06\linewidth]{figures/cpp_logo.png}
-            \item rospy  \hspace{7.1cm} \includegraphics[width=.08\linewidth]{figures/python_logo.png}
-            \item roslisp \hspace{7cm} \includegraphics[width=.06\linewidth]{figures/lisp_logo.png}
+            \item roscpp \hspace{7cm} 
+            \item rospy  \hspace{7.1cm} 
+            \item roslisp \hspace{7cm} 
         \end{itemize}
         \item Experimental ROS client libraries:
         \begin{itemize}
-            \item rosjava \hspace{7cm} \includegraphics[width=.06\linewidth]{figures/java_logo.png}
-            \item rosruby \hspace{7cm} \includegraphics[width=.06\linewidth]{figures/ruby_logo.png}
+            \item rosjava \hspace{7cm} 
+            \item rosruby \hspace{7cm} 
+            \item rosnodejs \hspace{7cm}
             \item and some others..
         \end{itemize}
         \item ROS support on MATLAB:
         \begin{itemize}
-            \item Robotics System Toolbox \hspace{4.3cm} \includegraphics[width=.06\linewidth]{figures/matlab_logo.png}
+            \item Robotics System Toolbox \hspace{4.3cm} 
         \end{itemize}
     \end{itemize}
 \end{minipage}%
 }
+
+% roslisp - supports LISP - family of programming languages originally specified in 1958. As one of the earliest programming languages, Lisp pioneered many ideas in computer science, including tree data structures, automatic storage management, dynamic typing, conditionals, recursion.
 \end{frame}
 
 
@@ -300,21 +307,25 @@ child { node [text width=2cm]{Tools and libraries} };
     \begin{itemize}
         \item Examples of libraries:
             \begin{itemize}
-                \item Navigation stack.
-                \item SLAM (gmapping, hector SLAM, etc..).
-                \item Localization (amcl, etc..).
+                \item Navigation stack
+                \item SLAM (gmapping, slam\_toolbox, etc.)
+                \item Localization (amcl, etc.)
                 \item Motion planning for manipulators (MoveIt)
-                \item Support for popular libraries (OpenCV, PCL).
+                \item Support for popular libraries (OpenCV, PCL)
             \end{itemize}
             
         \item Examples of tools:
             \begin{itemize}
-                \item RVIZ:3D Visualization.
-                \item ROS bag files: Logging Sensor Data.
-                \item Catkin: A Build System.
-                \item Command line tools.
+                \item rviz (3D visualization)
+                \item rosbag (recording/playing back sensor data)
+                \item catkin (build system)
+                \item Command line tools (roscd, rostopic, etc.)
             \end{itemize}        
     \end{itemize}
+    
+    % amcl - the adaptive (or KLD-sampling) Monte Carlo localization approach (as described by Dieter Fox), which uses a particle filter to track the pose of a robot against a known map.
+    % slam_toolbox - this package provides a sped up improved slam karto with updated SDK and visualization and modification toolsets
+    % catkin - combines CMake macros and Python scripts to provide some functionality on top of CMake's normal workflow
 \end{frame}
 
 
@@ -322,12 +333,12 @@ child { node [text width=2cm]{Tools and libraries} };
 
 \begin{frame}{Bad Things About ROS}
             \begin{itemize}
-                \item Learning ROS needs time. 
-                \item It needs a computer. Does not work on a microcontroller!
-                \item Not optimized for multiple robots.
-                \item Supported only on Linux, no support for Windows or macOS.
-                \item ROS imposes a communication overhead.
-                \item In the Python world, it forces us to ``live in the past". ROS python client library (rospy) uses python 2 instead of 3.
+                \item Learning ROS needs time.
+                \item It needs a PC. Does not work on a microcontroller at all (we can only  {\color{blue}{\href{http://wiki.ros.org/rosserial}{set up a ROS node on the microcontroller}}})!
+                \item Officially supported only on Ubuntu (but there are also {\color{blue}\href{http://wiki.ros.org/Installation}{experimental versions}} for Windows, OS X and more).
+                \item No standard approach for multi-robot systems.
+                \item Not a real distributed system, due to the {\color{blue}\href{https://roboticsbackend.com/ros1-vs-ros2-practical-overview/\#No_more_ROS_master}{ROS master}}.
+                \item For ROS versions older than Noetic we are forced to "live in the past". ROS python client library (rospy) used python 2 instead of 3.
             \end{itemize}  
 \end{frame}
 
@@ -390,6 +401,9 @@ child { node {Community level}};
             child { node [text width=2cm, fill = none, draw = none]{..} }
         };
         \end{tikzpicture}}
+% Metapackages are specialized Packages in ROS (and catkin). They do not install files (other than their package.xml manifest) and they do not contain any tests, code, files, or other items usually found in packages. A metapackage is used in a similar fashion as virtual packages are used in the debian packaging world. A metapackage simply references one or more related packages which are loosely grouped together.
+
+
 \end{frame}
 
 
@@ -421,27 +435,84 @@ Inside a ROS package:
     Concepts related to ROS computation graph:
     
     \begin{enumerate}
-        \item Nodes.
+        \item  Master.
+        \item  Nodes.
         \item Topics.
         \item Messages.
-        \item Master.
         \item Services.
         \item Actions
         \item Parameter Server.
         \item Bags.
     \end{enumerate}
 \end{frame}
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Master:}
+    \vspace{1cm}
+    \begin{itemize}
+    
+        \item The first process to run in an application that uses ROS, is the Master.
+        
+        \item The ROS Master provides name registration and lookup to the rest
+        of the nodes.
+        
+        \item In a distributed system, we should run the master on one computer,
+        and other remote nodes can find each other by communicating with
+        this master.
+        
+        \item We run the node \textbf{roscore} for this purpose. It helps all nodes find each other and manages the communication with each other 
+    \end{itemize}
+\end{frame}
 
+     \begin{frame}[plain]{}
+     \centering
+     \includegraphics[width =1.0\linewidth]{figures/master1.png}                                                              
+     \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master2.png}                                                              
+      \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master3.png}                                                              
+        \end{frame} 
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master4.png}                                                              
+        \end{frame}
+     \begin{frame}[plain]{}
+         \centering
+         \includegraphics[width =1.0\linewidth]{figures/master5.png}                                                              
+       \end{frame}                             
+
+\begin{frame}{Computation graph level}
+    \framesubtitle{ROS Concepts}
+    {\huge Master:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item ROS master is invoked by this command:
+    \end{itemize}
+         \centering
+         \includegraphics[width =0.75\linewidth]{figures/roscore.png}     
+\end{frame}
+
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+    \centering
+     {\huge \textcolor{white}{Example \\ (TurtleSim)} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
 \begin{frame}{Computation graph level}
     \framesubtitle{ROS Concepts}
     {\huge Nodes:}
     \vspace{1cm}
     \begin{itemize}
+        \item It is the basic functional block of code that performs a function eg publish to robot velocity(cmdvel), receive laser scan data(scan)
         \item A ROS node is a process that exchanges data with other processes through ROS network.
-        
         \item It may be a python script, a C++ written process, or even a MATLAB script.
-        
-        \item Nodes perform computation.
+        \item The advantage of ROS is that you can write your nodes in different languages and can still make them work together 
+       
     \end{itemize}
 \end{frame}
 
@@ -597,6 +668,9 @@ Inside a ROS package:
         \item Nodes receive data by subscribing to a topic.
         
         \item Multiple nodes can publish/subscribe to the same topic.
+        
+        
+        
 
     \end{itemize}
 \end{frame}
@@ -611,65 +685,11 @@ Inside a ROS package:
         \item This \textbf{publish/subscribe} communication paradigm is a many-to-many one-way transport mechanism of data.
         
         \item The publishing node and subscribing node are not aware of each other's existence. 
-    \end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Computation graph level}
-    \framesubtitle{ROS Concepts}
-    {\huge Master:}
-    \vspace{1cm}
-    \begin{itemize}
-        \item The first process to run in an application that uses ROS, is the Master.
         
-        \item The ROS Master provides name registration and lookup to the rest
-        of the nodes.
-        
-        \item In a distributed system, we should run the master on one computer,
-        and other remote nodes can find each other by communicating with
-        this master.
+        \item Topic have a defined type eg: Rostopic cmd\_vel has a type of  \textbackslash geometry\_msgs\textbackslash Twist
     \end{itemize}
 \end{frame}
 
-     \begin{frame}[plain]{}
-     \centering
-     \includegraphics[width =1.0\linewidth]{figures/master1.png}                                                              
-     \end{frame} 
-     \begin{frame}[plain]{}
-         \centering
-         \includegraphics[width =1.0\linewidth]{figures/master2.png}                                                              
-      \end{frame} 
-     \begin{frame}[plain]{}
-         \centering
-         \includegraphics[width =1.0\linewidth]{figures/master3.png}                                                              
-        \end{frame} 
-     \begin{frame}[plain]{}
-         \centering
-         \includegraphics[width =1.0\linewidth]{figures/master4.png}                                                              
-        \end{frame}
-     \begin{frame}[plain]{}
-         \centering
-         \includegraphics[width =1.0\linewidth]{figures/master5.png}                                                              
-       \end{frame}                             
-
-\begin{frame}{Computation graph level}
-    \framesubtitle{ROS Concepts}
-    {\huge Master:}
-    \vspace{0.2cm}
-    \begin{itemize}
-        \item ROS master is invoked by this command:
-    \end{itemize}
-         \centering
-         \includegraphics[width =0.75\linewidth]{figures/roscore.png}     
-\end{frame}
-
-
-\setbeamercolor{background canvas}{bg=black}
-\begin{frame}[plain]{}  
-    \centering
-     {\huge \textcolor{white}{Example \\ (TurtleSim)} }
-\end{frame}
 \setbeamercolor{background canvas}{bg=white}
 
 \begin{frame}{Computation graph level}
@@ -678,10 +698,10 @@ Inside a ROS package:
     Concepts related to ROS computation graph:
     
     \begin{enumerate}
+        \item \textcolor{black!40}{Master.}
         \item \textcolor{black!40}{Nodes.}
         \item \textcolor{black!40}{Topics.}
         \item \textcolor{black!40}{Messages.}
-        \item \textcolor{black!40}{Master.}
         \item Services.
         \item Actions
         \item Parameter Server.
@@ -717,6 +737,7 @@ Inside a ROS package:
         \item A Client node sends a request for a named service and waits for the response, a node serving this service responds, and the communication is over.
         
         \item it is a one-to-one, two-way, one-time communication.
+        
     \end{itemize}  
 \end{frame}
 
@@ -780,7 +801,8 @@ Inside a ROS package:
     \vspace{0.2cm}
     \begin{itemize}        
         \item Action client can  request for feedback which the action server provides during execution. 
-        
+        \item The action nodes can perform other processes depending on this feedback
+        eg: Send a goal to robot to move from point A to B but closer the robot gets to point B the robot can slow down 
         \item Once the server finishes executing the task, it sends a result message to the client.
     \end{itemize}  
 \end{frame}
@@ -811,6 +833,8 @@ Inside a ROS package:
         \item ROS bag is a mechanism for recording data for later playback.
         \item You can record a complete session, with all the topics and messages
         being exchanged along with their time stamping.
+        
+        \item This is very useful for finding problems in the robot
     \end{itemize}  
 \end{frame}
     
@@ -835,41 +859,43 @@ Inside a ROS package:
     {\huge ROS Distributions:}
     \vspace{7.0cm}
      \begin{textblock}{3}(1,5)
-        \includegraphics[width = 1.0\linewidth]{figures/melodic.jpg}
+        \includegraphics[width = 1.0\linewidth]{figures/noetic.png}
         
         \centering
-        ROS Melodic\\
-        \footnotesize 5.2018 - 5.2023\\
+        ROS Noetic\\
+        \footnotesize 5.2020 - 5.2025\\
         (LTS)\\
-        (Ubuntu 18 EOL)
+        (Ubuntu 20 EOL)
         
      \end{textblock}
      \begin{textblock}{3}(4.5,5)
+         \includegraphics[width = 1.0\linewidth]{figures/melodic.jpg}
+         
+         \centering
+            ROS Melodic\\
+         \footnotesize 5.2018 - 5.2023\\
+            (LTS)\\
+            (Ubuntu 18 EOL)
+     \end{textblock}
+     
+     \begin{textblock}{3}(8,5)
          \includegraphics[width = 1.0\linewidth]{figures/lunar.png}
          
          \centering
          ROS Lunar\\
-         \footnotesize 5.2017 - 4.2019
-     \end{textblock}
-     \begin{textblock}{3}(8,5)
+         \footnotesize 5.2017 - 4.2019\\
+         
+        
+         
+     \end{textblock}  
+     \begin{textblock}{3}(11.5,5)
          \includegraphics[width = 1.0\linewidth]{figures/kinetic.png}
          
          \centering
          ROS Kinetic\\
-         \footnotesize 5.2016 - 4.2021\\
+         \footnotesize  5.2016 - 4.2021\\
          (LTS)\\
          (Ubuntu 16 EOL)\\
-         (what we use)
-         
-     \end{textblock}  
-     \begin{textblock}{3}(11.5,5)
-         \includegraphics[width = 1.0\linewidth]{figures/indigo.png}
-         
-         \centering
-         ROS Indigo\\
-         \footnotesize 7.2014 - 4.2019\\
-         (LTS)\\
-         (Ubuntu 14 EOL)\\
      \end{textblock}   
  
  
