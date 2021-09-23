@@ -125,11 +125,9 @@ int main()
     // Notice that although the getType() method was not defined in the Animal
     // class we can still use it as it is inhertited from the LivingCreature
 
-
     // cout << "\nTesting animal motion of " << animal1->getType() << endl;
     // animal1->run();
     
-
     // cout << "\nTesting animal motion of " << animal2->getType() << endl;
     // animal2->run();
 
@@ -139,18 +137,10 @@ int main()
     // cout << "\nTesting bird motion of " << bird2->getType() << endl;
     // bird2->fly();
 
-
     //Friendship
 
     LivingCreature *living_animal = new LivingCreature("Alive",20); 
     living_animal->getAvgLifeSpan();
-
-
-
-
-
-
-
 
     // Delete the living creatures
     delete animal1;

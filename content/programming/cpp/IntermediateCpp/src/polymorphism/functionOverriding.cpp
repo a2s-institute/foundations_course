@@ -57,7 +57,6 @@ int main()
     // Test of the move function behaves differently than in the LivingCreature
     cout << "\nTesting bird motion" << endl;
     bird1->move();
-
     // Delete the living creatures
     delete genericCreature;
     delete animal1;
