@@ -1,7 +1,7 @@
 # Foundations Course
 
 ## Tentative Schedule
-[FC Schedule](https://docs.google.com/spreadsheets/d/1LsfJWwRvhkPgQox0MIep3S6L5Wi7NF0fC4IZSB0zUDQ/edit?usp=sharing)
+[FC Schedule](https://h-brs.sciebo.de/s/gaPWMP2eNJRqcK2)
 
 ## Requirements
 In case you need any help installing any of this, please ask your study buddy or come to one of the b-it-bots labs (C025 and C069).
