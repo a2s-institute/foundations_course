@@ -7,8 +7,8 @@
 In case you need any help installing any of this, please ask your study buddy or come to one of the b-it-bots labs (C025 and C069).
 
 ### Software
-*   [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
-*   [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu). Installation instructions can be found [here](https://github.com/mas-group/foundations_course/tree/master/content/ros/ROS%20Installation)
+*   [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
+*   [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). 
 *   LaTeX
 
     ```
