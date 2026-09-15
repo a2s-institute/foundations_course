@@ -153,7 +153,7 @@
 \begin{frame}{Files and Folders}
   \begin{columns}
     \column{.5\textwidth}
-      \begin{block}{Folders end with /}
+      \begin{block}{A trailing / marks a folder (optional)}
         \texttt{/home/ujjwal/projects/}
       \end{block}
       \vspace{0.35em}
@@ -171,13 +171,11 @@
         Starts with \texttt{/} -- works from anywhere\\[0.3em]
         \texttt{/home/ujjwal/code/hello.cpp}
       \end{exampleblock}
-      \vspace{0.4em}
       \begin{exampleblock}{Relative path}
         From your current location\\[0.3em]
         \texttt{code/hello.cpp}\\
         \texttt{../other/file.txt}
       \end{exampleblock}
-      \vspace{0.4em}
       \begin{block}{Path shortcuts}
         \texttt{\textasciitilde} = \texttt{/home/ujjwal}\\
         \texttt{.} \enspace = current folder\\
@@ -514,10 +512,10 @@ $ cp -r src/ src_backup/
 $ mv old_name.cpp new_name.cpp
 
 # Move file to another directory
-$ mv robot.cpp ~/ros2_ws/src/my_pkg/
+$ mv robot.cpp ~/ros2_ws/src/my_package/
 
 # Move multiple files at once
-$ mv *.cpp ~/ros2_ws/src/my_pkg/
+$ mv *.cpp ~/ros2_ws/src/my_package/
         \end{lstlisting}
   \end{columns}
 \end{frame}
@@ -727,7 +725,7 @@ $ tail -n 20 output.txt  # last 20 lines
 $ tail -f output.txt     # follow live output
 
 $ grep "TODO" src/main.cpp
-$ grep -r "ros::init" src/  # recursive
+$ grep -r "rclcpp::init" src/  # recursive
 
 $ find ~/ros2_ws -name "*.cpp"
 $ find . -name "CMakeLists.txt"
@@ -803,7 +801,10 @@ $ ros2 run my_pkg my_node &
 # Find the process
 $ ps aux | grep my_node
 
-# Kill by PID
+# Kill by PID (graceful)
+$ kill 12345
+
+# Force kill if it won't stop
 $ kill -9 12345
 
 # Kill by name
