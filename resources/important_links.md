@@ -1,5 +1,8 @@
 # Useful Links
 
+> [TIP!]
+> If you have any doubt about MAS, please refer first to the [MAS Vital information](https://lea.hochschule-bonn-rhein-sieg.de/ilias.php?baseClass=ilrepositorygui&ref_id=413327). If the doubt persists, contact the corresponding person for assistance.
+
 ## LEA
 - All you have to know from MAS: [MAS Vital information](https://lea.hochschule-bonn-rhein-sieg.de/ilias.php?baseClass=ilrepositorygui&ref_id=413327)
 - Language Centre: [Sprachzentrum](https://lea.hochschule-bonn-rhein-sieg.de/ilias.php?baseClass=ilrepositorygui&ref_id=79)
